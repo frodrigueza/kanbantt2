@@ -6,25 +6,27 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    if current_user.super_admin
-      @projects = Project.all
-    elsif current_user.enterprise.boss == current_user
-      @projects = current_user.enterprise.projects
-    else
-      @projects = current_user.projects
-    end
+    @projects = current_user.all_projects
+    # if current_user.super_admin
+    #   @projects = Project.all
+    # elsif current_user.enterprise.boss == current_user
+    #   @projects = current_user.enterprise.projects
+    # else
+    #   @projects = current_user.projects
+    # end
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
-    if current_user.super_admin
-      redirect_to project_second_indicators_path(@project)
-    elsif current_user.enterprise.boss == current_user
-      redirect_to project_second_indicators_path(@project)
-    else
-      redirect_to project_kanban_board_path(@project)
-    end
+    @users = @project.all_users
+    # if current_user.super_admin
+    #   redirect_to project_second_indicators_path(@project)
+    # elsif current_user.enterprise.boss == current_user
+    #   redirect_to project_second_indicators_path(@project)
+    # else
+    #   redirect_to project_kanban_board_path(@project)
+    # end
   end
 
   def second_indicators
@@ -33,7 +35,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = Project.new
+    @project = Project.new(owner_id: current_user.id)
   end
 
   # GET /projects/1/edit
@@ -154,7 +156,7 @@ class ProjectsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
-    params.require(:project).permit(:name, :start_date, :end_date, :expected_start_date, :expected_end_date, :xml_file, :resources_type, :resources_reporting, :enterprise_id)
+    params.require(:project).permit(:name, :owner_id, :start_date, :end_date, :expected_start_date, :expected_end_date, :xml_file, :resources_type, :resources_reporting, :enterprise_id)
   end
 
 

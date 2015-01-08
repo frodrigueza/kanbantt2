@@ -1,13 +1,14 @@
 class User < ActiveRecord::Base
 	# pertenece a una empresa
-	belongs_to :enterprise
+	# belongs_to :enterprise
 
 	# es dueño de maximo una empresa
-	has_one :owned_enterprise, class_name:'Enterprise', foreign_key:'boss_id'
+	# has_one :owned_enterprise, class_name:'Enterprise', foreign_key:'boss_id'
 
 	#relación con proyectos
 	has_many :assignments, dependent: :destroy
 	has_many :projects, through: :assignments
+	has_many :owned_projects, class_name:'Project', foreign_key:'owner_id'
 	#puede tener muchas tareas
 	has_many :tasks
 	has_many :reports
@@ -33,22 +34,53 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	# 0 = dueño
+	# 1 = admin
+	# 2 = lp
 	def role_in_project(project)
-		if !is_boss && !super_admin
-			role = Assignment.where(user_id: id, project_id: project.id).first.role
-			if role == 1
-				return 'Administrador'
-			elsif role == 2
-				return 'Last planner'
-			end
+		if project.owner == self
+			return 0
+		elsif a = Assignment.where(user_id: id, project_id: project.id).first.role
+			return a.role
 		else
-			return 'Jefe'
+			return -1
 		end
+	end
 
+	def f_role_in_project(project)
+		case role_in_project(project)
+			when -1 then 'Sin cargo'
+			when 0 then 'Dueño'
+			when 1 then 'Administrador'
+			when 2 then 'Empleado'
+		end
+			
 	end
 
 	def tasks_by_project(project_id)
 		self.tasks.where(project_id: project_id)
+	end
+
+	def reports_in_project(project)
+		array = []
+		reports.each do |r|
+			if r.project == project
+				array << r
+			end
+		end
+
+		array
+	end
+
+	def all_projects
+		array = []
+		owned_projects.each do |p|
+			array << p
+		end
+		projects.each do |p|
+			array << p
+		end
+		array
 	end
 
 

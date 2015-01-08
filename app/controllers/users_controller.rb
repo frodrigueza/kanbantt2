@@ -10,11 +10,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    if @project
-      @users = @project.users
-    elsif @enterprise
-      @users = @enterprise.users
-    end
+    @users = User.all
+    # if @project
+    #   @users = @project.users
+    # elsif @enterprise
+    #   @users = @enterprise.users
+    # end
   end
 
   def new

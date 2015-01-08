@@ -1,5 +1,23 @@
-<% if @project %>
-  <%= render 'index_for_project' %>
-<% elsif @enterprise %>
-  <%= render 'index_for_enterprise' %>
-<% end %>
+<div class="row">
+	<div class="col-md-12">
+		<h1>Usuarios</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<table class="table">
+			<thead>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th></th>
+			</thead>
+			<% @users.each do |u| %>
+				<tr>
+					<td><%= u.name %></td>
+					<td><%= u.f_name %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

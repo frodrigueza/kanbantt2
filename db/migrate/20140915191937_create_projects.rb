@@ -16,6 +16,7 @@ class CreateProjects < ActiveRecord::Migration
       t.boolean :resources_reporting, default: false  
 
       t.belongs_to :enterprise
+      t.integer :owner_id
       t.timestamps
     end
   end

@@ -104,14 +104,19 @@ ActiveRecord::Schema.define(version: 20141228234824) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "expected_start_date"
+    t.datetime "expected_end_date"
+    t.decimal  "progress",            default: 0.0
     t.integer  "resources_type",      default: 0
     t.decimal  "resources",           default: 0.0
     t.decimal  "resources_cost",      default: 0.0
     t.decimal  "cost"
     t.string   "xml_file"
-    t.integer  "owner_id"
     t.boolean  "resources_reporting", default: false
     t.integer  "enterprise_id"
+    t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -12,13 +12,14 @@ class Project < ActiveRecord::Base
 
 	has_many :indicators, dependent: :destroy
 
-	belongs_to :enterprise
+	# belongs_to :enterprise
+	belongs_to :owner, class_name: 'User'
 
 	#que el nombre este presente al crear/editar el proyecto y tenga largo minimo 3
 	validates :name, presence: true, length: { minimum: 3 }
 	#validacion para que la fecha de fin sea posterior a la de comienzo
-	validates_presence_of :expected_start_date, :expected_end_date
-	validate :expected_end_date_is_after_expected_start_date
+	# validates_presence_of :expected_start_date, :expected_end_date
+	# validate :expected_end_date_is_after_expected_start_date
 
 	# recalcular avances cuando se actualiza (cambia una fecha de una tarea, se agrega una o el)
   	before_destroy :destroy_tasks
@@ -37,6 +38,32 @@ class Project < ActiveRecord::Base
 			return 'UF'
 		elsif resources_type == 3
 			return 'HH'
+		end
+	end
+
+	def all_users
+		array = []
+		array << owner
+		users.each do |u|
+			array << u
+		end
+
+		array
+	end
+
+	def start_date
+		if tasks.count > 0
+			(tasks.sort_by {|t| t.expected_end_date}).first.expected_end_date
+		else
+			nil
+		end
+	end
+
+	def end_date
+		if tasks.count > 0
+			(tasks.sort_by {|t| t.expected_end_date}).first.expected_end_date
+		else
+			nil
 		end
 	end
 
@@ -460,13 +487,14 @@ class Project < ActiveRecord::Base
 	# in_resources = boolean
 	def expected_progress_function(date, in_resources)
 		if !has_children?
-			if date > expected_end_date
-				100
-			elsif  full_duration > 0
-				((days_from_start(date).to_f/duration)*100).round(1)
-			else
-				0
-			end
+			# if date > expected_end_date
+			# 	100
+			# elsif  full_duration > 0
+			# 	((days_from_start(date).to_f/duration)*100).round(1)
+			# else
+			# 	0
+			# end
+			return nil
 		else
 			total_children_value = 0
 			total_children_value_extolled = 0
