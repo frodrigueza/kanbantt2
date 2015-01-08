@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1><%= @user.f_name %></h1>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-12">
+		<h2>Proyectos</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Rol en el proyecto</th>
+					<th></th>
+				</tr>
+			</thead>
+		<% @user.assignments.each do |a| %>
+			<tr>
+				<td><%= a.project.name %></td>
+				<td><%= a.f_role %></td>
+				<td><%= link_to 'Editar asignación', edit_assignment_path(a) %></td>
+			</tr>
+		<% end %>
+		</table>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<%= link_to_modal 'Asignar un proyecto a este usuario' , new_assignment_path(user_id: @user.id)%>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<%= link_to_modal 'Editar perfil', edit_user_path(current_user)%>
+	</div>
+</div>

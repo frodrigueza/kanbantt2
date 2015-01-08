@@ -1,0 +1,26 @@
+<%= bootstrap_form_for(@project) do |f| %>
+
+  <!-- NOMBRE -->
+  <%= f.text_field :name, :required => true, :label => 'Nombre *' %>
+
+  <!-- FECHA DE INICIO -->
+  <%= f.date_select :expected_start_date, {:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']}, :required => true, :label => 'Fecha de Inicio' %>
+
+  <!-- FECHA DE TERMINO -->
+  <%= f.date_select :expected_end_date, {:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']}, :required => true, :label => 'Fecha de Término' %>
+
+  <!-- TIPO DE RECURSOS     -->
+  <%= f.select :resources_type, [['Seleccionar', ''],['Tiempo', 0], ['Dolares', 1], ['UF', 2], ['Horas Hombres', 3]], :label => 'Tipo de Recursos' %>
+
+  <!-- REPORTAR AVANCES EN TIEMPO REAL -->
+  <%= f.select :resources_reporting, [['Seleccionar', false], ['Quiero reportar en tiempo real el uso de recursos', true], ['No quiero reportar en tiempo real el uso de recursos', false]], :label => 'Reportar Recursos' %>
+
+  <!-- IMPORTACIÓN -->
+  <%= f.file_field :xml_file , :label => 'Importar (Opcional)', :accept =>'text/xml' %>
+
+  <!-- EMPRESA -->
+  <%= f.hidden_field :enterprise_id, value: @enterprise.id %>
+
+  <%= f.submit "Crear Proyecto" %>
+<% end %>
+ 

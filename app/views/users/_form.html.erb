@@ -1,0 +1,13 @@
+<%= bootstrap_form_for(@user) do |f| %>
+
+
+  <%= f.text_field :name, :required => true, :label => 'Nombre' %>
+  <%= f.text_field :last_name, :required => true, :label => 'Apellido' %>
+  <%= f.text_field :email, :required => true, :label => 'Email' %>
+  <%= f.password_field :password, :required => true, :label => 'Contraseña' %>
+  <%= f.password_field :password_confirmation, :required => true, :label => 'Confirmar contraseña' %>
+  <%= f.hidden_field :enterprise_id, value: @user.enterprise_id %>
+  <%= f.submit %>
+<% end %>
+
+

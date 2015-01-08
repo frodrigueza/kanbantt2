@@ -1,0 +1,30 @@
+<%= bootstrap_form_for(@assignment) do |f| %>
+  <% if @assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+
+      <ul>
+      <% @assignment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Proyecto a usuario -->
+  <% if @assignment.user_id %>
+    <%= f.collection_select(:project_id, @user.enterprise.projects, :id, :name) %>
+    <%= f.hidden_field :user_id, value: @assignment.user_id %>
+
+  <!-- Usuario a proyecto -->
+  <% elsif @assignment.project_id %>
+    <%= f.collection_select(:user_id, current_user.enterprise.users, :id, :f_name) %>
+    <%= f.hidden_field :project_id, value: @assignment.project_id %>
+
+  <% end %>
+
+
+  <%= f.select :role, [['Administrador', 1], ['Last Planner', 2]] %>
+
+    <%= f.submit %>
+<% end %>

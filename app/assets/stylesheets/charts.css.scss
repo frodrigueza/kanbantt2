@@ -1,0 +1,19 @@
+ @import "colours";
+#indicators{
+	.indicator-footer{
+		padding: 10px;
+		color: white;
+	}
+	.indicator-footer.bad{
+		background: $rojo;
+	}
+	.indicator-footer.great{
+		background: $verde;
+	}
+	#real_progress{
+		background: $azul_cuatro; 
+	}
+	#expected_progress{
+		background: $gris_cinco;
+	}
+}

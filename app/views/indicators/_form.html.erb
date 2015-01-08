@@ -1,0 +1,45 @@
+<%= form_for(@indicator) do |f| %>
+  <% if @indicator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@indicator.errors.count, "error") %> prohibited this indicator from being saved:</h2>
+
+      <ul>
+      <% @indicator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.text_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :real_days_progress %><br>
+    <%= f.text_field :real_days_progress %>
+  </div>
+  <div class="field">
+    <%= f.label :expected_days_progress %><br>
+    <%= f.text_field :expected_days_progress %>
+  </div>
+  <div class="field">
+    <%= f.label :real_resources_progress %><br>
+    <%= f.text_field :real_resources_progress %>
+  </div>
+  <div class="field">
+    <%= f.label :expected_resources_progress %><br>
+    <%= f.text_field :expected_resources_progress %>
+  </div>
+  <div class="field">
+    <%= f.label :real_used_resources %><br>
+    <%= f.text_field :real_used_resources %>
+  </div>
+  <div class="field">
+    <%= f.label :expected_used_resources %><br>
+    <%= f.text_field :expected_used_resources %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

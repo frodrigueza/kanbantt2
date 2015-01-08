@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @indicator.date %>
+</p>
+
+<p>
+  <strong>Real days progress:</strong>
+  <%= @indicator.real_days_progress %>
+</p>
+
+<p>
+  <strong>Expected days progress:</strong>
+  <%= @indicator.expected_days_progress %>
+</p>
+
+<p>
+  <strong>Real resources progress:</strong>
+  <%= @indicator.real_resources_progress %>
+</p>
+
+<p>
+  <strong>Expected resources progress:</strong>
+  <%= @indicator.expected_resources_progress %>
+</p>
+
+<p>
+  <strong>Real used resources:</strong>
+  <%= @indicator.real_used_resources %>
+</p>
+
+<p>
+  <strong>Expected used resources:</strong>
+  <%= @indicator.expected_used_resources %>
+</p>
+
+<%= link_to 'Edit', edit_indicator_path(@indicator) %> |
+<%= link_to 'Back', indicators_path %>

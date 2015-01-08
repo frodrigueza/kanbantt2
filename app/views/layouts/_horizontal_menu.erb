@@ -1,0 +1,80 @@
+<!-- MENU HORIZONTAL -->
+<div class="primary_menu">
+    <table class="first_menu_table">
+        <tr>
+            <!-- HOME -->
+            <td class="home"><%= link_to raw('<span class="glyphicon glyphicon-home home-icon"></span>') , root_path %></td>
+
+            <!-- PROJECT SELECTOR -->
+            <td class="dropdown c1 project_selector">
+                <div class="btn-group">
+                    <button type="button" class="btn project_name">
+                        <%= @project ? @project.name : 'Todos los proyectos' %>
+                    </button>
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu projects" role="menu">
+                        <% @projects.each do |p| %>
+                            <li><%= link_to p.name, p %></li>
+                        <% end %>
+                        <li class="divider"></li>
+                        <li><%= link_to 'Todos los proyectos', projects_path() %></li>
+                    </ul>
+                </div>   
+            </td>
+
+            <!-- TAREAS -->
+            <% if @project && @project.id %>
+                <td class="<%= params[:controller] == 'kanban_board' || params[:action] == 'tree_view' ? 'active' : ''%>">
+                    <div class="btn-group simple_dropdown">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        Tareas <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><%= link_to 'Kanban', kanban_board_index_path(project_id: @project ? @project.id : nil)%></li>
+                        <% if @project %>
+                            <li><%= link_to 'Explorador', project_tree_view_path(@project) %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                </td>
+            <% end %>
+
+            <!-- GANTT -->
+            <td class="<%= params[:controller] == 'gantt' ? 'active' : ''%>">
+                <% if !@project %>
+                    <%= link_to 'Gantt', gantt_path()%>
+                <% else %>
+                    <%= link_to 'Gantt', gantt_path(project_id: @project.id) %>
+                <% end %>
+            </td>
+
+            <!-- INDICADORES -->
+            <% if @project && @project.id %>
+                <td class="<%= params[:action] == 'indicators' ? 'active' : ''%>">
+                    <%= link_to 'Indicadores', project_second_indicators_path(@project)%>
+                </td>
+            <% end %>
+
+            <!-- CONFIGURACION -->
+            <td>
+                                <!-- Single button -->
+                <div class="btn-group simple_dropdown">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <% if current_user.super_admin %>
+                            <li><%= link_to 'Empresas', enterprises_path %></li>
+                        <% elsif current_user.is_boss %>
+                            <li><%= link_to 'Proyectos', enterprise_projects_path(@enterprise)%></li>
+                            <li><%= link_to 'Usuarios', enterprise_users_path(@enterprise)%></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

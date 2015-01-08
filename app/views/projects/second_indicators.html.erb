@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1>Indicadores</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12" id="indicators">
+		<%= render 'days_indicators' %>
+		<% if @project.resources_type != 0 %>
+			<%= render 'resources_indicators' %>
+		<% end %>
+
+		<% if @project.resources_reporting %>
+			<%= render 'performance_indicators' %>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<%= bootstrap_form_for(@report) do |f| %>
+  <% if @report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+      <% @report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :task_id %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :progress %>
+
+  <% if @report.task.project.resources_reporting %>
+    <%= f.number_field :resources, label:'Recursos utilizados' %>    
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

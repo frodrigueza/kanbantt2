@@ -1,0 +1,50 @@
+<div class="row">
+	<div id="resources_chart" class="col-md-12">
+
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3">
+		<div class="row">
+			<div class="col-md-12">
+				Avance
+			</div>
+			<div class="col-md-12">
+				<%= @project.real_progress_function(Time.now, true) %>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3">
+		<div class="row">
+			<div class="col-md-12">
+				Diferencia
+			</div>
+			<div class="col-md-12">
+				<%= @project.progress_delta(true) %>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3">
+		<div class="row">
+			<div class="col-md-12">
+				Tiempo esperado
+			</div>
+			<div class="col-md-12">
+				<%= @project.expected_progress_fucntion(Time.now, true) %>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3">
+		<div class="row">
+			<div class="col-md-12">
+				Días de retraso
+			</div>
+			<div class="col-md-12">
+				<%= @project.delayed_or_advanced_days(true) %>
+			</div>
+		</div>
+	</div>
+</div>

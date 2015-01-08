@@ -1,0 +1,51 @@
+<div class="row">
+	<div class="chart" id="days_chart" class="col-md-12">
+
+	</div>
+</div>
+<div class="row">
+
+	<div class="col-md-3 indicator-footer" id="real_progress">
+		<div class="row">
+			<div class="col-md-12">
+				Avance
+			</div>
+			<div class="col-md-12">
+				<%= @project.progress %> %
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 indicator-footer <%= project_delta_progress_css(@project, false) %>">
+		<div class="row">
+			<div class="col-md-12">
+				Diferencia
+			</div>
+			<div class="col-md-12">
+				<%= @project.progress_delta(false) %> %
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 indicator-footer" id="expected_progress">
+		<div class="row">
+			<div class="col-md-12">
+				Avance esperado
+			</div>
+			<div class="col-md-12">
+				<%= @project.expected_progress %> %
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 indicator-footer <%= project_delayed_days_progress_css(@project, false) %>">
+		<div class="row">
+			<div class="col-md-12">
+				Días de retraso
+			</div>
+			<div class="col-md-12">
+				<%= @project.delayed_or_advanced_days(false) %>
+			</div>
+		</div>
+	</div>
+</div>
