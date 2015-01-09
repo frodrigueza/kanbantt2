@@ -18,7 +18,6 @@ $(function(){
 
                 // current_user
                 var user_id = $('#current_user_id').text();
-                console.log('movido');
 
                 var new_state;
                 if (column_id == 'done_kanban_column') 

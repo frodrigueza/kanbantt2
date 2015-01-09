@@ -126,40 +126,16 @@ class User < ActiveRecord::Base
 	########################### KANBAN
 	def kanban(project)
 		tasks_hash = {}
-		inactive_tasks = []
-		in_progress_tasks = []
-		done_tasks = []
+		to_do_tasks = tasks.select { |t| t.project_id == project.id && t.state == 0 && !t.has_children? }
+		doing_tasks = tasks.select { |t| t.project_id == project.id && t.state == 1 && !t.has_children? }
+		done_tasks = tasks.select { |t| t.project_id == project.id && t.state == 2 && !t.has_children? }
 
-		project.kanban[:inactive_tasks].each do |t|
-			if role_in_project(project) == 'Administrador' || is_boss
-				inactive_tasks << t
-			elsif role_in_project(project) == 'Last planner' && t.user_id == id
-				inactive_tasks << t
-			end
-		end
-
-		project.kanban[:in_progress_tasks].each do |t|
-			if role_in_project(project) == 'Administrador' || is_boss
-				in_progress_tasks << t
-			elsif role_in_project(project) == 'Last planner' && t.user_id == id
-				in_progress_tasks << t
-			end
-		end
-
-		project.kanban[:done_tasks].each do |t|
-			if role_in_project(project) == 'Administrador' || is_boss
-				done_tasks << t
-			elsif role_in_project(project) == 'Last planner' && t.user_id == id
-				done_tasks << t
-			end
-		end
-
-		tasks_hash[:inactive_tasks] = inactive_tasks
-		tasks_hash[:in_progress_tasks] = in_progress_tasks
+		tasks_hash[:to_do_tasks] = to_do_tasks
+		tasks_hash[:doing_tasks] = doing_tasks
 		tasks_hash[:done_tasks] = done_tasks
 
 		return tasks_hash
-	end
+	end	
 
 	######################## FIN KANBAN
 

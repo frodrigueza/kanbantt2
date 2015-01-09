@@ -4,8 +4,8 @@ class KanbanBoardController < ApplicationController
     if @project
       hash = current_user.kanban(@project)
 
-      @inactive_tasks = hash[:inactive_tasks]
-      @in_progress_tasks = hash[:in_progress_tasks]
+      @to_do_tasks = hash[:to_do_tasks]
+      @doing_tasks = hash[:doing_tasks]
       @done_tasks = hash[:done_tasks]
     else
       redirect_to current_user

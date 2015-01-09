@@ -9,14 +9,14 @@
 			<div class="full column_title">
 				<table>
 					<tr>
-						<td><h3>Por hacer</h3></td>
+						<td><h3>To do</h3></td>
 						<td id="inactive_counter"></td>
 					</tr>
 				</table>
 			</div>
 			<div class="full kanban_column_content">
 				<ul class="full sortable_group">
-					<% @inactive_tasks.each do |t| %>
+					<% @to_do_tasks.each do |t| %>
 						<div id="kanban_item_<%= t.id %>" class="sortable_kanban_item">
 							<%= render 'kanban_item', task: t %>
 						</div>
@@ -30,14 +30,14 @@
 			<div class="full column_title">
 				<table>
 					<tr>
-						<td><h3>En progreso</h3></td>
+						<td><h3>Doing</h3></td>
 						<td id="inactive_counter"></td>
 					</tr>
 				</table>
 			</div>
 			<div class="full kanban_column_content">
 				<ul class="full sortable_group">
-					<% @in_progress_tasks.each do |t| %>
+					<% @doing_tasks.each do |t| %>
 						<div id="kanban_item_<%= t.id %>" class="sortable_kanban_item">
 							<%= render 'kanban_item', task: t %>
 						</div>
@@ -51,7 +51,7 @@
 			<div class="full column_title">
 				<table>
 					<tr>
-						<td><h3>Finalizado</h3></td>
+						<td><h3>Done</h3></td>
 						<td id="inactive_counter"></td>
 					</tr>
 				</table>

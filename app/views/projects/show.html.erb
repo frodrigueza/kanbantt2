@@ -33,7 +33,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<% if @project.owner == current_user %>
-			<%= link_to 'Agregar usuario', new_assignment_path(project_id: @project.id) %>
+			<%= link_to_modal 'Agregar usuario', new_assignment_path(project_id: @project.id) %>
 		<% end %>
 	</div>
 </div>
