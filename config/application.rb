@@ -20,6 +20,7 @@ module Kanbantt
     config.autoload_paths += %W(#{config.root}/app/services)
 
     config.time_zone = 'Santiago'
+    config.serve_static_assets = true
 
     #variable para permitir o no permitir el método set_task_positio
     config.allow_task_position = true
