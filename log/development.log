@@ -32856,3 +32856,263 @@ Processing by Api::V1::IndicatorsController#index as JSON
   [1m[35mIndicator Load (0.2ms)[0m  SELECT "indicators".* FROM "indicators"  WHERE "indicators"."project_id" = ?  [["project_id", 6]]
   Rendered api/v1/indicators/index.json.jbuilder (0.8ms)
 Completed 200 OK in 14ms (Views: 4.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2015-01-09 13:47:53 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (212.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (27.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (18.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "assignments" ON "users"."id" = "assignments"."user_id" WHERE "assignments"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."user_id" = ?  ORDER BY "reports"."created_at" ASC  [["user_id", 1]]
+  Rendered projects/show.html.erb within layouts/application (62.3ms)
+  Rendered layouts/_kanbantt_header.html.erb (1.4ms)
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects"  WHERE "projects"."owner_id" = ?[0m  [["owner_id", 1]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (9.4ms)
+  Rendered layouts/_horizontal.html.erb (25.7ms)
+  Rendered layouts/_logged.html.erb (27.8ms)
+Completed 200 OK in 11726ms (Views: 4054.1ms | ActiveRecord: 259.0ms)
+
+
+Started GET "/assets/rails_bootstrap_forms.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/assignments.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/base.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/errors.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/charts.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/colours.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/enterprises.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/gantt.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/indicators.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/jquery.modal.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/option.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/porject_users.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/kanban_filters.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/kanban_board.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/resources_reports.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/task_show.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:13 -0300
+
+
+Started GET "/assets/kanbantt_header.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/tree_view.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/modals.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/version.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/reports.css?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/jquery.modal.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/angular-route.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/BlockUI.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/BlockUI_instances.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/chart-factories.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/charts.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/css_setter.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/enterprises.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/errors.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/assignments.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/chart-controllers.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/full_screen.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/gantt-controllers.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/gantt-directives.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/gantt.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/gantt-factories.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/initiators.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/jquery.modal.min.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/kanban.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/kanban_board.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/kanban_board_filters.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/kanban_filters.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/notices.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/option_div_option.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/porject_users.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/reports.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/resources_reports.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/second_chart.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/version.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/assets/kanbantt_blanco.png" for 127.0.0.1 at 2015-01-09 13:48:14 -0300
+
+
+Started GET "/api/projects/6/indicators" for 127.0.0.1 at 2015-01-09 13:48:15 -0300
+Processing by Api::V1::IndicatorsController#index as JSON
+  Parameters: {"project_id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIndicator Load (0.3ms)[0m  [1mSELECT "indicators".* FROM "indicators"  WHERE "indicators"."project_id" = ?[0m  [["project_id", 6]]
+  Rendered api/v1/indicators/index.json.jbuilder (0.4ms)
+Completed 200 OK in 52ms (Views: 45.7ms | ActiveRecord: 0.7ms)
