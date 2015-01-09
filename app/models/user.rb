@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 	def role_in_project(project)
 		if project.owner == self
 			return 0
-		elsif a = Assignment.where(user_id: id, project_id: project.id).first.role
+		elsif a = Assignment.where(user_id: id, project_id: project.id).first
 			return a.role
 		else
 			return -1

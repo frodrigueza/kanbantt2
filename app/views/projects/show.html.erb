@@ -15,18 +15,25 @@
   	<table class="table">
   		<thead>
   			<th>Nombre</th>
-  			<th>Apellido</th>
   			<th>Rol</th>
   			<th>N° de reportes</th>
   		</thead>
 	    <% @users.each do |u| %>
 	    	<tr>
-	    		<td><%= u.name %></td>
-	    		<td><%= u.last_name %></td>
+	    		<td><%= u.f_name %></td>
 	    		<td><%= u.f_role_in_project(@project) %></td>
 	    		<td><%= u.reports_in_project(@project).count %></td>
 	    	</tr>
 	    <% end %>
   	</table>
   </div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-12">
+		<% if @project.owner == current_user %>
+			<%= link_to 'Agregar usuario', new_assignment_path(project_id: @project.id) %>
+		<% end %>
+	</div>
 </div>

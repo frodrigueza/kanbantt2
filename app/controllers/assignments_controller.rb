@@ -14,6 +14,9 @@ class AssignmentsController < ApplicationController
 
   def new
     @assignment = Assignment.new(project_id: params[:project_id], user_id: params[:user_id])
+    if @project
+      @available_users = @project.available_users
+    end
     respond_with(@assignment)
   end
 
@@ -40,6 +43,9 @@ class AssignmentsController < ApplicationController
   private
     def set_assignment
       @assignment = Assignment.find(params[:id])
+      if params[:project_id]  
+        @project = Project.find(params[:project_id])
+      end
     end
 
     def assignment_params

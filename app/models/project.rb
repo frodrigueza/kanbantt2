@@ -649,6 +649,17 @@ class Project < ActiveRecord::Base
 		array
 	end
 
+	def available_users
+		array = []
+		User.all.each do |u|
+			if !users.include?(u) && u != owner
+				array << u
+			end
+		end
+
+		array
+	end
+
 	private
 
 	def destroy_tasks
