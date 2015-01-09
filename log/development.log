@@ -38803,3 +38803,467 @@ Processing by Api::V1::IndicatorsController#index as JSON
   [1m[36mIndicator Load (0.1ms)[0m  [1mSELECT "indicators".* FROM "indicators"  WHERE "indicators"."project_id" = ?[0m  [["project_id", 5]]
   Rendered api/v1/indicators/index.json.jbuilder (0.2ms)
 Completed 200 OK in 7ms (Views: 1.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/5/add_tree_view_column?parent_id=2" for 127.0.0.1 at 2015-01-09 17:41:23 -0300
+Processing by ProjectsController#add_tree_view_column as JS
+  Parameters: {"parent_id"=>"2", "project_id"=>"5"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  Rendered tasks/_task_times.html.erb (12.4ms)
+  Rendered projects/explorer/_content.html.erb (16.6ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (17.7ms)
+  Rendered projects/explorer/_tree_view_column.html.erb (27.1ms)
+  Rendered projects/add_tree_view_column.js.erb (28.6ms)
+Completed 200 OK in 52ms (Views: 38.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/spinner.gif" for 127.0.0.1 at 2015-01-09 17:41:24 -0300
+
+
+Started GET "/projects/5/tasks/new?parent_id=2" for 127.0.0.1 at 2015-01-09 17:41:24 -0300
+Processing by TasksController#new as */*
+  Parameters: {"parent_id"=>"2", "project_id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mAssignment Load (15.6ms)[0m  SELECT "assignments".* FROM "assignments"  WHERE "assignments"."project_id" = ?  [["project_id", 5]]
+  Rendered tasks/_form.html.erb (43.3ms)
+  Rendered tasks/new.html.erb (68.5ms)
+Completed 200 OK in 84ms (Views: 54.2ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/tasks/3" for 127.0.0.1 at 2015-01-09 17:41:46 -0300
+Processing by TasksController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTask Load (0.5ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mProject Load (0.3ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  Rendered tasks/_task_show_resumen.html.erb (6.7ms)
+  [1m[35mComment Load (20.0ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."task_id" = ?  [["task_id", 3]]
+  Rendered tasks/_task_show_observacion.html.erb (55.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  Rendered tasks/_task_show_reportar.html.erb (13.3ms)
+  [1m[35mReport Load (0.7ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC  [["task_id", 3]]
+  Rendered tasks/_task_show_historial.html.erb (2.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "assignments" ON "users"."id" = "assignments"."user_id" WHERE "assignments"."project_id" = ?[0m  [["project_id", 5]]
+  Rendered tasks/_form.html.erb (22.6ms)
+  Rendered tasks/_task_show_config.html.erb (24.3ms)
+  Rendered tasks/show.html.erb (115.8ms)
+Completed 200 OK in 149ms (Views: 110.7ms | ActiveRecord: 23.8ms)
+
+
+Started GET "/assets/e1.png" for 127.0.0.1 at 2015-01-09 17:41:47 -0300
+
+
+Started GET "/assets/0.png" for 127.0.0.1 at 2015-01-09 17:41:47 -0300
+
+
+Started GET "/assets/u1.jpg" for 127.0.0.1 at 2015-01-09 17:41:47 -0300
+
+
+Started GET "/projects/5/tasks/new?parent_id=2" for 127.0.0.1 at 2015-01-09 17:41:50 -0300
+Processing by TasksController#new as */*
+  Parameters: {"parent_id"=>"2", "project_id"=>"5"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "assignments" ON "users"."id" = "assignments"."user_id" WHERE "assignments"."project_id" = ?[0m  [["project_id", 5]]
+  Rendered tasks/_form.html.erb (16.9ms)
+  Rendered tasks/new.html.erb (18.7ms)
+Completed 200 OK in 38ms (Views: 19.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/projects/5/tasks/new?parent_id=2" for 127.0.0.1 at 2015-01-09 17:42:04 -0300
+Processing by TasksController#new as */*
+  Parameters: {"parent_id"=>"2", "project_id"=>"5"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "assignments" ON "users"."id" = "assignments"."user_id" WHERE "assignments"."project_id" = ?  [["project_id", 5]]
+  Rendered tasks/_form.html.erb (19.5ms)
+  Rendered tasks/new.html.erb (23.0ms)
+Completed 200 OK in 38ms (Views: 23.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/projects/5/tasks/new?parent_id=2" for 127.0.0.1 at 2015-01-09 17:42:15 -0300
+Processing by TasksController#new as */*
+  Parameters: {"parent_id"=>"2", "project_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "assignments" ON "users"."id" = "assignments"."user_id" WHERE "assignments"."project_id" = ?[0m  [["project_id", 5]]
+  Rendered tasks/_form.html.erb (16.8ms)
+  Rendered tasks/new.html.erb (18.7ms)
+Completed 200 OK in 37ms (Views: 18.8ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2015-01-09 17:42:49 -0300
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Khs2uk2N1O0OEmqa68BNkXFH73VtB4t4Nizuo67w1S8=", "task"=>{"name"=>"Indicadores", "user_id"=>"1", "parent_id"=>"2", "expected_start_date(1i)"=>"2015", "expected_start_date(2i)"=>"1", "expected_start_date(3i)"=>"11", "expected_end_date(1i)"=>"2015", "expected_end_date(2i)"=>"1", "expected_end_date(3i)"=>"13", "project_id"=>"5"}, "commit"=>"Enviar"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (85.7ms)[0m  [1mINSERT INTO "tasks" ("created_at", "expected_end_date", "expected_start_date", "name", "parent_id", "project_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-09 20:42:49.029270"], ["expected_end_date", "2015-01-13 03:00:00.000000"], ["expected_start_date", "2015-01-11 03:00:00.000000"], ["name", "Indicadores"], ["parent_id", 2], ["project_id", 5], ["updated_at", "2015-01-09 20:42:49.029270"], ["user_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("created_at", "event", "item_id", "item_type", "whodunnit") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-09 20:42:49.117450"], ["event", "create"], ["item_id", 4], ["item_type", "Task"], ["whodunnit", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35m (107.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/projects/5/tree_view
+Completed 302 Found in 215ms (ActiveRecord: 194.2ms)
+
+
+Started GET "/projects/5/tree_view" for 127.0.0.1 at 2015-01-09 17:42:49 -0300
+Processing by ProjectsController#tree_view as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  Rendered projects/explorer/_tree_view_header.html.erb (0.1ms)
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  Rendered tasks/_task_times.html.erb (12.6ms)
+  Rendered projects/explorer/_content.html.erb (13.6ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (14.4ms)
+  Rendered projects/explorer/_tree_view_column.html.erb (23.9ms)
+  Rendered projects/tree_view.html.erb within layouts/application (25.2ms)
+  Rendered layouts/_kanbantt_header.html.erb (0.6ms)
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"  WHERE "projects"."owner_id" = ?[0m  [["owner_id", 1]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (3.0ms)
+  Rendered layouts/_horizontal.html.erb (4.7ms)
+  Rendered layouts/_logged.html.erb (5.2ms)
+Completed 200 OK in 1178ms (Views: 1168.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/rails_bootstrap_forms.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/assignments.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/base.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/charts.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/colours.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/enterprises.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/errors.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/gantt.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/indicators.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/jquery.modal.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/kanban_board.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/kanban_filters.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/kanbantt_header.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/modals.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/option.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/porject_users.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/reports.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/resources_reports.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/task_show.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/tree_view.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/version.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/jquery.modal.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/angular-route.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/BlockUI.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/BlockUI_instances.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/assignments.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/chart-controllers.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/chart-factories.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/charts.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/css_setter.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/enterprises.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/errors.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/full_screen.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/gantt-controllers.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:50 -0300
+
+
+Started GET "/assets/gantt-directives.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/gantt-factories.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/gantt.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/initiators.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/jquery.modal.min.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/kanban.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/kanban_board.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/kanban_board_filters.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/kanban_filters.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/notices.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/option_div_option.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/porject_users.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/reports.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/resources_reports.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/second_chart.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/version.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/assets/kanbantt_blanco.png" for 127.0.0.1 at 2015-01-09 17:42:51 -0300
+
+
+Started GET "/api/projects/5/indicators" for 127.0.0.1 at 2015-01-09 17:42:52 -0300
+Processing by Api::V1::IndicatorsController#index as JSON
+  Parameters: {"project_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mIndicator Load (0.1ms)[0m  [1mSELECT "indicators".* FROM "indicators"  WHERE "indicators"."project_id" = ?[0m  [["project_id", 5]]
+  Rendered api/v1/indicators/index.json.jbuilder (0.2ms)
+Completed 200 OK in 7ms (Views: 1.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/5/add_tree_view_column?parent_id=2" for 127.0.0.1 at 2015-01-09 17:42:53 -0300
+Processing by ProjectsController#add_tree_view_column as JS
+  Parameters: {"parent_id"=>"2", "project_id"=>"5"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  Rendered tasks/_task_times.html.erb (10.1ms)
+  Rendered projects/explorer/_content.html.erb (17.7ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (19.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  Rendered tasks/_task_times.html.erb (10.8ms)
+  Rendered projects/explorer/_content.html.erb (17.0ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (19.4ms)
+  Rendered projects/explorer/_tree_view_column.html.erb (60.8ms)
+  Rendered projects/add_tree_view_column.js.erb (62.9ms)
+Completed 200 OK in 79ms (Views: 62.8ms | ActiveRecord: 2.7ms)
