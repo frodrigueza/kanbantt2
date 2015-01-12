@@ -200,7 +200,13 @@ class Task < ActiveRecord::Base
 	def ancestry
 		array = []
 		array[0] = self
-		# i = 
+		i = 0
+		while array[i].parent
+			array << array[i].parent
+			i += 1
+		end
+
+		array.reverse
 	end
 	
 
