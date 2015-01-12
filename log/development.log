@@ -42151,3 +42151,1943 @@ Processing by Api::V1::IndicatorsController#index as JSON
   [1m[35mIndicator Load (0.1ms)[0m  SELECT "indicators".* FROM "indicators"  WHERE "indicators"."project_id" = ?  [["project_id", 5]]
   Rendered api/v1/indicators/index.json.jbuilder (0.2ms)
 Completed 200 OK in 9ms (Views: 2.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/5/add_tree_view_column?parent_id=2" for 127.0.0.1 at 2015-01-12 11:02:09 -0300
+Processing by ProjectsController#add_tree_view_column as JS
+  Parameters: {"parent_id"=>"2", "project_id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  Rendered tasks/_task_times.html.erb (10.3ms)
+  Rendered projects/explorer/_content.html.erb (13.9ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (16.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.4ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  Rendered tasks/_task_times.html.erb (9.3ms)
+  Rendered projects/explorer/_content.html.erb (13.6ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (16.2ms)
+  Rendered projects/explorer/_tree_view_column.html.erb (53.1ms)
+  Rendered projects/add_tree_view_column.js.erb (55.1ms)
+Completed 200 OK in 70ms (Views: 54.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/tasks/3" for 127.0.0.1 at 2015-01-12 11:02:50 -0300
+Processing by TasksController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.2ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  Rendered tasks/_task_show_resumen.html.erb (6.5ms)
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."task_id" = ?[0m  [["task_id", 3]]
+  Rendered tasks/_task_show_observacion.html.erb (4.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  Rendered tasks/_task_show_reportar.html.erb (5.4ms)
+  [1m[36mReport Load (0.2ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC[0m  [["task_id", 3]]
+  Rendered tasks/_task_show_historial.html.erb (1.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "assignments" ON "users"."id" = "assignments"."user_id" WHERE "assignments"."project_id" = ?[0m  [["project_id", 5]]
+  Rendered tasks/_form.html.erb (15.3ms)
+  Rendered tasks/_task_show_config.html.erb (18.3ms)
+  Rendered tasks/show.html.erb (48.3ms)
+Completed 200 OK in 66ms (Views: 48.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/u1.jpg" for 127.0.0.1 at 2015-01-12 11:02:50 -0300
+
+
+Started GET "/assets/e2.png" for 127.0.0.1 at 2015-01-12 11:02:50 -0300
+
+
+Started GET "/assets/0.png" for 127.0.0.1 at 2015-01-12 11:02:50 -0300
+
+
+Started POST "/comments" for 127.0.0.1 at 2015-01-12 11:02:56 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Khs2uk2N1O0OEmqa68BNkXFH73VtB4t4Nizuo67w1S8=", "comment"=>{"description"=>"Nueva observacion", "task_id"=>"3", "user_id"=>"1"}, "commit"=>"Guardar"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("created_at", "description", "task_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-12 14:02:56.571805"], ["description", "Nueva observacion"], ["task_id", 3], ["updated_at", "2015-01-12 14:02:56.571805"], ["user_id", 1]]
+  [1m[36m (105.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/projects/5/tree_view
+Completed 302 Found in 116ms (ActiveRecord: 106.0ms)
+
+
+Started GET "/projects/5/tree_view" for 127.0.0.1 at 2015-01-12 11:02:56 -0300
+Processing by ProjectsController#tree_view as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", "5"]]
+  Rendered projects/explorer/_tree_view_header.html.erb (0.1ms)
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  Rendered tasks/_task_times.html.erb (11.6ms)
+  Rendered projects/explorer/_content.html.erb (13.7ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (14.9ms)
+  Rendered projects/explorer/_tree_view_column.html.erb (23.5ms)
+  Rendered projects/tree_view.html.erb within layouts/application (24.7ms)
+  Rendered layouts/_kanbantt_header.html.erb (0.6ms)
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"  WHERE "projects"."owner_id" = ?  [["owner_id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (3.0ms)
+  Rendered layouts/_horizontal.html.erb (4.7ms)
+  Rendered layouts/_logged.html.erb (5.3ms)
+Completed 200 OK in 1201ms (Views: 1191.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/rails_bootstrap_forms.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/assignments.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/base.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/charts.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/colours.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/enterprises.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/errors.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/gantt.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/indicators.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery.modal.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/kanban_board.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/kanban_filters.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/kanbantt_header.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/modals.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/option.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/porject_users.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/reports.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/resources_reports.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/task_show.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/tree_view.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/version.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery.modal.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/angular-route.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/BlockUI.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/BlockUI_instances.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/assignments.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/chart-controllers.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/chart-factories.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/charts.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/css_setter.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/enterprises.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/errors.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/full_screen.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/gantt-controllers.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/gantt-directives.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/gantt-factories.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/gantt.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/initiators.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/jquery.modal.min.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/kanban.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/kanban_board.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/kanban_board_filters.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/kanban_filters.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/notices.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/option_div_option.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/porject_users.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/reports.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/second_chart.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/resources_reports.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/version.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/assets/kanbantt_blanco.png" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+
+
+Started GET "/api/projects/5/indicators" for 127.0.0.1 at 2015-01-12 11:02:58 -0300
+Processing by Api::V1::IndicatorsController#index as JSON
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mIndicator Load (0.1ms)[0m  SELECT "indicators".* FROM "indicators"  WHERE "indicators"."project_id" = ?  [["project_id", 5]]
+  Rendered api/v1/indicators/index.json.jbuilder (0.1ms)
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/5/add_tree_view_column?parent_id=2" for 127.0.0.1 at 2015-01-12 11:03:00 -0300
+Processing by ProjectsController#add_tree_view_column as JS
+  Parameters: {"parent_id"=>"2", "project_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.7ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  Rendered tasks/_task_times.html.erb (10.5ms)
+  Rendered projects/explorer/_content.html.erb (16.4ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (17.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  Rendered tasks/_task_times.html.erb (9.6ms)
+  Rendered projects/explorer/_content.html.erb (14.7ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (17.2ms)
+  Rendered projects/explorer/_tree_view_column.html.erb (55.4ms)
+  Rendered projects/add_tree_view_column.js.erb (57.8ms)
+Completed 200 OK in 77ms (Views: 58.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/tasks/3" for 127.0.0.1 at 2015-01-12 11:03:01 -0300
+Processing by TasksController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  Rendered tasks/_task_show_resumen.html.erb (4.3ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered tasks/_task_show_observacion.html.erb (16.0ms)
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  Rendered tasks/_task_show_reportar.html.erb (5.0ms)
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC  [["task_id", 3]]
+  Rendered tasks/_task_show_historial.html.erb (1.0ms)
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "assignments" ON "users"."id" = "assignments"."user_id" WHERE "assignments"."project_id" = ?  [["project_id", 5]]
+  Rendered tasks/_form.html.erb (12.0ms)
+  Rendered tasks/_task_show_config.html.erb (13.1ms)
+  Rendered tasks/show.html.erb (49.2ms)
+Completed 200 OK in 65ms (Views: 49.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/u1.jpg" for 127.0.0.1 at 2015-01-12 11:03:01 -0300
+
+
+Started GET "/assets/0.png" for 127.0.0.1 at 2015-01-12 11:03:01 -0300
+
+
+Started GET "/assets/e2.png" for 127.0.0.1 at 2015-01-12 11:03:01 -0300
+
+
+Started GET "/projects/5/second_indicators" for 127.0.0.1 at 2015-01-12 11:11:59 -0300
+Processing by ProjectsController#second_indicators as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mIndicator Load (0.4ms)[0m  [1mSELECT "indicators".* FROM "indicators"  WHERE "indicators"."project_id" = ?[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  Rendered projects/_days_indicators.html.erb (207.3ms)
+  Rendered projects/second_indicators.html.erb within layouts/application (208.8ms)
+  Rendered layouts/_kanbantt_header.html.erb (1.3ms)
+  [1m[35mProject Load (0.3ms)[0m  SELECT "projects".* FROM "projects"  WHERE "projects"."owner_id" = ?  [["owner_id", 1]]
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (27.7ms)
+  Rendered layouts/_horizontal.html.erb (49.2ms)
+  Rendered layouts/_logged.html.erb (50.0ms)
+Completed 200 OK in 1726ms (Views: 1585.6ms | ActiveRecord: 72.8ms)
+
+
+Started GET "/assets/rails_bootstrap_forms.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/assignments.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/base.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/charts.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/colours.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/enterprises.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/gantt.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/indicators.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/errors.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/jquery.modal.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/kanban_board.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/kanban_filters.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/kanbantt_header.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/modals.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/porject_users.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/reports.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/resources_reports.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/task_show.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/version.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/tree_view.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/option.css?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/jquery.modal.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/angular-route.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/BlockUI.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:02 -0300
+
+
+Started GET "/assets/BlockUI_instances.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/assignments.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/chart-controllers.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/chart-factories.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/charts.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/css_setter.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/enterprises.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/errors.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/full_screen.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/gantt-controllers.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/gantt.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/gantt-directives.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/gantt-factories.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/initiators.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/jquery.modal.min.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/kanban.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/kanban_board.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/kanban_board_filters.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/kanban_filters.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/notices.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/option_div_option.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/porject_users.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/reports.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/second_chart.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/version.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/resources_reports.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/assets/kanbantt_blanco.png" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+
+
+Started GET "/api/projects/5/indicators" for 127.0.0.1 at 2015-01-12 11:12:03 -0300
+Processing by Api::V1::IndicatorsController#index as JSON
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mIndicator Load (0.1ms)[0m  SELECT "indicators".* FROM "indicators"  WHERE "indicators"."project_id" = ?  [["project_id", 5]]
+  Rendered api/v1/indicators/index.json.jbuilder (0.5ms)
+Completed 200 OK in 16ms (Views: 12.4ms | ActiveRecord: 0.4ms)
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (9.2ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:13:36.249224' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:13:36.249261') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:13:41.279737' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:13:41.279860') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.8ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:13:46.283345' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:13:46.283429') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:13:51.286977' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:13:51.287068') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "delayed_jobs" ("created_at", "handler", "run_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-01-12 14:13:52.811818"], ["handler", "--- !ruby/object:Delayed::PerformableMethod\nobject: !ruby/object:ProgressCalculator\n  project: !ruby/ActiveRecord:Project\n    attributes:\n      id: 5\n      name: Kanbantt\n      start_date: \n      end_date: \n      expected_start_date: \n      expected_end_date: \n      progress: !ruby/object:BigDecimal 27:0.0\n      resources_type: 0\n      resources: !ruby/object:BigDecimal 27:0.0\n      resources_cost: !ruby/object:BigDecimal 27:0.0\n      cost: \n      xml_file: \n      resources_reporting: false\n      enterprise_id: \n      owner_id: 1\n      created_at: 2015-01-08 18:36:04.912717000 Z\n      updated_at: 2015-01-08 18:36:04.912717000 Z\nmethod_name: :manage_indicators\nargs: []\n"], ["run_at", "2015-01-12 14:13:52.811690"], ["updated_at", "2015-01-12 14:13:52.811818"]]
+  [1m[35m (150.0ms)[0m  commit transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.8ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:13:56.290202' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:13:56.290290') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mSQL (118.3ms)[0m  UPDATE "delayed_jobs" SET "locked_at" = '2015-01-12 14:13:56.291496', "locked_by" = 'host:PC-de-Felipe pid:8336' WHERE "delayed_jobs"."id" IN (SELECT "delayed_jobs"."id" FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:13:56.290202' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:13:56.290290') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL) AND "delayed_jobs"."id" = 1  ORDER BY priority ASC, run_at ASC)
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE "delayed_jobs"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 5]]
+  [1m[35mReport Load (0.2ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC  [["task_id", 2]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC[0m  [["task_id", 3]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC  [["task_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "delayed_jobs" SET "attempts" = ?, "last_error" = ?, "locked_at" = ?, "locked_by" = ?, "run_at" = ?, "updated_at" = ? WHERE "delayed_jobs"."id" = 1  [["attempts", 1], ["last_error", "comparison of Date with nil failed\n/home/felipe/kanbantt2/app/models/project.rb:623:in `>'\n/home/felipe/kanbantt2/app/models/project.rb:623:in `last_date'\n/home/felipe/kanbantt2/app/services/progress_calculator.rb:153:in `project_dates_to_end'\n/home/felipe/kanbantt2/app/services/progress_calculator.rb:8:in `manage_indicators'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/performable_method.rb:26:in `perform'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/backend/base.rb:102:in `block in invoke_job'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:61:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:61:in `block in initialize'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:66:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:66:in `execute'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:40:in `run_callbacks'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/backend/base.rb:99:in `invoke_job'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:203:in `block (2 levels) in run'\n/home/felipe/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/timeout.rb:91:in `block in timeout'\n/home/felipe/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/timeout.rb:101:in `call'\n/home/felipe/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/timeout.rb:101:in `timeout'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:203:in `block in run'\n/home/felipe/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:202:in `run'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:275:in `block in reserve_and_run_one_job'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:61:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:61:in `block in initialize'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:66:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:66:in `execute'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:40:in `run_callbacks'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:275:in `reserve_and_run_one_job'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:186:in `block in work_off'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:185:in `times'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:185:in `work_off'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:150:in `block (4 levels) in start'\n/home/felipe/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:149:in `block (3 levels) in start'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:61:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:61:in `block in initialize'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:66:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:66:in `execute'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:40:in `run_callbacks'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:148:in `block (2 levels) in start'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:147:in `loop'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:147:in `block in start'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/plugins/clear_locks.rb:7:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/plugins/clear_locks.rb:7:in `block (2 levels) in <class:ClearLocks>'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:79:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:79:in `block (2 levels) in add'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:61:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:61:in `block in initialize'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:79:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:79:in `block in add'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:66:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:66:in `execute'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/lifecycle.rb:40:in `run_callbacks'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/worker.rb:146:in `start'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/delayed_job-4.0.3/lib/delayed/tasks.rb:9:in `block (2 levels) in <top (required)>'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'\n/home/felipe/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/application.rb:150:in `invoke_task'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/application.rb:106:in `each'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/application.rb:106:in `block in top_level'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/application.rb:115:in `run_with_threads'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/application.rb:100:in `top_level'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/application.rb:78:in `block in run'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/application.rb:176:in `standard_exception_handling'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/lib/rake/application.rb:75:in `run'\n/home/felipe/.rvm/gems/ruby-2.1.2/gems/rake-10.3.2/bin/rake:33:in `<top (required)>'\n/home/felipe/.rvm/gems/ruby-2.1.2/bin/rake:23:in `load'\n/home/felipe/.rvm/gems/ruby-2.1.2/bin/rake:23:in `<main>'\n/home/felipe/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'\n/home/felipe/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'"], ["locked_at", nil], ["locked_by", nil], ["run_at", "2015-01-12 14:14:02.616623"], ["updated_at", "2015-01-12 14:13:56.625647"]]
+  [1m[36m (156.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:13:56.784777' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:13:56.784842') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.5ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:13:56.788186' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:13:56.788223') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:01.790878' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:01.790959') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:06.794176' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:06.794254') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mSQL (156.4ms)[0m  UPDATE "delayed_jobs" SET "locked_at" = '2015-01-12 14:14:06.795377', "locked_by" = 'host:PC-de-Felipe pid:8336' WHERE "delayed_jobs"."id" IN (SELECT "delayed_jobs"."id" FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:06.794176' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:06.794254') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL) AND "delayed_jobs"."id" = 1  ORDER BY priority ASC, run_at ASC)
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE "delayed_jobs"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 5]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC  [["task_id", 2]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC[0m  [["task_id", 3]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC  [["task_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "delayed_jobs" SET "attempts" = ?, "locked_at" = ?, "locked_by" = ?, "run_at" = ?, "updated_at" = ? WHERE "delayed_jobs"."id" = 1  [["attempts", 2], ["locked_at", nil], ["locked_by", nil], ["run_at", "2015-01-12 14:14:27.999020"], ["updated_at", "2015-01-12 14:14:06.999734"]]
+  [1m[36m (154.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:07.155842' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:07.155882') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:07.157610' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:07.157625') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:12.158769' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:12.158815') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:17.160654' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:17.160697') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:22.162353' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:22.162442') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:27.165837' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:27.165880') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:32.167530' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:32.167605') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mSQL (267.8ms)[0m  [1mUPDATE "delayed_jobs" SET "locked_at" = '2015-01-12 14:14:32.168768', "locked_by" = 'host:PC-de-Felipe pid:8336' WHERE "delayed_jobs"."id" IN (SELECT "delayed_jobs"."id" FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:32.167530' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:32.167605') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL) AND "delayed_jobs"."id" = 1  ORDER BY priority ASC, run_at ASC)[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE "delayed_jobs"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 5]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC[0m  [["task_id", 2]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC  [["task_id", 3]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC[0m  [["task_id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "delayed_jobs" SET "attempts" = ?, "locked_at" = ?, "locked_by" = ?, "run_at" = ?, "updated_at" = ? WHERE "delayed_jobs"."id" = 1[0m  [["attempts", 3], ["locked_at", nil], ["locked_by", nil], ["run_at", "2015-01-12 14:15:58.493956"], ["updated_at", "2015-01-12 14:14:32.494645"]]
+  [1m[35m (161.7ms)[0m  commit transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:32.657838' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:32.657901') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:32.660359' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:32.660403') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:37.662911' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:37.662993') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+
+
+Started GET "/projects/5/second_indicators" for 127.0.0.1 at 2015-01-12 11:14:39 -0300
+Processing by ProjectsController#second_indicators as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 5]]
+  [1m[36mReport Load (0.3ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC[0m  [["task_id", 2]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC  [["task_id", 3]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC[0m  [["task_id", 4]]
+Completed 500 Internal Server Error in 79ms
+
+ArgumentError - comparison of Date with nil failed:
+  app/models/project.rb:623:in `last_date'
+  app/services/progress_calculator.rb:153:in `project_dates_to_end'
+  app/services/progress_calculator.rb:8:in `manage_indicators'
+  app/models/project.rb:609:in `manage_indicators'
+  app/controllers/application_controller.rb:46:in `test'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.4) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.4) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `<main>'
+
+
+
+Started POST "/__better_errors/c8f11538101d3326/variables" for 127.0.0.1 at 2015-01-12 11:14:40 -0300
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 5]]
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:42.666116' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:42.666202') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:47.669298' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:47.669382') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:52.672447' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:52.672528') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:14:57.675666' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:14:57.675751') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:02.678918' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:02.679006') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:07.682129' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:07.682216') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:12.685370' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:12.685459') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:17.688612' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:17.688698') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:22.691780' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:22.691865') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:27.694921' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:27.695008') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:32.698195' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:32.698282') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.9ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:37.701397' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:37.701500') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:42.705965' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:42.706046') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:47.709114' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:47.709230') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:52.712337' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:52.712423') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:15:57.715676' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:15:57.715764') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:02.718841' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:02.718923') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mSQL (154.2ms)[0m  [1mUPDATE "delayed_jobs" SET "locked_at" = '2015-01-12 14:16:02.720074', "locked_by" = 'host:PC-de-Felipe pid:8336' WHERE "delayed_jobs"."id" IN (SELECT "delayed_jobs"."id" FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:02.718841' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:02.718923') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL) AND "delayed_jobs"."id" = 1  ORDER BY priority ASC, run_at ASC)[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE "delayed_jobs"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 5]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC[0m  [["task_id", 2]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC  [["task_id", 3]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC[0m  [["task_id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "delayed_jobs" SET "attempts" = ?, "locked_at" = ?, "locked_by" = ?, "run_at" = ?, "updated_at" = ? WHERE "delayed_jobs"."id" = 1[0m  [["attempts", 4], ["locked_at", nil], ["locked_by", nil], ["run_at", "2015-01-12 14:20:23.926324"], ["updated_at", "2015-01-12 14:16:02.927078"]]
+  [1m[35m (167.9ms)[0m  commit transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:03.096539' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:03.096604') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:03.099209' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:03.099246') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:08.101382' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:08.101432') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:13.105534' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:13.105611') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.9ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:18.108473' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:18.108576') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:23.113297' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:23.113345') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:28.115371' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:28.115421') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:33.117470' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:33.117520') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:38.119674' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:38.119716') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:43.121484' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:43.121565') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:48.124734' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:48.124815') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:53.128042' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:53.128129') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:16:58.131487' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:16:58.131569') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:03.134666' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:03.134745') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:08.138019' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:08.138099') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:13.141137' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:13.141249') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:18.144486' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:18.144529') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.5ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:23.146121' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:23.146183') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:28.148608' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:28.148696') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:33.151865' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:33.151980') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:38.155270' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:38.155357') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:43.158511' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:43.158586') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:48.161771' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:48.161858') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:53.164978' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:53.165065') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:17:58.168351' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:17:58.168392') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:03.170016' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:03.170102') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:08.173321' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:08.173356') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:13.175299' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:13.175381') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:18.178502' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:18.178541') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:23.180080' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:23.180118') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:28.181705' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:28.181792') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:33.185035' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:33.185118') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:38.188299' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:38.188427') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:43.191545' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:43.191649') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:48.194781' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:48.194869') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+
+
+Started POST "/__better_errors/c8f11538101d3326/variables" for 127.0.0.1 at 2015-01-12 11:18:52 -0300
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:53.198091' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:53.198164') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:18:58.201208' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:18:58.201313') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:03.204414' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:03.204530') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:08.207707' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:08.207797') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:13.210955' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:13.211045') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:18.214290' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:18.214375') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:23.217514' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:23.217581') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:28.220922' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:28.221008') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:33.224269' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:33.224356') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:38.227470' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:38.227558') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:43.230666' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:43.230747') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:48.233950' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:48.234046') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:53.237021' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:53.237110') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:19:58.240313' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:19:58.240404') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:03.243567' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:03.243651') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:08.246838' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:08.246924') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:13.250093' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:13.250183') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:18.253338' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:18.253440') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:23.256668' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:23.256751') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:28.259980' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:28.260060') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mSQL (201.6ms)[0m  UPDATE "delayed_jobs" SET "locked_at" = '2015-01-12 14:20:28.261330', "locked_by" = 'host:PC-de-Felipe pid:8336' WHERE "delayed_jobs"."id" IN (SELECT "delayed_jobs"."id" FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:28.259980' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:28.260060') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL) AND "delayed_jobs"."id" = 1  ORDER BY priority ASC, run_at ASC)
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE "delayed_jobs"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 5]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC  [["task_id", 2]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC[0m  [["task_id", 3]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  ORDER BY "reports"."created_at" ASC  [["task_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "delayed_jobs" SET "attempts" = ?, "locked_at" = ?, "locked_by" = ?, "run_at" = ?, "updated_at" = ? WHERE "delayed_jobs"."id" = 1  [["attempts", 5], ["locked_at", nil], ["locked_by", nil], ["run_at", "2015-01-12 14:30:58.528973"], ["updated_at", "2015-01-12 14:20:28.529668"]]
+  [1m[36m (128.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.5ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:28.659195' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:28.659255') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.5ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:28.661698' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:28.661728') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:33.664276' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:33.664319') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:38.665871' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:38.665958') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:43.669048' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:43.669135') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:48.672272' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:48.672361') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:53.675509' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:53.675594') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:20:58.678764' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:20:58.678851') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:03.681957' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:03.682036') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:08.684991' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:08.685082') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:13.688076' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:13.688158') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:18.691140' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:18.691221') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:23.694309' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:23.694395') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:28.697408' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:28.697500') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:33.700936' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:33.701041') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:38.704467' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:38.704547') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:43.707569' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:43.707650') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:48.710977' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:48.711069') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:53.714220' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:53.714302') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:21:58.717712' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:21:58.717798') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:03.720873' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:03.720955') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.8ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:08.724381' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:08.724556') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:13.728856' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:13.728945') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:18.732293' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:18.732379') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:23.735537' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:23.735632') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:28.738922' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:28.738969') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:33.740787' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:33.740867') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:38.744116' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:38.744163') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:43.745885' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:43.745969') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:48.749244' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:48.749322') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:53.752371' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:53.752467') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:22:58.755846' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:22:58.755924') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:03.758230' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:03.758320') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:08.761524' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:08.761565') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:13.763095' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:13.763182') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:18.766595' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:18.766682') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.8ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:23.769888' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:23.769975') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:28.773269' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:28.773354') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:33.776492' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:33.776580') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+
+
+Started GET "/projects/5/second_indicators" for 127.0.0.1 at 2015-01-12 11:23:36 -0300
+Processing by ProjectsController#second_indicators as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mIndicator Load (0.2ms)[0m  SELECT "indicators".* FROM "indicators"  WHERE "indicators"."project_id" = ?  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL  [["project_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  Rendered projects/_days_indicators.html.erb (97.3ms)
+  Rendered projects/second_indicators.html.erb within layouts/application (98.0ms)
+  Rendered layouts/_kanbantt_header.html.erb (1.1ms)
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects"  WHERE "projects"."owner_id" = ?[0m  [["owner_id", 1]]
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (14.7ms)
+  Rendered layouts/_horizontal.html.erb (17.3ms)
+  Rendered layouts/_logged.html.erb (18.0ms)
+Completed 200 OK in 1387ms (Views: 1336.9ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/assets/rails_bootstrap_forms.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/assignments.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/base.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/charts.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/colours.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/enterprises.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/errors.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/gantt.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/indicators.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery.modal.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/kanban_board.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/kanban_filters.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/kanbantt_header.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/modals.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/option.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/porject_users.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/reports.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/resources_reports.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/task_show.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/tree_view.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/version.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery.modal.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/angular-route.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/BlockUI.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/BlockUI_instances.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/assignments.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/chart-controllers.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/chart-factories.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/charts.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/css_setter.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/enterprises.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/errors.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/full_screen.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/gantt-controllers.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/gantt-directives.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/gantt-factories.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/gantt.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/initiators.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery.modal.min.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/kanban.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/kanban_board.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/kanban_board_filters.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/kanban_filters.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/notices.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/option_div_option.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/porject_users.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/reports.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/resources_reports.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (1.0ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:38.779690' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:38.779731') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+
+
+Started GET "/assets/second_chart.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/version.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/kanbantt_blanco.png" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/rails_bootstrap_forms.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/assignments.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/charts.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/colours.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/enterprises.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/errors.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/gantt.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/indicators.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/jquery.modal.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/kanban_board.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/kanban_filters.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/kanbantt_header.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/modals.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/option.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/porject_users.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/reports.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/resources_reports.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/task_show.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/tree_view.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/version.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:38 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/jquery.modal.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/BlockUI.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/BlockUI_instances.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/assignments.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/chart-controllers.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/chart-factories.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/charts.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/css_setter.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/enterprises.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/errors.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/full_screen.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/gantt-controllers.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/gantt-directives.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/gantt-factories.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/gantt.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/initiators.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/jquery.modal.min.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/kanban.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/kanban_board.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/kanban_board_filters.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/kanban_filters.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/notices.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/option_div_option.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/porject_users.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/reports.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/resources_reports.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/second_chart.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/version.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:39 -0300
+
+
+Started GET "/assets/kanbantt_blanco.png" for 127.0.0.1 at 2015-01-12 11:23:40 -0300
+
+
+Started GET "/api/projects/5/indicators" for 127.0.0.1 at 2015-01-12 11:23:40 -0300
+Processing by Api::V1::IndicatorsController#index as JSON
+  Parameters: {"project_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mIndicator Load (0.1ms)[0m  [1mSELECT "indicators".* FROM "indicators"  WHERE "indicators"."project_id" = ?[0m  [["project_id", 5]]
+  Rendered api/v1/indicators/index.json.jbuilder (0.1ms)
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/5/tree_view" for 127.0.0.1 at 2015-01-12 11:23:43 -0300
+Processing by ProjectsController#tree_view as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", "5"]]
+  Rendered projects/explorer/_tree_view_header.html.erb (0.1ms)
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  Rendered tasks/_task_times.html.erb (11.6ms)
+  Rendered projects/explorer/_content.html.erb (32.7ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (34.0ms)
+  Rendered projects/explorer/_tree_view_column.html.erb (44.6ms)
+  Rendered projects/tree_view.html.erb within layouts/application (97.6ms)
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:43.783073' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:43.783107') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  Rendered layouts/_kanbantt_header.html.erb (0.6ms)
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"  WHERE "projects"."owner_id" = ?  [["owner_id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (2.9ms)
+  Rendered layouts/_horizontal.html.erb (4.6ms)
+  Rendered layouts/_logged.html.erb (5.1ms)
+Completed 200 OK in 1297ms (Views: 1289.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/rails_bootstrap_forms.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/assignments.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/base.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/charts.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/colours.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/enterprises.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/errors.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/gantt.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/indicators.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/jquery.modal.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/kanban_board.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/kanban_filters.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/kanbantt_header.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/modals.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/option.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/porject_users.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/reports.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/resources_reports.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/task_show.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/tree_view.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/version.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:44 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/jquery.modal.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/angular-route.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/BlockUI.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/BlockUI_instances.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/assignments.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/chart-controllers.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/chart-factories.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/charts.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/css_setter.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/enterprises.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/errors.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/full_screen.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/gantt-controllers.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/gantt-directives.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/gantt-factories.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/gantt.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/initiators.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/jquery.modal.min.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/kanban.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/kanban_board.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/kanban_board_filters.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/kanban_filters.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/notices.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/option_div_option.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/porject_users.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/reports.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/resources_reports.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/second_chart.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/version.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/assets/kanbantt_blanco.png" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+
+
+Started GET "/api/projects/5/indicators" for 127.0.0.1 at 2015-01-12 11:23:45 -0300
+Processing by Api::V1::IndicatorsController#index as JSON
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mIndicator Load (0.1ms)[0m  SELECT "indicators".* FROM "indicators"  WHERE "indicators"."project_id" = ?  [["project_id", 5]]
+  Rendered api/v1/indicators/index.json.jbuilder (0.1ms)
+Completed 200 OK in 8ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/5/add_tree_view_column?parent_id=2" for 127.0.0.1 at 2015-01-12 11:23:48 -0300
+Processing by ProjectsController#add_tree_view_column as JS
+  Parameters: {"parent_id"=>"2", "project_id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 3]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 3]]
+  Rendered tasks/_task_times.html.erb (12.1ms)
+  Rendered projects/explorer/_content.html.erb (15.6ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (17.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  Rendered tasks/_task_times.html.erb (13.1ms)
+  Rendered projects/explorer/_content.html.erb (16.9ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (18.8ms)
+  Rendered projects/explorer/_tree_view_column.html.erb (55.6ms)
+  Rendered projects/add_tree_view_column.js.erb (57.3ms)
+Completed 200 OK in 136ms (Views: 120.1ms | ActiveRecord: 2.4ms)
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:48.784591' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:48.784631') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+
+
+Started GET "/projects/5/tasks/new?parent_id=2" for 127.0.0.1 at 2015-01-12 11:23:51 -0300
+Processing by TasksController#new as */*
+  Parameters: {"parent_id"=>"2", "project_id"=>"5"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" INNER JOIN "assignments" ON "users"."id" = "assignments"."user_id" WHERE "assignments"."project_id" = ?  [["project_id", 5]]
+  Rendered tasks/_form.html.erb (26.9ms)
+  Rendered tasks/new.html.erb (53.0ms)
+Completed 200 OK in 87ms (Views: 72.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/spinner.gif" for 127.0.0.1 at 2015-01-12 11:23:51 -0300
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:53.786205' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:53.786285') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:23:58.789652' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:23:58.789729') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:24:03.792878' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:24:03.792960') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:24:08.796165' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:24:08.796249') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (1.2ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:24:13.799510' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:24:13.799596') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:24:18.803463' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:24:18.803545') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:24:23.806688' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:24:23.806726') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.5ms)[0m  [1mSELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-01-12 14:24:28.808302' AND (locked_at IS NULL OR locked_at < '2015-01-12 10:24:28.808367') OR locked_by = 'host:PC-de-Felipe pid:8336') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5[0m

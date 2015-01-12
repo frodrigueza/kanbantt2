@@ -606,7 +606,7 @@ class Project < ActiveRecord::Base
 	# Actualizamos los indicatores por medio de los jobs
 	def manage_indicators
 		pc = ProgressCalculator.new(self)
-		pc.delay.manage_indicators
+		pc.manage_indicators
 	end
 
 	# ultima fecha entre:
