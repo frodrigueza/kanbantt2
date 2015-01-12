@@ -20,6 +20,6 @@ class Report < ActiveRecord::Base
 	end
 
 	def update_project
-		project.manage_indicators
+		# project.manage_indicators
 	end
 end

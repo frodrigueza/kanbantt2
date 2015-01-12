@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
 
   # Metodo utilizado para testear con debugger alguna funcionalidad
   def test
-    # Project.find(5).manage_indicators
+    Project.find(5).manage_indicators
   end
 
 

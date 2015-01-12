@@ -21,7 +21,7 @@
 
                             var value = [date, progress];
                             EDP.push(value);
-                            console.log(value);
+                            // console.log(value);
                         });
                     // console.log(EDP);
                     }
@@ -34,9 +34,12 @@
                             var date = Date.parse(data[i]['date']);
                             var progress = parseInt(data[i]['real_days_progress']);
 
-                            var value = [date, progress];
-                            RDP.push(value);
-                            console.log(value);
+                            if (!isNaN(progress)) 
+                            {
+                                var value = [date, progress];
+                                RDP.push(value);
+                                console.log(value);
+                            }
                         });
                     }
 

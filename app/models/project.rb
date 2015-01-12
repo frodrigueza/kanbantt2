@@ -598,6 +598,20 @@ class Project < ActiveRecord::Base
 		end
 	end
 
+	def f_delayed_or_advanced_days(in_resources)
+		array = []
+		aux = delayed_or_advanced_days(in_resources)
+		if aux > 0
+			array[0] = 'Días de ventaja'
+			array[1] = aux.to_s
+		else
+			array[0] = 'Días de atraso'
+			array[1] = aux.to_s
+		end
+
+		array
+	end
+
 	# porcentaje de retraso
 	def progress_delta(in_resources)
 		(real_progress_function(Date.today, in_resources) - expected_progress_function(Date.today, in_resources)).to_f.round(1)
@@ -625,6 +639,14 @@ class Project < ActiveRecord::Base
 		end
 
 		return last_date_value
+	end
+
+	def expected_end_date
+		tasks.max_by { |x| x.expected_end_date }.expected_end_date
+	end
+
+	def expected_start_date
+		tasks.min_by { |x| x.expected_end_date }.expected_start_date
 	end
 
 	def admins

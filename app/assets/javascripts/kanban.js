@@ -2,6 +2,8 @@
 // medienta AJAX cuando se cambia una tarea de posición
 
 $(function(){
+    if ($('#kanban_board')) 
+    {
 
         $(".sortable_group" ).sortable({
             items: "> .sortable_kanban_item", //Cuales serán los items que se pueden mover
@@ -83,4 +85,5 @@ $(function(){
 
         // prevenimos la seleccion de texto cuando queramos hacer drag-n-drop
         }).disableSelection(); 
+    }
 });

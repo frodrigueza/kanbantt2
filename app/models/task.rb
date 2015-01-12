@@ -197,6 +197,11 @@ class Task < ActiveRecord::Base
 		(self.expected_end_date - Time.now)/(60 * 60 * 24).to_i
 	end
 
+	def ancestry
+		array = []
+		array[0] = self
+		# i = 
+	end
 	
 
 	# def duration

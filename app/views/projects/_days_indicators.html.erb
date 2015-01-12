@@ -41,10 +41,10 @@
 	<div class="col-md-3 indicator-footer <%= project_delayed_days_progress_css(@project, false) %>">
 		<div class="row">
 			<div class="col-md-12">
-				Días de retraso
+				<%= @project.f_delayed_or_advanced_days(false)[0] %>
 			</div>
 			<div class="col-md-12">
-				<%= @project.delayed_or_advanced_days(false) %>
+				<%= @project.f_delayed_or_advanced_days(false)[1] %>
 			</div>
 		</div>
 	</div>
