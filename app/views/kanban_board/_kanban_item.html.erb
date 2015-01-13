@@ -1,14 +1,16 @@
 <li class="kanban_item item" data-startdate="<%= task.expected_start_date %>" data-enddate="<%= task.expected_end_date %>" data-status="<%= 'delayed' if task.delayed  %>">
-	<div class="container">
+	<div class="row task_header">
 		<%= render 'task_header', task: task %>		
 	</div>
 
-    <div class="container-task task_name">
-		<i class="fa fa-sign-in"></i>  <%= link_to_modal task.name , task %>
+    <div class="row task_name">
+    	<div class="col-md-12">
+			<%= link_to_modal task.name , task %>
+    	</div>
 	</div>
 
 	<div class="task_footer">
-		<table class>
+		<table>
 			<tr>
 				<td class="<%= css_task_status_color(task) %>"><%= remaining_days(task) %></td>
 				<td class="real_progress <%= css_task_status_color(task) %>"><%= task.expected_progress %> %</td>

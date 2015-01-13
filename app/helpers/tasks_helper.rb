@@ -89,6 +89,22 @@ module TasksHelper
     end
   end
 
+  def urgent_task_title(task)
+    if task.urgent
+      'Tarea marcada como urgente'
+    else
+      'Marcar esta tarea como urgente'
+    end
+  end
+
+  def urgent_task_class(task)
+    if task.urgent
+      'active'
+    else
+      ''
+    end
+  end
+
 
 
 

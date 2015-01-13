@@ -106,6 +106,10 @@ class TasksController < ApplicationController
     end
   end
 
+  def toggle_urgent
+    a.a
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_task

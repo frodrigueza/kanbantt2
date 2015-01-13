@@ -37,7 +37,7 @@
 					<td><%= t.progress %></td>
 					<td><%= t.expected_progress %></td>
 					<td><%= t.reports.count %></td>
-					<td><%= @user.f_last_report_in_task_date(t) %></td>
+					<td><%= f_date(@user.last_report_in_task_date(t)) %></td>
 				</tr>
 			<% end %>
 		</table>
@@ -61,7 +61,7 @@
 					<td><%= t.progress %></td>
 					<td><%= t.expected_progress %></td>
 					<td><%= t.reports.count %></td>
-					<td><%= @user.f_last_report_in_task_date(t) %></td>
+					<td><%= f_date(@user.last_report_in_task_date(t)) %></td>
 				</tr>
 			<% end %>
 		</table>

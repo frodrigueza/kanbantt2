@@ -81,6 +81,7 @@ Rails.application.routes.draw do
   resources :tasks do
     get 'delete_confirmation'
     get 'fast_report'
+    get 'toggle_urgent'
   end
 
   get 'gantt', to: 'gantt#index'

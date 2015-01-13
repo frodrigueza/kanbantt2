@@ -35,17 +35,17 @@ class User < ActiveRecord::Base
 	end
 
 	def last_report_in_task(task)
-		reports.where(task_id: project.id).last
+		reports.where(task_id: task.id).last
 	end
 
 	def assignment_in_project(project)
 		Assignment.where(project_id: project.id, user_id: id).first
 	end
 
-	def f_last_report_in_task_date(task)
+	def last_report_in_task_date(task)
 		report = last_report_in_task(task)
 		if report
-			f_date(report.date)
+			report.created_at
 		end
 	end
 
