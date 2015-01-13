@@ -3,6 +3,7 @@ class Report < ActiveRecord::Base
 	belongs_to :task
 	belongs_to :user
 	after_save :update_project
+	after_save :update_task
 	scope :week_of, ->(date) {where(created_at: date.all_week) }
 	scope :before, ->(date) {where('created_at <= ?',date.end_of_day)}
 	default_scope { order(created_at: :asc) }
@@ -21,5 +22,9 @@ class Report < ActiveRecord::Base
 
 	def update_project
 		# project.manage_indicators
+	end
+
+	def update_task
+		task.refresh
 	end
 end

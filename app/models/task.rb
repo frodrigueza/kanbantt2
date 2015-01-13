@@ -208,6 +208,14 @@ class Task < ActiveRecord::Base
 
 		array.reverse
 	end
+
+	def refresh
+		if progress == 100
+			self.state = 2
+		end
+
+		self.save
+	end
 	
 
 	# def duration
