@@ -84,17 +84,6 @@ class User < ActiveRecord::Base
 		array
 	end
 
-	def all_projects
-		array = []
-		owned_projects.each do |p|
-			array << p
-		end
-		projects.each do |p|
-			array << p
-		end
-		array
-	end
-
 
 	# Retorna true si el usuario esta asignado a algun proyecto del current user
 	def show_user(cuser)

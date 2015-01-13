@@ -16,7 +16,7 @@
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu projects" role="menu">
-                        <% @current_user.all_projects.each do |p| %>
+                        <% @current_user.projects.each do |p| %>
                             <li><%= link_to p.name, p %></li>
                         <% end %>
                         <li class="divider"></li>
