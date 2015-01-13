@@ -1,0 +1,13 @@
+rake assets:precompile
+heroku pg:reset DATABASE
+heroku run rake db:migrate
+heroku run rake db:seed
+heroku run rails console
+heroku run rake db:version
+heroku logs -t
+
+
+padder: arriba derecha abajo izq
+
+
+<%= link_to (image_tag c.preview_image), c.url, {class:c.content_class, target: '_blank'} %>

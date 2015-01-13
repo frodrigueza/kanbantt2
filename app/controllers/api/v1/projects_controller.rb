@@ -12,7 +12,6 @@ module Api
         respond_with @projects
       end
 
-
       def all
         if current_user.is_boss
           @projects = User.find(current_user.id).enterprise.projects

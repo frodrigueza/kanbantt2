@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @users = @project.all_users
+    @users = @project.users
     # if current_user.super_admin
     #   redirect_to project_second_indicators_path(@project)
     # elsif current_user.enterprise.boss == current_user

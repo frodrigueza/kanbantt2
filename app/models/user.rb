@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
 		reports.where(task_id: project.id).last
 	end
 
+	def assignment_in_project(project)
+		Assignment.where(project_id: project.id, user_id: id).first
+	end
+
 	def f_last_report_in_task_date(task)
 		report = last_report_in_task(task)
 		if report
@@ -49,9 +53,7 @@ class User < ActiveRecord::Base
 	# 1 = admin
 	# 2 = lp
 	def role_in_project(project)
-		if project.owner == self
-			return 0
-		elsif a = Assignment.where(user_id: id, project_id: project.id).first
+		if a = Assignment.where(user_id: id, project_id: project.id).first
 			return a.role
 		else
 			return -1
@@ -61,7 +63,6 @@ class User < ActiveRecord::Base
 	def f_role_in_project(project)
 		case role_in_project(project)
 			when -1 then 'Sin cargo'
-			when 0 then 'Dueño'
 			when 1 then 'Administrador'
 			when 2 then 'Empleado'
 		end

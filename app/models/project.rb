@@ -45,16 +45,6 @@ class Project < ActiveRecord::Base
 		end
 	end
 
-	def all_users
-		array = []
-		array << owner
-		users.each do |u|
-			array << u
-		end
-
-		array
-	end
-
 	def start_date
 		if tasks.count > 0
 			(tasks.sort_by {|t| t.expected_end_date}).first.expected_end_date

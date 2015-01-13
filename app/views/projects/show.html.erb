@@ -4,6 +4,12 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-12">
+    Dueño: <%= @project.owner.f_name %>
+  </div>
+</div>
+
 
 <div class="row">
 	<div class="col-md-12">
@@ -23,6 +29,7 @@
 	    		<td><%= u.f_name %></td>
 	    		<td><%= u.f_role_in_project(@project) %></td>
 	    		<td><%= u.reports_in_project(@project).count %></td>
+	    		<td><%= link_to 'Detalles', assignment_path(u.assignment_in_project(@project).id) %></td>
 	    	</tr>
 	    <% end %>
   	</table>
