@@ -34,6 +34,17 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def last_report_in_task(task)
+		reports.where(task_id: project.id).last
+	end
+
+	def f_last_report_in_task_date(task)
+		report = last_report_in_task(task)
+		if report
+			f_date(report.date)
+		end
+	end
+
 	# 0 = dueño
 	# 1 = admin
 	# 2 = lp
@@ -124,18 +135,18 @@ class User < ActiveRecord::Base
 	end
 
 	########################### KANBAN
-	def kanban(project)
-		tasks_hash = {}
+
+	def to_do_tasks(project)
 		to_do_tasks = tasks.select { |t| t.project_id == project.id && t.state == 0 && !t.has_children? }
+	end
+
+	def doing_tasks(project)
 		doing_tasks = tasks.select { |t| t.project_id == project.id && t.state == 1 && !t.has_children? }
+	end
+
+	def done_tasks(project)
 		done_tasks = tasks.select { |t| t.project_id == project.id && t.state == 2 && !t.has_children? }
-
-		tasks_hash[:to_do_tasks] = to_do_tasks
-		tasks_hash[:doing_tasks] = doing_tasks
-		tasks_hash[:done_tasks] = done_tasks
-
-		return tasks_hash
-	end	
+	end
 
 	######################## FIN KANBAN
 

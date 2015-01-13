@@ -9,6 +9,8 @@ class AssignmentsController < ApplicationController
   end
 
   def show
+    @user = @assignment.user
+    @project = @assignment.project
     respond_with(@assignment)
   end
 

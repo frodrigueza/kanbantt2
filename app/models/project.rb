@@ -15,6 +15,7 @@ class Project < ActiveRecord::Base
 	# belongs_to :enterprise
 	belongs_to :owner, class_name: 'User'
 
+
 	#que el nombre este presente al crear/editar el proyecto y tenga largo minimo 3
 	validates :name, presence: true, length: { minimum: 3 }
 	#validacion para que la fecha de fin sea posterior a la de comienzo
@@ -23,7 +24,10 @@ class Project < ActiveRecord::Base
 
 	# recalcular avances cuando se actualiza (cambia una fecha de una tarea, se agrega una o el)
   	before_destroy :destroy_tasks
-	
+
+  	# Que el creador del proyecto quede inmediatamente como administrador
+	after_create :name_the_owner_as_administrator
+
 	# Metodo que inicializa el proyecto al crearse
 	def f_create(user)
 		user.projects << self
@@ -619,8 +623,8 @@ class Project < ActiveRecord::Base
 
 	# Actualizamos los indicatores por medio de los jobs
 	def manage_indicators
-		pc = ProgressCalculator.new(self)
-		pc.manage_indicators
+		# pc = ProgressCalculator.new(self)
+		# pc.manage_indicators
 	end
 
 	# ultima fecha entre:
@@ -680,6 +684,10 @@ class Project < ActiveRecord::Base
 		end
 
 		array
+	end
+
+	def name_the_owner_as_administrator
+		Assignment.create(user_id: user_id, project_id: id, role: 1)
 	end
 
 	private

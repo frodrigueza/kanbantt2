@@ -2,11 +2,9 @@ class KanbanBoardController < ApplicationController
 
   def index
     if @project
-      hash = current_user.kanban(@project)
-
-      @to_do_tasks = hash[:to_do_tasks]
-      @doing_tasks = hash[:doing_tasks]
-      @done_tasks = hash[:done_tasks]
+      @to_do_tasks = current_user.to_do_tasks(@project)
+      @doing_tasks = current_user.doing_tasks(@project)
+      @done_tasks = current_user.done_tasks(@project)
     else
       redirect_to current_user
     end
