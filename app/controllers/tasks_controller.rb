@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   load_and_authorize_resource
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle_urgent]
 
   # GET /tasks
   # GET /tasks.json
@@ -110,7 +110,7 @@ class TasksController < ApplicationController
   end
 
   def toggle_urgent
-    a.a
+    @task.toggle_urgent
   end
 
   private

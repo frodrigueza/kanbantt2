@@ -182,6 +182,15 @@ class Task < ActiveRecord::Base
 		return false
 	end
 
+	def toggle_urgent
+		if self.urgent
+			self.urgent = false
+		else
+			self.urgent = true
+		end		
+		self.save
+	end
+
 	# boolean si la tarea está terminada o no
 	def done
 		self.progress == 100
