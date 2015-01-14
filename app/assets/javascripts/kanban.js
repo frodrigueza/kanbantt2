@@ -1,7 +1,7 @@
 //Esto maneja todo el movimiento de los tasks en el kanban board y se encarga de llamar al método update
 // medienta AJAX cuando se cambia una tarea de posición
 
-$(function(){
+var kanban = function(){
     if ($('#kanban_board')) 
     {
 
@@ -86,4 +86,9 @@ $(function(){
         // prevenimos la seleccion de texto cuando queramos hacer drag-n-drop
         }).disableSelection(); 
     }
-});
+}
+
+
+
+$(document).ready(kanban);
+$(document).on('page:load', kanban);

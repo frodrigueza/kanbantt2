@@ -69,6 +69,8 @@
 					<th>Progreso esperado</th>
 					<th>Reportes</th>
 					<th>Ultimo reporte</th>
+					<th>Entrega acordada</th>
+					<th>Dias a favor / contra</th>
 				</tr>
 			</thead>
 			<% @user.done_tasks(@project).each do |t| %>
@@ -78,6 +80,8 @@
 					<td><%= t.expected_progress %></td>
 					<td><%= t.reports.count %></td>
 					<td><%= f_date(@user.last_report_in_task_date(t)) %></td>
+					<td><%= f_date(t.expected_end_date) %></td>
+					<td><%= t.gap_days %></td>
 				</tr>
 			<% end %>
 		</table>

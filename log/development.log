@@ -7148,3 +7148,836 @@ Processing by TasksController#toggle_urgent as JS
   Rendered kanban_board/_update_item_partial.js.erb (10.9ms)
   Rendered tasks/toggle_urgent.js.erb (11.9ms)
 Completed 200 OK in 174ms (Views: 13.5ms | ActiveRecord: 134.6ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2015-01-14 16:55:48 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "assignments" ON "users"."id" = "assignments"."user_id" WHERE "assignments"."project_id" = ?  [["project_id", 5]]
+  [1m[36mAssignment Load (0.1ms)[0m  [1mSELECT  "assignments".* FROM "assignments"  WHERE "assignments"."user_id" = 2 AND "assignments"."project_id" = 5  ORDER BY "assignments"."id" ASC LIMIT 1[0m
+  [1m[35mReport Load (0.2ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."user_id" = ?  [["user_id", 2]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT  "assignments".* FROM "assignments"  WHERE "assignments"."project_id" = 5 AND "assignments"."user_id" = 2  ORDER BY "assignments"."id" ASC LIMIT 1[0m
+  [1m[35mAssignment Load (0.3ms)[0m  SELECT  "assignments".* FROM "assignments"  WHERE "assignments"."user_id" = 1 AND "assignments"."project_id" = 5  ORDER BY "assignments"."id" ASC LIMIT 1
+  [1m[36mReport Load (0.2ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 20]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mAssignment Load (0.2ms)[0m  SELECT  "assignments".* FROM "assignments"  WHERE "assignments"."project_id" = 5 AND "assignments"."user_id" = 1  ORDER BY "assignments"."id" ASC LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (33.2ms)
+  Rendered layouts/_kanbantt_header.html.erb (1.1ms)
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (3.5ms)
+  Rendered layouts/_horizontal.html.erb (6.3ms)
+  Rendered layouts/_logged.html.erb (7.4ms)
+Completed 200 OK in 1243ms (Views: 1229.9ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assignments/8" for 127.0.0.1 at 2015-01-14 16:55:50 -0300
+Processing by AssignmentsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT  "assignments".* FROM "assignments"  WHERE "assignments"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 8]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 13]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 23]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 24]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mReport Load (0.2ms)[0m  SELECT  "reports".* FROM "reports"  WHERE "reports"."user_id" = ? AND "reports"."task_id" = 7  ORDER BY "reports"."id" DESC LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mReport Load (0.2ms)[0m  SELECT  "reports".* FROM "reports"  WHERE "reports"."task_id" = ? AND "reports"."progress" = 100  ORDER BY "reports"."id" ASC LIMIT 1  [["task_id", 7]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mReport Load (0.2ms)[0m  SELECT  "reports".* FROM "reports"  WHERE "reports"."user_id" = ? AND "reports"."task_id" = 4  ORDER BY "reports"."id" DESC LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT  "reports".* FROM "reports"  WHERE "reports"."task_id" = ? AND "reports"."progress" = 100  ORDER BY "reports"."id" ASC LIMIT 1  [["task_id", 4]]
+  Rendered assignments/_project_user_commitments.html.erb (29.6ms)
+  Rendered assignments/show.html.erb within layouts/application (30.8ms)
+  Rendered layouts/_kanbantt_header.html.erb (0.7ms)
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (2.4ms)
+  Rendered layouts/_horizontal.html.erb (4.1ms)
+  Rendered layouts/_logged.html.erb (4.6ms)
+Completed 200 OK in 1180ms (Views: 1170.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/kanban_board/index?project_id=5" for 127.0.0.1 at 2015-01-14 16:56:09 -0300
+Processing by KanbanBoardController#index as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 8]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 13]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 23]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 24]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 7]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  Rendered kanban_board/_filters.html.erb (0.9ms)
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered kanban_board/_task_header.html.erb (2.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  Rendered kanban_board/_kanban_item.html.erb (12.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered kanban_board/_task_header.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  Rendered kanban_board/_kanban_item.html.erb (6.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 23]]
+  Rendered kanban_board/_task_header.html.erb (1.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  Rendered kanban_board/_kanban_item.html.erb (7.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered kanban_board/_task_header.html.erb (0.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  Rendered kanban_board/_kanban_item.html.erb (7.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered kanban_board/_task_header.html.erb (0.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  Rendered kanban_board/_kanban_item.html.erb (8.9ms)
+  Rendered kanban_board/index.html.erb within layouts/application (48.3ms)
+  Rendered layouts/_kanbantt_header.html.erb (0.6ms)
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (2.3ms)
+  Rendered layouts/_horizontal.html.erb (4.2ms)
+  Rendered layouts/_logged.html.erb (4.8ms)
+Completed 200 OK in 1222ms (Views: 1208.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/kanban_board/index?project_id=5" for 127.0.0.1 at 2015-01-14 16:57:47 -0300
+Processing by KanbanBoardController#index as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 8]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 13]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 23]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 24]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 7]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  Rendered kanban_board/_filters.html.erb (0.8ms)
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered kanban_board/_task_header.html.erb (1.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  Rendered kanban_board/_kanban_item.html.erb (10.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered kanban_board/_task_header.html.erb (1.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  Rendered kanban_board/_kanban_item.html.erb (9.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 23]]
+  Rendered kanban_board/_task_header.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  Rendered kanban_board/_kanban_item.html.erb (5.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered kanban_board/_task_header.html.erb (2.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  Rendered kanban_board/_kanban_item.html.erb (11.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered kanban_board/_task_header.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  Rendered kanban_board/_kanban_item.html.erb (6.6ms)
+  Rendered kanban_board/index.html.erb within layouts/application (49.1ms)
+  Rendered layouts/_kanbantt_header.html.erb (1.0ms)
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (3.9ms)
+  Rendered layouts/_horizontal.html.erb (6.8ms)
+  Rendered layouts/_logged.html.erb (7.3ms)
+Completed 200 OK in 1432ms (Views: 1419.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/rails_bootstrap_forms.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/assignments.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/base.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/charts.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/colours.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/enterprises.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/errors.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/gantt.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/indicators.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery.modal.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/kanban_board.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/kanban_filters.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/kanbantt_header.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/modals.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/porject_users.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/project_users.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/reports.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/task_show.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/resources_reports.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/tree_view.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/version.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/bootstrap3-switch.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery-ui/sortable.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery.modal.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/angular-route.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/bootstrap-switch.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/BlockUI.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/BlockUI_instances.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/assignments.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/chart-controllers.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/chart-factories.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/charts.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/css_setter.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/enterprises.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/errors.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/full_screen.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/gantt-controllers.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/gantt-directives.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/gantt-factories.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/gantt.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/initiators.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/jquery.modal.min.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/kanban.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/kanban_board.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/kanban_board_filters.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/porject_users.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/kanban_filters.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/notices.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/option_div_option.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/project_users.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/reports.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/resources_reports.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/second_chart.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/version.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/assets/kanbantt_blanco.png" for 127.0.0.1 at 2015-01-14 16:57:49 -0300
+
+
+Started GET "/projects/5/tree_view" for 127.0.0.1 at 2015-01-14 16:57:53 -0300
+Processing by ProjectsController#tree_view as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", "5"]]
+  Rendered projects/explorer/_tree_view_header.html.erb (0.4ms)
+  [1m[36mTask Load (0.6ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ? AND "tasks"."parent_id" IS NULL[0m  [["project_id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 8]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 7]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mReport Load (0.2ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 13]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 23]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 23]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 24]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 17]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 17]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 20]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 20]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 20]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 21]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 21]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 21]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 18]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 18]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 18]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 19]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 19]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 19]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 22]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 22]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 22]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 22]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 22]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 22]]
+  Rendered tasks/_task_times.html.erb (4.9ms)
+  Rendered projects/explorer/_content.html.erb (8.1ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (10.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  Rendered tasks/_task_times.html.erb (20.8ms)
+  Rendered projects/explorer/_content.html.erb (22.2ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (23.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 20]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 21]]
+  Rendered tasks/_task_times.html.erb (1.3ms)
+  Rendered projects/explorer/_content.html.erb (2.2ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (3.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 19]]
+  Rendered tasks/_task_times.html.erb (0.6ms)
+  Rendered projects/explorer/_content.html.erb (2.2ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (2.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 18]]
+  Rendered tasks/_task_times.html.erb (1.1ms)
+  Rendered projects/explorer/_content.html.erb (3.5ms)
+  Rendered projects/explorer/_tree_view_column_item.html.erb (4.6ms)
+  Rendered projects/explorer/_tree_view_column.html.erb (85.7ms)
+  Rendered projects/tree_view.html.erb within layouts/application (87.9ms)
+  Rendered layouts/_kanbantt_header.html.erb (0.6ms)
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (2.4ms)
+  Rendered layouts/_horizontal.html.erb (4.1ms)
+  Rendered layouts/_logged.html.erb (4.7ms)
+Completed 200 OK in 1270ms (Views: 1259.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/kanban_board/index?project_id=5" for 127.0.0.1 at 2015-01-14 16:57:56 -0300
+Processing by KanbanBoardController#index as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTask Load (0.5ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 8]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 13]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 23]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 24]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 7]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 4]]
+  Rendered kanban_board/_filters.html.erb (0.5ms)
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered kanban_board/_task_header.html.erb (1.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  Rendered kanban_board/_kanban_item.html.erb (10.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered kanban_board/_task_header.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  Rendered kanban_board/_kanban_item.html.erb (7.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 23]]
+  Rendered kanban_board/_task_header.html.erb (1.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 24]]
+  Rendered kanban_board/_kanban_item.html.erb (7.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered kanban_board/_task_header.html.erb (0.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  Rendered kanban_board/_kanban_item.html.erb (8.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered kanban_board/_task_header.html.erb (1.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  Rendered kanban_board/_kanban_item.html.erb (9.5ms)
+  Rendered kanban_board/index.html.erb within layouts/application (47.1ms)
+  Rendered layouts/_kanbantt_header.html.erb (0.5ms)
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (2.3ms)
+  Rendered layouts/_horizontal.html.erb (4.1ms)
+  Rendered layouts/_logged.html.erb (4.7ms)
+Completed 200 OK in 1225ms (Views: 1207.8ms | ActiveRecord: 3.8ms)
+
+
+Started PUT "/tasks/7" for 127.0.0.1 at 2015-01-14 16:57:59 -0300
+Processing by TasksController#update as */*
+  Parameters: {"task"=>{"state"=>"2"}, "id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 7]]
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "tasks" SET "state" = ?, "updated_at" = ? WHERE "tasks"."id" = 7[0m  [["state", 2], ["updated_at", "2015-01-14 19:57:59.944163"]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "versions" ("created_at", "event", "item_id", "item_type", "object", "whodunnit") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2015-01-14 19:57:59.950845"], ["event", "update"], ["item_id", 7], ["item_type", "Task"], ["object", "---\nid: 7\nname: asd\nstart_date: \nend_date: \nexpected_start_date: 2015-01-12 03:00:00.000000000 Z\nexpected_end_date: 2015-01-15 03:00:00.000000000 Z\nlevel: \nstate: 1\ndescription: \ndeleted: \nurgent: false\nresources_cost: !ruby/object:BigDecimal 27:0.0\nmap_uid: \nparent_id: 2\nproject_id: 5\nuser_id: 1\ncreated_at: 2015-01-12 14:26:49.117643000 Z\nupdated_at: 2015-01-14 18:50:38.383211000 Z\nmpp_uid: \n"], ["whodunnit", 1]]
+  [1m[36m (147.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/kanban_board/index?project_id=5
+Completed 302 Found in 172ms (ActiveRecord: 149.6ms)
+
+
+Started GET "/kanban_board/update_item_partial?task_id=7" for 127.0.0.1 at 2015-01-14 16:58:00 -0300
+Processing by KanbanBoardController#update_item_partial as */*
+  Parameters: {"task_id"=>"7"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 7]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered kanban_board/_task_header.html.erb (1.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  Rendered kanban_board/_kanban_item.html.erb (11.2ms)
+  Rendered kanban_board/_update_item_partial.js.erb (12.3ms)
+  Rendered kanban_board/update_item_partial.js.erb (13.7ms)
+Completed 200 OK in 18ms (Views: 14.4ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/kanban_board/index?project_id=5" for 127.0.0.1 at 2015-01-14 16:58:00 -0300
+
+ActionController::RoutingError (No route matches [PUT] "/kanban_board/index"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.4) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.4) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+  Rendered /home/felipe/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.2ms)
+  Rendered /home/felipe/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (7.7ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2015-01-14 16:58:04 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "assignments" ON "users"."id" = "assignments"."user_id" WHERE "assignments"."project_id" = ?[0m  [["project_id", 5]]
+  [1m[35mAssignment Load (0.2ms)[0m  SELECT  "assignments".* FROM "assignments"  WHERE "assignments"."user_id" = 2 AND "assignments"."project_id" = 5  ORDER BY "assignments"."id" ASC LIMIT 1
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mAssignment Load (0.2ms)[0m  SELECT  "assignments".* FROM "assignments"  WHERE "assignments"."project_id" = 5 AND "assignments"."user_id" = 2  ORDER BY "assignments"."id" ASC LIMIT 1
+  [1m[36mAssignment Load (0.6ms)[0m  [1mSELECT  "assignments".* FROM "assignments"  WHERE "assignments"."user_id" = 1 AND "assignments"."project_id" = 5  ORDER BY "assignments"."id" ASC LIMIT 1[0m
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."user_id" = ?  [["user_id", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 20]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mAssignment Load (0.4ms)[0m  [1mSELECT  "assignments".* FROM "assignments"  WHERE "assignments"."project_id" = 5 AND "assignments"."user_id" = 1  ORDER BY "assignments"."id" ASC LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (23.7ms)
+  Rendered layouts/_kanbantt_header.html.erb (0.6ms)
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (2.4ms)
+  Rendered layouts/_horizontal.html.erb (4.3ms)
+  Rendered layouts/_logged.html.erb (5.1ms)
+Completed 200 OK in 1191ms (Views: 1180.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assignments/8" for 127.0.0.1 at 2015-01-14 16:58:06 -0300
+Processing by AssignmentsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAssignment Load (0.1ms)[0m  SELECT  "assignments".* FROM "assignments"  WHERE "assignments"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 8]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 13]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 23]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 24]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 8]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 13]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 24]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks"  WHERE "tasks"."parent_id" = ?  [["parent_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT  "reports".* FROM "reports"  WHERE "reports"."user_id" = ? AND "reports"."task_id" = 4  ORDER BY "reports"."id" DESC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 4]]
+  [1m[36mReport Load (0.1ms)[0m  [1mSELECT  "reports".* FROM "reports"  WHERE "reports"."task_id" = ? AND "reports"."progress" = 100  ORDER BY "reports"."id" ASC LIMIT 1[0m  [["task_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT "reports".* FROM "reports"  WHERE "reports"."task_id" = ?  [["task_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT  "reports".* FROM "reports"  WHERE "reports"."user_id" = ? AND "reports"."task_id" = 7  ORDER BY "reports"."id" DESC LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reports"  WHERE "reports"."task_id" = ?[0m  [["task_id", 7]]
+  [1m[35mReport Load (0.1ms)[0m  SELECT  "reports".* FROM "reports"  WHERE "reports"."task_id" = ? AND "reports"."progress" = 100  ORDER BY "reports"."id" ASC LIMIT 1  [["task_id", 7]]
+  Rendered assignments/_project_user_commitments.html.erb (39.3ms)
+  Rendered assignments/show.html.erb within layouts/application (40.6ms)
+  Rendered layouts/_kanbantt_header.html.erb (0.6ms)
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "assignments" ON "projects"."id" = "assignments"."project_id" WHERE "assignments"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered layouts/_horizontal_menu.erb (2.3ms)
+  Rendered layouts/_horizontal.html.erb (4.0ms)
+  Rendered layouts/_logged.html.erb (4.5ms)
+Completed 200 OK in 1195ms (Views: 1187.7ms | ActiveRecord: 3.7ms)
