@@ -1,7 +1,8 @@
     var initiate_charts = function(){
         // Solo haremos el llamado cuando estemos en la vista de los indicadores
-        if ($('#days_chart') || $('#resources_chart') || $('#performance_chart')) 
+        if ($('#indicators').size() > 0) 
         {
+            alert('hola');
             // obtenemos el id del project
             var path_array = window.location.pathname.split('/');
             var project_id = path_array[$.inArray("projects", path_array) + 1]

@@ -1,6 +1,15 @@
 <div class="row">
 	<div class="col-md-12">
-		<h3>Tareas por hacer:</h3>
+		<div class="btn-group" role="group" aria-label="...">
+			<button type="button" class="btn btn-default option" id="commitments_1">Tareas por hacer</button>
+			<button type="button" class="btn btn-default option" id="commitments_2">Compromisos</button>
+			<button type="button" class="btn btn-default option" id="commitments_3">Compromisos terminados</button>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 content_commitments" id="content_commitments_1"  style="display: none;">
+		<h3>Tareas por hacer</h3>
 		<table class="table">
 			<thead>
 				<tr>
@@ -19,8 +28,11 @@
 		</table>
 	</div>
 
-	<div class="col-md-12">
-		<h3>Compromisos:</h3>
+	<div class="col-md-12 content_commitments" id="content_commitments_2">
+		<h3>Compromisos</h3>
+		<div class="row">
+			Compromisos atrasados: <%= @user.delayed_commitments(@project).count %>
+		</div>
 		<table class="table">
 			<thead>
 				<tr>
@@ -29,6 +41,8 @@
 					<th>Progreso esperado</th>
 					<th>Reportes</th>
 					<th>Ultimo reporte</th>
+					<th>Entrega acordada</th>
+					<th>Dias a favor / contra</th>
 				</tr>
 			</thead>
 			<% @user.doing_tasks(@project).each do |t| %>
@@ -38,13 +52,15 @@
 					<td><%= t.expected_progress %></td>
 					<td><%= t.reports.count %></td>
 					<td><%= f_date(@user.last_report_in_task_date(t)) %></td>
+					<td><%= f_date(t.expected_end_date) %></td>
+					<td><%= t.gap_days %></td>
 				</tr>
 			<% end %>
 		</table>
 	</div>
 
-	<div class="col-md-12">
-		<h3>Tareas terminadas:</h3>
+	<div class="col-md-12 content_commitments" id="content_commitments_3" style="display: none;">
+		<h3>Compromisos terminados</h3>
 		<table class="table">
 			<thead>
 				<tr>

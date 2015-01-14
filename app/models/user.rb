@@ -49,6 +49,17 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def delayed_commitments(project)
+		array = []
+		doing_tasks(project).each do |t|
+			if t.delayed
+				array << t
+			end
+		end
+
+		array
+	end
+
 	# 0 = dueño
 	# 1 = admin
 	# 2 = lp

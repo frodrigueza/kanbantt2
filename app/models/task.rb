@@ -216,25 +216,20 @@ class Task < ActiveRecord::Base
 
 		self.save
 	end
+
+	# dias de desfase, utilizado en la vista de assignments
+	def gap_days
+		if progress == 100
+			# primer reporte en el que se reporto un 100% de avance
+			(expected_end_date.to_date - reports.where(progress:100).first.created_at.to_date).to_i
+		elsif expected_progress == 100
+			# dias de atraso ya que la task no esta terminada
+			(expected_end_date.to_date - Date.today).to_i.to_s
+		else
+			''
+		end
+	end
 	
-
-	# def duration
-	# 	if !has_children?
-	#  		if expected_start_date == expected_end_date
-	#  			self.duration = 1
-	#  		else
-	#  			self.duration = ((expected_end_date - expected_start_date)/ (24 * 60 * 60))
-	#  		end
-	#  	else
-	#  		self.duration = 0
-	#  		children.each do |c|
-	#  			self.duration += c.duration
-	#  		end
-	# 	end
-
-	# 	self.sneaky_save
-	# end
-
 	def duration_in_date
 		if expected_start_date and expected_end_date
 	 		if expected_start_date == expected_end_date
@@ -273,7 +268,15 @@ class Task < ActiveRecord::Base
 
 	#último reporte antes de la fecha solicitada
 	def last_report_before(date)
-		reports.before(date).last
+		array = []
+		reports.each do |r|
+			if r.created_at <= date
+				array << r
+			end
+		end
+
+		array = array.sort_by { |r| r.created_at}
+		array.last
 	end
 
 	# días desde que la tarea empezó hasta la fecha
@@ -593,6 +596,6 @@ class Task < ActiveRecord::Base
 	# reporte rapido
 	def fast_report(user_id)
 		# Creamos un reporte hecho por el usuario de la sesion
-		reports << Report.create(progress: 100, user_id: user_id)
+		Report.create(progress: 100, user_id: user_id, task_id: self.id)
 	end
 end

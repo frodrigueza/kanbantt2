@@ -6,14 +6,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.all_projects
-    # if current_user.super_admin
-    #   @projects = Project.all
-    # elsif current_user.enterprise.boss == current_user
-    #   @projects = current_user.enterprise.projects
-    # else
-    #   @projects = current_user.projects
-    # end
+    @projects = current_user.projects
   end
 
   # GET /projects/1

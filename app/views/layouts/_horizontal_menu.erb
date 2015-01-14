@@ -57,24 +57,6 @@
                     <%= link_to 'Indicadores', project_second_indicators_path(@project)%>
                 </td>
             <% end %>
-
-            <!-- CONFIGURACION -->
-            <td>
-                                <!-- Single button -->
-                <div class="btn-group simple_dropdown">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <% if current_user.super_admin %>
-                            <li><%= link_to 'Empresas', enterprises_path %></li>
-                        <% elsif current_user.is_boss %>
-                            <li><%= link_to 'Proyectos', enterprise_projects_path(@enterprise)%></li>
-                            <li><%= link_to 'Usuarios', enterprise_users_path(@enterprise)%></li>
-                        <% end %>
-                    </ul>
-                </div>
-            </td>
         </tr>
     </table>
 </div>

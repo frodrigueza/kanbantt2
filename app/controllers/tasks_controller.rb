@@ -30,6 +30,9 @@ class TasksController < ApplicationController
       @task.expected_end_date = Task.find(params[:parent_id]).expected_end_date
       @task.parent_id = params[:parent_id]
       @task.user_id = Task.find(params[:parent_id]).user_id
+    else
+      @task.expected_start_date = @project.expected_start_date
+      @task.expected_end_date = @project.expected_end_date
     end
 
     respond_to do |format|

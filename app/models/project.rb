@@ -677,7 +677,7 @@ class Project < ActiveRecord::Base
 	end
 
 	def name_the_owner_as_administrator
-		Assignment.create(user_id: user_id, project_id: id, role: 1)
+		Assignment.create(user_id: owner_id, project_id: id, role: 1)
 	end
 
 	private

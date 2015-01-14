@@ -1,12 +1,8 @@
 class Report < ActiveRecord::Base
-	#Pertenece a una tarea
 	belongs_to :task
 	belongs_to :user
 	after_save :update_project
-	after_save :update_task
-	scope :week_of, ->(date) {where(created_at: date.all_week) }
-	scope :before, ->(date) {where('created_at <= ?',date.end_of_day)}
-	default_scope { order(created_at: :asc) }
+	before_save :update_task
 
 	def project
 		task.project
@@ -25,6 +21,6 @@ class Report < ActiveRecord::Base
 	end
 
 	def update_task
-		task.refresh
+		self.task.refresh
 	end
 end
