@@ -52,6 +52,9 @@ gem 'delayed_job_active_record'
 # Para poder hacer la importacion saltando los callbacks
 gem 'sneaky-save', '~> 0.1.0'
 
+# bootstrap switches
+gem "bootstrap-switch-rails"
+
 # gemas para hacer debug mas facil
 group :development do
 	# Registros en consola con colores => AwesomePrint.irb!

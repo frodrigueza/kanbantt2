@@ -111,6 +111,10 @@ class TasksController < ApplicationController
 
   def toggle_urgent
     @task.toggle_urgent
+
+    respond_to do |format|
+      format.js 
+    end
   end
 
   private

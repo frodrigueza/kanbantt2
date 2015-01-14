@@ -11,7 +11,11 @@
  <div class="tags">
  	<table>
  		<tr>
- 			<td><span id="urgent_<%= task.id %>" class="glyphicon glyphicon-pushpin urgent <%= urgent_task_class(task)%>" title="<%= urgent_task_title(task) %>"></span></td>
+ 			<td>
+ 				<%= link_to (task_toggle_urgent_path(task)), remote: true do %>
+ 					<span id="urgent_<%= task.id %>" class="glyphicon glyphicon-pushpin <%= urgent_task_class(task)%>" title="<%= urgent_task_title(task) %>"></span>	
+ 				<% end %>
+ 			</td>
  		</tr>
  	</table>
  </div>

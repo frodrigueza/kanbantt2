@@ -1,5 +1,6 @@
 var ready = function(){
 	suscribe_options();
+	$(".bs-switch").bootstrapSwitch();
 };
 
 $(document).ready(ready);

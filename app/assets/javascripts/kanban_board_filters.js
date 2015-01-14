@@ -5,12 +5,15 @@ $(function(){
 
 		// Metodo que oculta o muestra segun el filtro seleccionado
 		var selectedModifier = function(){
+			
 
 			// rango de tiempo 
 			var daysRange;
 			// almacenamos el valor seleccionado
 			var date_select = $('#date_select_filter').val();
 			var status_select = $('#status_select_filter').val();
+			var pin_select = $('#urgent_filter').is(':checked');
+			console.log(pin_select);
 
 			// segun el valor seleccionado en el select definimos el rango de tiempo a filtrar
 			switch(date_select)
@@ -54,6 +57,7 @@ $(function(){
 				}
 
 				var status = $(this).data('status');
+				var pin_status = $(this).data('pin-status')
 				// console.log(status);
 
 
@@ -123,6 +127,23 @@ $(function(){
 						break;
 				}
 
+				// si esta seleccionado el pin
+				if (pin_select == true) 
+				{
+					// si la task no esta pineada
+					if (pin_status == false) 
+					{
+						$(this).addClass('hidden_by_pin');
+					}
+
+				}
+				// si no esta seleccionado el pin
+				else
+				{
+					// mostramos todas
+					$(this).removeClass('hidden_by_pin');
+				}
+
 
 			});
 
@@ -134,6 +155,9 @@ $(function(){
 		// Suscribimos select de fecha a change() para que cada vez que se cambia el select de fecha
 		$('#date_select_filter').change(selectedModifier);
 		$('#status_select_filter').change(selectedModifier);
+		$('#urgent_filter').on('switchChange.bootstrapSwitch', function(event, state) {
+			selectedModifier();
+		});
 
 
 		//por defecto que se muestre las actividades de esta semana (es el primero de las opciones y el metodo toma la opcion seleccionada)

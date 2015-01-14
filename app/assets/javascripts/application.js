@@ -19,6 +19,7 @@
 //= require angular
 //= require angular-resource
 //= require angular-route
+//= require bootstrap-switch
 //= require_tree .
 
 
