@@ -65,7 +65,7 @@
 		}
 
 		.item{
-			padding: 10px 0px 10px 10px;
+			padding: 5px 0px 5px 10px;
 			width: 100%;
 			text-decoration: none;
 			float: left;
@@ -81,20 +81,14 @@
 
 				.task_name {
 					white-space:normal;
+					min-height: 50px;
 					color: $gris_dos;
 					font-size:12px;
 
 					a{
 						color: $gris_dos;
 						font-size:14px;
-					}
-				}
-				.fast-reporter{
-					position: absolute;
-					right: 0;
-					top: 0;
-					span:hover{
-						color: green;
+						font-weight: bold;
 					}
 				}
 
@@ -103,14 +97,38 @@
 					color: gray;
 				}
 			}
+			.task_header{
+				min-height: 20px;
+				span{
+					color: gray;
+				}
+				table{
+					font-size: 12px;
+					td{
+						padding: 1px 5px 1px 5px;
+						float: right;
+					}
+					.border-right{
+						border-right: 1px solid gray;
+					}
+					.border-left{
+						border-left: 1px solid gray;
+					}
+					.fast-reporter{
+						span:hover{
+							color: green !important;
+						}
+					}
+				}
+			}
 			.helper{
 					width: 25px;
 
 					.arrow{
-						background: white;
+						/*background: white;*/
 						border-radius: 100px 0px 0px 100px;
 						height: 50px;
-						border: 1px solid $gris_uno;
+						/*border: 1px solid $gris_uno;*/
 						border-right: none;
 						color: $gris_uno;
 
@@ -149,22 +167,18 @@
 
 				.task_times{
 					font-size: 12px;
-					font-weight: bold;
-					padding-top: 20px;
 
 					td{
 						padding: 1px 5px 1px 5px;
 					}
 					.remaining{
-						border-radius: 5px;
-						color: white;
-						padding-right: 20px;
+						padding: 0px;
 					}
 					.remaining.bad{
-						background: $rojo;
+						color: $rojo;
 					}
 					.remaining.great{
-						background: $verde;
+						color: $verde;
 					}
 
 					.real_progress{
@@ -182,6 +196,7 @@
 					}
 					.done{
 						color: $verde;
+						padding: 0px;
 					}
 				}
 		.item.active{

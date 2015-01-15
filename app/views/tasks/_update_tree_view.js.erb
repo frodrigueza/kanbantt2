@@ -1,11 +1,11 @@
-// actualizamos todos lo items del tree_view 
+// actualizamos los items del tree_view 
 
 <% if @task %>
 	<% @task.ancestry.each do |t| %>
-		$('#content_<%= t.id %>').html('<%= escape_javascript(render "projects/explorer/content", task: t) %>');
+		$('#item_<%= t.id %>').replaceWith('<%= escape_javascript(render "projects/explorer/tree_view_column_item", task: t) %>');
 	<% end %>
 <% else %>
 	<% @project.tasks.each do |t| %>
-		$('#content_<%= t.id %>').html('<%= escape_javascript(render "projects/explorer/content", task: t) %>');
+		$('#content_<%= t.id %>').replaceWith('<%= escape_javascript(render "projects/explorer/content", task: t) %>');
 	<% end %>
 <% end %>

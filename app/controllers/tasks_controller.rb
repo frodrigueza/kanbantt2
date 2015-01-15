@@ -99,10 +99,10 @@ class TasksController < ApplicationController
   end
 
   def fast_report
-    task = Task.find(params[:task_id])
-    task.fast_report(params[:user_id])
+    @task = Task.find(params[:task_id])
+    @task.fast_report(params[:user_id])
 
-    @project = task.project
+    @project = @task.project
 
     respond_to do |format|
       format.js { render 'update_tree_view.js.erb'}

@@ -20,6 +20,7 @@
 //= require angular-resource
 //= require angular-route
 //= require bootstrap-switch
+//= require date
 //= require_tree .
 
 

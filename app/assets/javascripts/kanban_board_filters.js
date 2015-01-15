@@ -1,3 +1,17 @@
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $(function(){
 	// Metodo que crea la funcion selectedModifier y suscribe el select a esta
@@ -13,7 +27,6 @@ $(function(){
 			var date_select = $('#date_select_filter').val();
 			var status_select = $('#status_select_filter').val();
 			var pin_select = $('#urgent_filter').is(':checked');
-			console.log(pin_select);
 
 			// segun el valor seleccionado en el select definimos el rango de tiempo a filtrar
 			switch(date_select)
@@ -21,15 +34,25 @@ $(function(){
 				case 'Hoy':
 					daysRange = 1;
 					break;
-				case 'Una semana':
-					daysRange = 7;
+
+				// hasta el siguiente domingo
+				case 'Esta semana':
+					var endDay = Date.today().moveToDayOfWeek(0);
+					daysRange = (endDay.getTime() - Date.today().getTime())/ (1000 * 3600 * 24);
 					break;
-				case '15 días':
-					daysRange = 15;
+
+				// dentro de estas 2 semanas
+				case 'Estas 2 semanas':
+					var endDay = Date.today().moveToDayOfWeek(0).moveToDayOfWeek(0);
+					daysRange = (endDay.getTime() - Date.today().getTime())/ (1000 * 3600 * 24);
 					break;
-				case '1 mes':
-					daysRange = 30;
+
+				// este mes
+				case 'Este mes':
+					var endDay = Date.today().moveToLastDayOfMonth();
+					daysRange = (endDay.getTime() - Date.today().getTime())/ (1000 * 3600 * 24);
 					break;
+
 				case 'Todos':
 					daysRange = Number.POSITIVE_INFINITY;
 					break;
@@ -41,24 +64,31 @@ $(function(){
 				var start_date = Date.parse($(this).data('startdate'));
 				var end_date = Date.parse($(this).data('enddate'));
 				var today = $.now();
+				var task_name = $(this).data('name');
+				console.log(task_name);
+				
 				// creamos una variable auxiliar que represente un día (multiplicación)
 				var oneDay = 24*60*60*1000;
+				
 				// alamcenamos el numero de días entre el termino de la tarea hasta hoy
-				var diffDaysEnd = Math.round((end_date - today)/(oneDay));
+				var diffDaysEnd = Math.round((end_date - today)/(oneDay)) + 1;
+					console.log("end " + diffDaysEnd)
 				if (diffDaysEnd < 0) 
 				{
 					diffDaysEnd = Number.POSITIVE_INFINITY;
 				}
+				
 				// alamcenamos el numero de días entre el inicio de la tarea hasta hoy
-				var diffDaysStart = Math.round((start_date - today)/(oneDay));
+				var diffDaysStart = Math.round((start_date - today)/(oneDay)) + 1;
+					console.log("start " + diffDaysStart)
 				if (diffDaysStart < 0) 
 				{
 					diffDaysStart = Number.POSITIVE_INFINITY;
 				}
+				console.log('---');
 
 				var status = $(this).data('status');
 				var pin_status = $(this).data('pin-status')
-				// console.log(status);
 
 
 				var show = false;

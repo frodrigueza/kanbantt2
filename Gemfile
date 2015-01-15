@@ -55,6 +55,9 @@ gem 'sneaky-save', '~> 0.1.0'
 # bootstrap switches
 gem "bootstrap-switch-rails"
 
+# libreria js para fechas
+gem 'datejs-rails'
+
 # gemas para hacer debug mas facil
 group :development do
 	# Registros en consola con colores => AwesomePrint.irb!

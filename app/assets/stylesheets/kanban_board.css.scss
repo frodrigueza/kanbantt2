@@ -99,12 +99,13 @@
 				padding: 3px;
 				span{
 					color: $gris_uno;
+					font-weight: bold;
 				}
 				span:hover{
 					color: black;
 				}
 				span.active{
-					color: $rojo;
+					color: $azul_dos;
 				}
 				span.active:hover{
 					color: $rojo;

@@ -52,11 +52,11 @@
             </td>
 
             <!-- INDICADORES -->
-            <% if @project && @project.id %>
-                <td class="<%= params[:action] == 'indicators' ? 'active' : ''%>">
-                    <%= link_to 'Indicadores', project_second_indicators_path(@project)%>
-                </td>
-            <% end %>
+            <!-- @project && @project.id  -->
+                <!-- <td class="= params[:action] == 'indicators' ? 'active' : ''"> -->
+                    <!-- link_to 'Indicadores', project_second_indicators_path(@project) -->
+                <!-- </td> -->
+             <!-- end  -->
         </tr>
     </table>
 </div>

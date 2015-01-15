@@ -1,22 +1,19 @@
-<% task = locals[:task] %>
 <!-- El item lleva el id de la task en el atributo HTML 'id' -->
 <div class="item" id="item_<%= task.id %>">
-	<div class="full">
-		<table class="full">
-			<tr>
-				<td class="content" id="content_<%= task.id %>">
-					<%= render 'projects/explorer/content', task: task %>
-				</td>
 
-				<!-- Flecha para agregar la siguiente columna -->
-				<!-- Posee un link_to remoto que llama a un archivo AJAX ubicado en projects -->
-				<!-- La class: slow_ajax es para que se bloquee la pantalla al hacer click en él y se desbloquee al tener una respuesta del servidor -->
-				<td class="helper">
-					<%= link_to '<div class="arrow"><span class="glyphicon glyphicon-chevron-right"></span></div>'.html_safe, project_add_tree_view_column_path(task.project, parent_id: task.id), {remote: true, id: 'item_' + task.id.to_s + '_link', class:'slow_ajax'}%>
-				</td>
-			</tr>
-		</table>
-	</div>
+		<div class="row">
+			<table class="full content_table">
+				<tr>
+					<!-- contenido que se reemplaza despues por ajax -->
+					<%= render 'projects/explorer/content', task: task %>
+
+					<!-- flecha para ir a hijos -->
+					<td class="helper" title="Ver tareas hijas">
+						<%= link_to '<div class="arrow"><span class="glyphicon glyphicon-chevron-right"></span></div>'.html_safe, project_add_tree_view_column_path(task.project, parent_id: task.id), {remote: true, id: 'item_' + task.id.to_s + '_link', class:'slow_ajax'}%>
+					</td>
+				</tr>
+			</table>
+		</div>
 </div>
 
 
