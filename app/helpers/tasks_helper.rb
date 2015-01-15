@@ -105,6 +105,14 @@ module TasksHelper
     end
   end
 
+  def user_assigned_task_title(task)
+    'Tarea asignada a ' + task.user.f_name
+  end
+
+  def user_commited_tak_title(task)
+    task.user.f_name + ' se ha comprometido a realizar esta tarea'
+  end
+
 
 
 

@@ -13,5 +13,17 @@
 		<td>
 			<span><%= task.duration.to_i %>d</span>
 		</td>
+
+		<% if task.user_id %>
+			<td>
+				<span class="glyphicon glyphicon-user" title="<%= user_assigned_task_title(task) %>"></span>
+			</td>
+
+			<% if task.state == 2 %>
+				<td>
+					<span class="glyphicon glyphicon-link" title="<%= user_commited_tak_title(task) %>"></span>
+				</td>
+			<% end %>
+		<% end %>
 	</tr>
 </table>

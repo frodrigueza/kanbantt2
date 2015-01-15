@@ -70,7 +70,7 @@
 			text-decoration: none;
 			float: left;
 			position: relative;
-			border-bottom: 1px solid $gris_uno;
+			border-bottom: 1px solid $gris_seis;
 
 			.content{
 
@@ -81,7 +81,6 @@
 
 				.task_name {
 					white-space:normal;
-					min-height: 50px;
 					color: $gris_dos;
 					font-size:12px;
 
@@ -103,7 +102,7 @@
 					color: gray;
 				}
 				table{
-					font-size: 12px;
+					font-size: 11px;
 					td{
 						padding: 1px 5px 1px 5px;
 						float: right;
@@ -166,7 +165,7 @@
 		}
 
 				.task_times{
-					font-size: 12px;
+					font-size: 11px;
 
 					td{
 						padding: 1px 5px 1px 5px;
