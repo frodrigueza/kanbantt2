@@ -11,6 +11,7 @@
       <thead>
         <tr>
           <th>Nombre</th>
+          <th>Unidad</th>
           <th>Avance</th>
           <th>Avance esperado</th>
           <th>Inicio esperado</th>
@@ -24,6 +25,7 @@
         <% @projects.each do |p| %>
           <tr>
             <td><%= link_to p.name, project_path(p) %></td> 
+            <td><%= p.f_resources_type %></td> 
             <td><%= p.progress.to_f %> %</td>
             <td><%= p.expected_progress.to_f %> %</td>
             <td><%= f_date(p.start_date) %></td>
@@ -33,10 +35,10 @@
             <% else %>
               <td></td>
             <% end %>
+            <td><%= current_user.f_role_in_project(p)%></td>
             <% if current_user.can_edit_project(p) %>
               <td><%= link_to_modal 'X', project_delete_path(p) %></td>
             <% end %>
-            <td><%= current_user.f_role_in_project(p)%></td>
           </tr>
         <% end %>
       </tbody>

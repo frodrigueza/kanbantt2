@@ -26,7 +26,8 @@ $(function(){
 			// almacenamos el valor seleccionado
 			var date_select = $('#date_select_filter').val();
 			var status_select = $('#status_select_filter').val();
-			var pin_select = $('#urgent_filter').is(':checked');
+			var pin_select = $('#pin-switch').is(':checked');
+			console.log(pin_select);
 
 			// segun el valor seleccionado en el select definimos el rango de tiempo a filtrar
 			switch(date_select)
@@ -185,7 +186,7 @@ $(function(){
 		// Suscribimos select de fecha a change() para que cada vez que se cambia el select de fecha
 		$('#date_select_filter').change(selectedModifier);
 		$('#status_select_filter').change(selectedModifier);
-		$('#urgent_filter').on('switchChange.bootstrapSwitch', function(event, state) {
+		$('#pin-switch').on('switchChange.bootstrapSwitch', function(event, state) {
 			selectedModifier();
 		});
 

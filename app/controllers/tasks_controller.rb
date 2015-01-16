@@ -35,6 +35,16 @@ class TasksController < ApplicationController
       @task.expected_end_date = @project.expected_end_date
     end
 
+    if @project
+      if @project.resources_type == 1
+        @task.resources_cost = 100
+      elsif @project.resources_type == 2
+        @task.resources_cost = 1
+      elsif @project.resources_type == 3
+        @task.resources_cost = 8
+      end
+    end
+
     respond_to do |format|
       format.html
     end

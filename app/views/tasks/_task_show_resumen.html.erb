@@ -7,26 +7,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<div class="full">
-			<table class="graphs">
-				<tr class="titles">
-					<td class="real">Avance real</td>
-					<td class="expected">Avance esperado</td>
-				</tr>
-				<tr>
-					<td class="real">
-						<%= image_tag real_image(@task.progress.to_i) %>
-					</td>
-					<td class="expected">
-						<%= image_tag expected_image(@task.expected_progress.to_i) %>
-					</td>
-				</tr>
-				<tr class="indicators">
-					<td class="real"><%= @task.progress %> %</td>
-					<td class="expected"><%= @task.expected_progress %> %</td>
-				</tr>
-			</table>
-		</div>
+		
 	</div>
 </div>
 

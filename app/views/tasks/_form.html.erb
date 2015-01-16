@@ -3,6 +3,13 @@
     <!-- Nombre -->
     <%= f.text_area :name, :required => true, :label => 'Nombre' %>
 
+    <% if !@task.has_children? %>
+        <!-- Costo en recursos -->
+        <% if @project.resources_type != 0 %>
+          <%= f.number_field :resources_cost, :required => true, :label => 'Costo (' + @project.f_resources_type + ')'%>
+        <% end %>
+    <% end %>
+
     <!-- Responsable -->
     <%= f.select :user_id, @task.project.users.map{|u| [u.f_name, u.id]}, include_blank: true, label: 'Responsable' %>
 
@@ -10,17 +17,14 @@
     <%= f.hidden_field :parent_id %>
 
 
+    <% if !@task.has_children? %>
+        <!-- Fecha inicio -->
+        <%= f.date_select :expected_start_date, {:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'], :required => true, label: 'Inicio esperado'} %>
 
-    <!-- Fecha inicio -->
-    <%= f.date_select :expected_start_date, {:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'], :required => true, label: 'Inicio esperado'} %>
-
-    <!-- Fecha termino -->
-    <%= f.date_select :expected_end_date, {:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'], :required => true, label: 'Término esperado'} %>
-
-    <!-- Costo en recursos -->
-    <% if @project.resources_type != 0 %>
-      <%= f.number_field :resources_cost, :required => true, :label => 'Costo de la tarea en recursos', :value => 100 %>
+        <!-- Fecha termino -->
+        <%= f.date_select :expected_end_date, {:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'], :required => true, label: 'Término esperado'} %>
     <% end %>
+
 
     <!-- Proyecto -->
     <%= f.hidden_field :project_id, value: @project.id %>

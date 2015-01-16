@@ -1,8 +1,15 @@
 <table class="kanban_filters">
 	<tr>
+		<!-- buscador -->
 		<td>Buscar: <%= text_field_tag 'search_field', '',{ class:'search_field'} %></td>
+
+		<!-- fechas -->
 		<td id="date_select_filter_td">Periodo: <%= select_tag 'date_select_filter', options_for_select(time_filter_options, 'Todos'), { id:'date_select_filter'} %></td>
+
+		<!-- condicion -->
 		<td>Condicion: <%= select_tag 'status_select_filter', options_for_select(status_filter_options, 'Todos'), { id:'status_select_filter'} %></td>
-		<td><input type="checkbox" class="bs-switch" data-size="mini" data-on-text="<span class='glyphicon glyphicon-pushpin'><span>" data-off-text="<span class='glyphicon glyphicon-pushpin'><span>" data-handle-width="40" id="urgent_filter"></td>
+
+		<!-- pin -->
+		<td><input type="checkbox" id="pin-switch" class="bs-switch" data-size="mini" data-on-text="<span class='glyphicon glyphicon-pushpin'><span>" data-off-text="<span class='glyphicon glyphicon-pushpin'><span>" data-handle-width="40"></td>
 	</tr>
 </table>

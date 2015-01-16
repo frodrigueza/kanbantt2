@@ -39,6 +39,80 @@
 			h3 {font-size:20px; margin: 0px; margin-right: 8px;}		
 		}
 
+		.item{
+			font-size: 12px;
+			.task_header{
+
+				.task_info{
+					float: left;
+					td{
+						color:white;
+						float:left;
+						padding: 0px 10px;
+						/*font-size: 12px;*/
+						
+					}
+
+					.parent_name{
+						background: $azul_dos;
+					}
+					.task_cost{
+						color: $azul;
+					}
+				}
+				.tags{
+					float: right;
+					td{
+						padding: 3px;
+						/*font-size: 12px;*/
+						span{
+							color: $gris_uno;
+							font-weight: bold;
+						}
+						span:hover{
+							color: black;
+						}
+						span.active{
+							color: $azul_dos;
+						}
+						span.active:hover{
+							color: $rojo;
+						}
+					}
+				}
+			}
+			.task_name{
+				background-color:lighten(black,95%);
+				padding: 10px;
+				border-top: 1px solid #D8D8D8;
+				border-bottom: 1px solid #D8D8D8;
+				color: #3b5998;
+				font-weight: bold;
+			}
+			
+			.task_footer{
+				table{
+					width: 100%;
+					td{
+						padding: 5px 10px;
+					}
+				}
+				.bad{
+					color: $rojo;
+				}
+				.great{
+					color: $verde;
+				}
+				.expected_progress{
+					color: $gris_uno;
+					float: right;
+				}
+				.real_progress{
+					float: right;
+				}
+			}
+		}
+
 	}
 	.sortable_group{
 
@@ -83,69 +157,10 @@
 		padding-left: 5px;
 		color: $gris_uno;
 	}
-	.task_header{
-
-		.parent_name{
-			background-color:#3D8EB9;
-			color:white;
-			float:left;
-			padding-left: 5px;
-			padding-right: 5px;
-			margin-bottom: 8px;
-		}
-		.tags{
-			float: right;
-			td{
-				padding: 3px;
-				span{
-					color: $gris_uno;
-					font-weight: bold;
-				}
-				span:hover{
-					color: black;
-				}
-				span.active{
-					color: $azul_dos;
-				}
-				span.active:hover{
-					color: $rojo;
-				}
-			}
-		}
-	}
-	.task_name{
-		background-color:lighten(black,95%);
-		padding: 10px;
-		border-top: 1px solid #D8D8D8;
-		border-bottom: 1px solid #D8D8D8;
-		color: #3b5998;
-		font-size:15px;
-	}
+	
 
 
 }
 
 
 
-
-.task_footer{
-	table{
-		width: 100%;
-		td{
-			padding: 5px 10px;
-		}
-	}
-	.bad{
-		color: $rojo;
-	}
-	.great{
-		color: $verde;
-	}
-	.expected_progress{
-		color: $gris_uno;
-		float: right;
-	}
-	.real_progress{
-		float: right;
-	}
-}

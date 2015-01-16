@@ -1,15 +1,18 @@
-<div class="parent_name">
-	<%= task.parent_name %>
-</div>
+<!-- tabla izquierda -->
+<table class="task_info">
+	<tr>
+		<td class="parent_name"><%= task.parent_name %></td>
+		<td class="task_cost"><%= task.f_duration_or_cost %></td>
+	</tr>
+</table>
 
- <div class="tags">
- 	<table>
- 		<tr>
- 			<td>
- 				<%= link_to (task_toggle_urgent_path(task)), remote: true do %>
- 					<span id="urgent_<%= task.id %>" class="glyphicon glyphicon-pushpin <%= urgent_task_class(task)%>" title="<%= urgent_task_title(task) %>"></span>	
- 				<% end %>
- 			</td>
- 		</tr>
- 	</table>
- </div>
+<!-- tabla derecha -->
+<table class="tags">
+	<tr>
+		<td>
+			<%= link_to (task_toggle_urgent_path(task)), remote: true do %>
+				<span id="urgent_<%= task.id %>" class="glyphicon glyphicon-pushpin <%= urgent_task_class(task)%>" title="<%= urgent_task_title(task) %>"></span>	
+			<% end %>
+		</td>
+	</tr>
+</table>

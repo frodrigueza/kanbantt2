@@ -191,6 +191,20 @@ class Task < ActiveRecord::Base
 		end
 	end
 
+	def f_duration_or_cost
+		r_type = project.resources_type
+		case r_type
+		when 0
+			duration.to_s + ' d'
+		when 1
+			resources_cost_from_children.round().to_s + ' USD'	
+		when 2
+			resources_cost_from_children.round().to_s + ' UF'	
+		when 3
+			resources_cost_from_children.round().to_s + ' HH'	
+		end
+	end
+
 	def toggle_urgent
 		if self.urgent
 			self.urgent = false

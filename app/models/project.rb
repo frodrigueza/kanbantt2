@@ -35,7 +35,7 @@ class Project < ActiveRecord::Base
 
 	def f_resources_type
 		if resources_type == 0
-			return ''
+			return 'Tiempo'
 		elsif resources_type == 1
 			return 'USD'
 		elsif resources_type == 2
