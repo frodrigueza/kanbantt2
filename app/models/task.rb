@@ -182,6 +182,15 @@ class Task < ActiveRecord::Base
 		return false
 	end
 
+	# si se encuentra comprometida o no
+	def commited
+		if !has_children? && progress != 100 && state == 1 && user_id
+			true
+		else
+			false
+		end
+	end
+
 	def toggle_urgent
 		if self.urgent
 			self.urgent = false

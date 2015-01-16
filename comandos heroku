@@ -7,7 +7,10 @@ heroku run rake db:version
 heroku logs -t
 
 
-padder: arriba derecha abajo izq
-
-
-<%= link_to (image_tag c.preview_image), c.url, {class:c.content_class, target: '_blank'} %>
+Servidor kanbantt antiguo:
+ssh azureuser@kanbantt.cloudapp.net
+javiera123
+ctrl r grep
+ctrl r kill
+cambiar el numero
+RAILS_ENV=production rake assets:precompile 

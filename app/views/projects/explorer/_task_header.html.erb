@@ -19,7 +19,7 @@
 				<span class="glyphicon glyphicon-user" title="<%= user_assigned_task_title(task) %>"></span>
 			</td>
 
-			<% if task.state == 2 %>
+			<% if task.commited %>
 				<td>
 					<span class="glyphicon glyphicon-link" title="<%= user_commited_tak_title(task) %>"></span>
 				</td>
