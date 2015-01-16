@@ -12,16 +12,6 @@ class ApplicationController < ActionController::Base
 
   def set_objects
 
-    #   # PROYECTOS
-    if current_user
-      if current_user.super_admin
-        @projects = Project.all
-      elsif current_user.enterprise.boss == current_user
-        @projects = current_user.enterprise.projects
-      else
-        @projects = current_user.projects
-      end
-    end
 
     # # EMPRESA
     # if params[:enterprise_id]

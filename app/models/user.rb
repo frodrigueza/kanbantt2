@@ -24,16 +24,6 @@ class User < ActiveRecord::Base
 		name + ' ' + last_name
 	end
 
-	def is_boss
-		if self.super_admin
-			false
-		elsif self.enterprise.boss == self
-			true
-		else
-			false
-		end
-	end
-
 	def last_report_in_task(task)
 		reports.where(task_id: task.id).last
 	end

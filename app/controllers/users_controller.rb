@@ -88,13 +88,7 @@ class UsersController < ApplicationController
   end
 
   def root_router
-    if current_user.super_admin
-      redirect_to projects_path
-    elsif current_user.is_boss
-      redirect_to enterprise_projects_path(current_user.enterprise)
-    else
-      redirect_to current_user_path
-    end
+    redirect_to projects_path
   end
 
   def user_params
