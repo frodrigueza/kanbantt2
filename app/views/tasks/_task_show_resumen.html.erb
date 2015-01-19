@@ -18,7 +18,7 @@
 			<p><%= f_date(@task.expected_end_date_from_children) %></p>
 			
 			<h4>Responsable</h4>
-			<p><%= @task.user ? @task.f_name :  'No definido' %></p>
+			<p><%= @task.user ? @task.user.f_name :  'No definido' %></p>
 			
 			<h4>Estado</h4>
 			<p><%= @task.f_state %></p>
