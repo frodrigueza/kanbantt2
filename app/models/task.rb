@@ -226,11 +226,11 @@ class Task < ActiveRecord::Base
 			'Tarea no asignada'
 		else
 			if state == 0
-				'Tarea asignada a ' + self.user.f_name
+				'Asignada'
 			elsif state == 1
-				'Tare comprometida por ' + self.user.f_name
+				'Comprometida'
 			elsif state == 2
-				'Tare finalizada por ' + self.user.f_name
+				'Finalizada'
 			end
 		end
 	end

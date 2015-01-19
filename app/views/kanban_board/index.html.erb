@@ -10,7 +10,7 @@
 				<table>
 					<tr>
 						<td><h3>Tareas por hacer</h3></td>
-						<td id="inactive_counter"></td>
+						<td class="counter">(<span id="inactive_counter"></span> <%= @project.f_resources_type %>)</td>
 					</tr>
 				</table>
 			</div>
@@ -31,7 +31,7 @@
 				<table>
 					<tr>
 						<td><h3>Compromisos en proceso</h3></td>
-						<td id="in_progress_counter"></td>
+						<td class="counter">(<span id="in_progress_counter"></span> <%= @project.f_resources_type %>)</td>
 					</tr>
 				</table>
 			</div>
@@ -52,7 +52,7 @@
 				<table>
 					<tr>
 						<td><h3>Compromisos terminados</h3></td>
-						<td id="done_counter"></td>
+						<td class="counter">(<span id="done_counter"></span> <%= @project.f_resources_type %>)</td>
 					</tr>
 				</table>
 			</div>

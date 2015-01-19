@@ -113,6 +113,14 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
+  def root
+    if current_user.role_in_project(@project) == 1
+      redirect_to project_tree_view_path(@project)
+    elsif current_user.role_in_project(@project) == 2
+      redirect_to kanban_board_index_path(project_id: @project.id)
+    end
+  end
+
   def export
     project = Project.find(params[:project_id])
     e = Exporter.new(project)

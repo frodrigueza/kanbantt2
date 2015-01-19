@@ -174,10 +174,10 @@
 						padding: 0px;
 					}
 					.remaining.bad{
-						color: $rojo;
+						color: $rojo !important;
 					}
 					.remaining.great{
-						color: $verde;
+						color: $verde !important;
 					}
 
 					.real_progress{
@@ -194,8 +194,10 @@
 						color: $gris_uno;
 					}
 					.done{
-						color: $verde;
 						padding: 0px;
+						span{
+							color: $verde !important;
+						}
 					}
 				}
 		.item.active{

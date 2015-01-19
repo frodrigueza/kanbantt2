@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new(enterprise_id: params[:enterprise_id])
+    @user = User.new()
   end
 
   # GET /users/1/edit
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     # @user.name = @user.name.camelize
     respond_to do |format|
       if @user.save
-        format.html { redirect_to request.referer }
+        format.html { redirect_to users_path }
         format.json { render :show, status: :created, location: '/users' }
       else
         format.html { render 'new' } ## Specify the format in which you are rendering "new" page

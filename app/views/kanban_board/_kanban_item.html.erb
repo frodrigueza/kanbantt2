@@ -1,4 +1,4 @@
-<li class="kanban_item item" data-startdate="<%= task.expected_start_date %>" data-enddate="<%= task.expected_end_date %>" data-status="<%= 'delayed' if task.delayed  %>" data-pin-status="<%= task.urgent %>" data-name="<%= task.name %>">
+<li class="kanban_item item" data-startdate="<%= task.expected_start_date %>" data-enddate="<%= task.expected_end_date %>" data-status="<%= 'delayed' if task.delayed  %>" data-pin-status="<%= task.urgent %>" data-name="<%= task.name %>" data-resources="<%= task.resources_cost %>">
 	<div class="row task_header">
 		<%= render 'kanban_board/task_header', task: task %>		
 	</div>

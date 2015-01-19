@@ -47,7 +47,7 @@ module TasksHelper
   # entrga lo que falta de manera formateada, se ocupa en la vista del arbol
   def remaining_days(task)
     if task.progress == 100
-      'Finalizada'
+      '<span class="glyphicon glyphicon-ok"></span>'.html_safe
     elsif task.remaining < 0
       if task.remaining.abs <= 1
         'Termina hoy'
@@ -78,14 +78,6 @@ module TasksHelper
       'bad'
     else
       'great'
-    end
-  end
-
-  def progress_or_symbol(t)
-    if t.progress.to_i == 100
-      '<span class="glyphicon glyphicon-check"></span>'
-    else
-      '<div class="real_progress ' + started_status(t.in_progress) +'">' + t.info_progress[0].to_s + '% real ' + '</div>'+'<div class="expected_progress">' + t.info_progress[1].to_s + '% esperado </div>'
     end
   end
 

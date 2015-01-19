@@ -17,7 +17,7 @@
                     </button>
                     <ul class="dropdown-menu projects" role="menu">
                         <% @current_user.projects.each do |p| %>
-                            <li><%= link_to p.name, project_tree_view_path(p) %></li>
+                            <li><%= link_to p.name, project_root_path(p) %></li>
                         <% end %>
                         <li class="divider"></li>
                         <li><%= link_to 'Todos los proyectos', projects_path() %></li>

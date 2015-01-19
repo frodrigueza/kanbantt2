@@ -64,6 +64,7 @@ Rails.application.routes.draw do
     get 'delete'
     get 'second_indicators'
     get 'tree_view'
+    get 'root'
     get 'add_tree_view_column'
     get 'export'
     get 'kanban_board', to: 'kanban_board#index', as: :kanban_board_index

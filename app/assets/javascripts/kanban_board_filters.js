@@ -203,7 +203,28 @@ $(function(){
 
 // dejamos esta funcion fuera del scope para poder llamarla desde otros archivos. (kanban.js)
 var updateCounters = function(){
-	$('#inactive_counter').html("(" + $('#inactive_kanban_column').find('.kanban_item').filter(":visible").size() + ")");
-	$('#in_progress_counter').html("(" + $('#in_progress_kanban_column').find('.kanban_item').filter(":visible").size() + ")");
-	$('#done_counter').html("(" + $('#done_kanban_column').find('.kanban_item').filter(":visible").size() + ")");
+	var inactive_resources_counter = 0
+	var in_progress_resources_counter = 0
+	var done_resources_counter = 0
+
+	// inactivos
+	$('#inactive_kanban_column').find('.kanban_item').filter(":visible").each(function(index, value){
+		inactive_resources_counter += parseInt($(this).data('resources'));
+	});
+
+	// inactivos
+	$('#in_progress_kanban_column').find('.kanban_item').filter(":visible").each(function(index, value){
+		in_progress_resources_counter += parseInt($(this).data('resources'));
+	});
+
+	// inactivos
+	$('#done_kanban_column').find('.kanban_item').filter(":visible").each(function(index, value){
+		done_resources_counter += parseInt($(this).data('resources'));
+	});
+
+
+
+	$('#inactive_counter').html(inactive_resources_counter);
+	$('#in_progress_counter').html(in_progress_resources_counter);
+	$('#done_counter').html(done_resources_counter);
 }

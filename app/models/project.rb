@@ -37,11 +37,11 @@ class Project < ActiveRecord::Base
 		if resources_type == 0
 			return 'Tiempo'
 		elsif resources_type == 1
-			return 'USD'
+			return 'usd'
 		elsif resources_type == 2
 			return 'UF'
 		elsif resources_type == 3
-			return 'HH'
+			return 'hh'
 		end
 	end
 
@@ -545,19 +545,6 @@ class Project < ActiveRecord::Base
 	def full_duration
 		d = (expected_start_date.to_date..expected_end_date.to_date).select {|d| (1..5).include?(d.wday) }.size
 		d != 0 ? d : 1
-	end
-
-	def f_resources_type
-		case resources_type
-			when 0
-			  return "Tiempo"
-			when 1
-			  return "USD"
-			when 2
-			  return "UF"
-			when 3
-			  return "H/H"
-		end
 	end
 
 	def last_planners

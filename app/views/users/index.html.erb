@@ -9,15 +9,15 @@
 		<table class="table">
 			<thead>
 				<th>Nombre</th>
-				<th>Apellido</th>
-				<th></th>
+				<th>Categoria</th>
 			</thead>
 			<% @users.each do |u| %>
 				<tr>
-					<td><%= u.name %></td>
 					<td><%= u.f_name %></td>
+					<td><%= u.super_admin ? 'Super admin' : 'Usuario normal' %></td>
 				</tr>
 			<% end %>
 		</table>
+		<%= link_to_modal 'Nuevo usuario', new_user_path %>
 	</div>
 </div>
