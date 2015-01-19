@@ -272,8 +272,13 @@ class Task < ActiveRecord::Base
 	end
 
 	def refresh
+		# si tiene progreso 100, la movemos a la columna de finalizada
 		if progress == 100
 			self.state = 2
+
+		# si es que esta marcada como finalizada y su progreso no es de 100%, la movemos a la columna de inactivos
+		elsif state == 2
+			self.state = 0
 		end
 
 		self.save
@@ -657,7 +662,11 @@ class Task < ActiveRecord::Base
 
 	# reporte rapido
 	def fast_report(user_id)
-		# Creamos un reporte hecho por el usuario de la sesion
-		Report.create(progress: 100, user_id: user_id, task_id: self.id)
+		if progress != 100
+			# Creamos un reporte hecho por el usuario de la sesion
+			Report.create(progress: 100, user_id: user_id, task_id: self.id)
+		end
+		self.state = 2
+		self.save
 	end
 end

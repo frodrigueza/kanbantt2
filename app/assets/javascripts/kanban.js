@@ -25,6 +25,18 @@ var kanban = function(){
                 if (column_id == 'done_kanban_column') 
                 {   
                     new_state = 2;
+                    // reportamos la task como 100%
+                    $.ajax({
+                        url: "/reports",
+                        type: "POST",
+                        data: {
+                            report: {
+                                 task_id: task_id, 
+                                 user_id: user_id,
+                                 progress: 100 
+                             }
+                        }
+                    });
                 }
                 else if(column_id == 'in_progress_kanban_column')
                 {
@@ -55,17 +67,6 @@ var kanban = function(){
                     }
                 });
 
-                    // $.ajax({
-                    //     url: "/reports",
-                    //     type: "POST",
-                    //     data: {
-                    //         report: {
-                    //              task_id: task_id, 
-                    //              user_id: user_id,
-                    //              progress: 100 
-                    //          }
-                    //     }
-                    // });
 
 
 

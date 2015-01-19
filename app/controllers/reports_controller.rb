@@ -57,8 +57,12 @@ class ReportsController < ApplicationController
   # DELETE /reports/1.json
   def destroy
     @project = @report.project
+    task = @report.task
     @report_id = @report.id
     @report.destroy
+    
+    # refrescamos la tarea
+    task.refresh
     respond_to do |format|
       format.html { redirect_to request.referer }
       format.json { head :no_content }
