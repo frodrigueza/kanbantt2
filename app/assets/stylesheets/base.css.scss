@@ -364,6 +364,21 @@ h2{
 	float: left;
 }
 
+
+.info{
+	width: 100%;
+	h4{
+		font-weight: bold;
+		font-size: 12px !important;
+		margin: 10px 0px 0px 0px;
+	}
+	p{
+		font-size: 12px !important;	
+		margin: 0px;
+		padding-left: 15px;
+	}
+}
+
 .infomodal {
 	margin-top: -15px;
 	margin-bottom: 30px;

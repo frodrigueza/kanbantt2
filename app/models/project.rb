@@ -635,18 +635,18 @@ class Project < ActiveRecord::Base
 		return last_date_value
 	end
 
-	def expected_end_date
+	def expected_end_date_from_children
 		if has_children?
-			tasks.max_by { |x| x.expected_end_date }.expected_end_date
+			tasks.max_by { |x| x.expected_end_date }.expected_end_date_from_children
 		else
 			# Por defecto los proyectos duran 1 semana, despues se puede editar segun las task que se le agreguen
 			Date.today + 7
 		end
 	end
 
-	def expected_start_date
+	def expected_start_date_from_children
 		if has_children?
-			tasks.min_by { |x| x.expected_end_date }.expected_start_date
+			tasks.min_by { |x| x.expected_end_date }.expected_start_date_from_children
 		else
 			Date.today
 		end

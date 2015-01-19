@@ -145,8 +145,6 @@ class User < ActiveRecord::Base
 	def can_edit_task(task)
 		if super_admin
 			return true
-		elsif is_boss && task.enterprise == enterprise 
-			return true
 		elsif a = Assignment.where(user_id: id, project_id: task.project.id).first
 			if a.role == 1
 				return true
@@ -176,8 +174,6 @@ class User < ActiveRecord::Base
 
 	def can_edit_project(project)
 		if super_admin
-			return true
-		elsif is_boss && project.enterprise == enterprise 
 			return true
 		elsif a = Assignment.where(user_id: id, project_id: project.id).first
 			if a.role == 1

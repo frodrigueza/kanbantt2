@@ -1,13 +1,28 @@
 <!-- VISTA RESUMEN DE MODAL TAREA -->
 <div class="row title">
 	<div class="col-md-12">
-		<%= @task.project.resources ? 'Recursos' : 'Tiempo'  %>
+		Información
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-md-12">
-		
+		<div class="row info">
+			<h4>Nombre</h4>
+			<p><%= @task.name %></p>
+			
+			<h4>Fecha inicio</h4>
+			<p><%= f_date(@task.expected_start_date) %></p>
+			
+			<h4>Fecha término</h4>
+			<p><%= f_date(@task.expected_end_date_from_children) %></p>
+			
+			<h4>Responsable</h4>
+			<p><%= @task.user ? @task.f_name :  'No definido' %></p>
+			
+			<h4>Estado</h4>
+			<p><%= @task.f_state %></p>
+		</div>
 	</div>
 </div>
 

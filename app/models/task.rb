@@ -191,17 +191,47 @@ class Task < ActiveRecord::Base
 		end
 	end
 
+	def expected_start_date_from_children
+		if !has_children?
+			return expected_start_date
+		else
+			children.min_by { |x| x.expected_start_date_from_children }.expected_start_date_from_children
+		end
+	end
+
+	def expected_end_date_from_children
+		if !has_children?
+			return expected_end_date
+		else
+			children.max_by { |x| x.expected_end_date_from_children }.expected_end_date_from_children
+		end
+	end
+
 	def f_duration_or_cost
 		r_type = project.resources_type
 		case r_type
 		when 0
 			duration.to_s + ' d'
 		when 1
-			resources_cost_from_children.round().to_s + ' USD'	
+			resources_cost_from_children.round().to_s + ' usd'	
 		when 2
 			resources_cost_from_children.round().to_s + ' UF'	
 		when 3
-			resources_cost_from_children.round().to_s + ' HH'	
+			resources_cost_from_children.round().to_s + ' hh'	
+		end
+	end
+
+	def f_state
+		if !self.user
+			'Tarea no asignada'
+		else
+			if state == 0
+				'Tarea asignada a ' + self.user.f_name
+			elsif state == 1
+				'Tare comprometida por ' + self.user.f_name
+			elsif state == 2
+				'Tare finalizada por ' + self.user.f_name
+			end
 		end
 	end
 
@@ -226,7 +256,7 @@ class Task < ActiveRecord::Base
 
 	# días que quedan desde hoy hasta la fecha esperada de término
 	def remaining
-		(self.expected_end_date - Time.now)/(60 * 60 * 24).to_i
+		(self.expected_end_date_from_children - Time.now)/(60 * 60 * 24).to_i
 	end
 
 	def ancestry
@@ -614,7 +644,7 @@ class Task < ActiveRecord::Base
 	# Costo calculado dinamicamente segun los hijos
 	def resources_cost_from_children
 		if !has_children?
-			resources_cost
+			return self.resources_cost
 		else
 			suma = 0
 			children.each do |c|

@@ -26,8 +26,9 @@ class TasksController < ApplicationController
 
     # hay veces que se crean tareas de primer nivel por lo que no tienen parent_id, solo corresponden al proyecto.
     if params[:parent_id]
-      @task.expected_start_date = [Task.find(params[:parent_id]).expected_start_date, Date.today].max
-      @task.expected_end_date = Task.find(params[:parent_id]).expected_end_date
+      parent = Task.find(params[:parent_id])
+      @task.expected_start_date = parent.expected_start_date_from_children
+      @task.expected_end_date = parent.expected_end_date_from_children
       @task.parent_id = params[:parent_id]
       @task.user_id = Task.find(params[:parent_id]).user_id
     else
