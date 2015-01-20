@@ -21,7 +21,7 @@
 					<%= bootstrap_form_for(Report.new(task_id: @task.id, progress: @task.progress.to_i), remote: true) do |f| %>
 						<%= f.hidden_field :user_id, value: current_user.id %>
 						<%= f.hidden_field :task_id %>
-				    	<%= f.number_field :progress, :in => 0..100, :step => 1, label: 'Porcentaje de avance'  %>
+				    	<%= f.number_field :progress, :in => 0..100, :step => 'any', label: 'Porcentaje de avance'  %>
 
 						<!-- Mostrar el reportar solo si se puede -->
 						<% if @task.project.resources_reporting && @projecto.resources_type != 0 %>
