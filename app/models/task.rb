@@ -298,11 +298,13 @@ class Task < ActiveRecord::Base
 	end
 	
 	def duration_in_date
-		if expected_start_date and expected_end_date
-	 		if expected_start_date == expected_end_date
+		aux_start = expected_start_date_from_children
+		aux_end = expected_end_date_from_children
+		if aux_start and aux_end
+	 		if aux_start == aux_end
 	 			return 1
 	 		else
-	 			((expected_end_date - expected_start_date)/ (24 * 60 * 60))
+	 			((aux_end - aux_start)/ (24 * 60 * 60))
 	 		end
 		else
 			duration
@@ -668,5 +670,10 @@ class Task < ActiveRecord::Base
 		end
 		self.state = 2
 		self.save
+	end
+
+	# metodo que determina la posicion de la task en la columna de kanban
+	def kanban_order
+		progress - expected_progress
 	end
 end

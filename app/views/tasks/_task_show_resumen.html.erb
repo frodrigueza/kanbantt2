@@ -12,7 +12,7 @@
 			<p><%= @task.name %></p>
 			
 			<h4>Fecha inicio</h4>
-			<p><%= f_date(@task.expected_start_date) %></p>
+			<p><%= f_date(@task.expected_start_date_from_children) %></p>
 			
 			<h4>Fecha término</h4>
 			<p><%= f_date(@task.expected_end_date_from_children) %></p>
