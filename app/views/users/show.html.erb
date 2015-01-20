@@ -24,17 +24,12 @@
 			<tr>
 				<td><%= a.project.name %></td>
 				<td><%= a.f_role %></td>
-				<td><%= link_to 'Editar asignación', edit_assignment_path(a) %></td>
 			</tr>
 		<% end %>
 		</table>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-12">
-		<%= link_to_modal 'Asignar un proyecto a este usuario' , new_assignment_path(user_id: @user.id)%>
-	</div>
-</div>
+
 <div class="row">
 	<div class="col-md-12">
 		<%= link_to_modal 'Editar perfil', edit_user_path(current_user)%>
