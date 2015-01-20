@@ -34,7 +34,7 @@ class AssignmentsController < ApplicationController
 
   def update
     @assignment.update(assignment_params)
-    respond_with(@assignment)
+    redirect_to request.referer
   end
 
   def destroy

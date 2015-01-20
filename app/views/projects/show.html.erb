@@ -23,6 +23,8 @@
   			<th>Nombre</th>
   			<th>Rol</th>
   			<th>N° de reportes</th>
+  			<th></th>
+  			<th></th>
   		</thead>
 	    <% @users.each do |u| %>
 	    	<tr>
@@ -30,6 +32,9 @@
 	    		<td><%= u.f_role_in_project(@project) %></td>
 	    		<td><%= u.reports_in_project(@project).count %></td>
 	    		<td><%= link_to 'Detalles', assignment_path(u.assignment_in_project(@project).id) %></td>
+	    		<% if !u.super_admin && (@project.owner == current_user || current_user.super_admin) %>
+	    			<td><%= link_to_modal 'Editar asignación', edit_assignment_path(u.assignment_in_project(@project).id) %></td>
+	    		<% end %>
 	    	</tr>
 	    <% end %>
   	</table>

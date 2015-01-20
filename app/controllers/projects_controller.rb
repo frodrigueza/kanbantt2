@@ -114,8 +114,11 @@ class ProjectsController < ApplicationController
   end
 
   def root
+    # administrador
     if current_user.role_in_project(@project) == 1
       redirect_to project_tree_view_path(@project)
+      
+    # empleado
     elsif current_user.role_in_project(@project) == 2
       redirect_to kanban_board_index_path(project_id: @project.id)
     end
