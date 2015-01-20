@@ -24,7 +24,7 @@
       <tbody>
         <% @projects.each do |p| %>
           <tr>
-            <td><%= link_to p.name, project_path(p) %></td> 
+            <td><%= link_to p.name, project_root_path(p) %></td> 
             <td><%= p.f_resources_type %></td> 
             <td><%= p.progress.to_f %> %</td>
             <td><%= p.expected_progress.to_f %> %</td>

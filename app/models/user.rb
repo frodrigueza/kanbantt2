@@ -62,10 +62,14 @@ class User < ActiveRecord::Base
 	end
 
 	def f_role_in_project(project)
-		case role_in_project(project)
-			when -1 then 'Sin cargo'
-			when 1 then 'Administrador'
-			when 2 then 'Empleado'
+		if project.owner == self
+			'Dueño y administrador'
+		else
+			case role_in_project(project)
+				when -1 then 'Sin cargo'
+				when 1 then 'Administrador'
+				when 2 then 'Empleado'
+			end
 		end
 			
 	end
