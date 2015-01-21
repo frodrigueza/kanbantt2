@@ -613,6 +613,14 @@ class Task < ActiveRecord::Base
 		self.save
 	end
 
+	def f_parent_id
+		if parent_id
+			parent_id
+		else
+			-1
+		end
+	end
+
 	# metodo que determina la posicion de la task en la columna de kanban
 	def kanban_order
 		progress - expected_progress
