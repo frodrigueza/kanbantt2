@@ -88,7 +88,14 @@ class UsersController < ApplicationController
   end
 
   def root_router
-    redirect_to projects_path
+    case current_user.projects.size
+      when 0
+        redirect_to projects_path
+      when 1
+        redirect_to kanban_board_index_path(project_id: current_user.projects.first.id)
+      else
+        redirect_to projects_path
+    end
   end
 
   def user_params

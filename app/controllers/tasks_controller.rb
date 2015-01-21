@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   load_and_authorize_resource
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle_urgent]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle_urgent, :move_dates]
 
   # GET /tasks
   # GET /tasks.json
@@ -124,6 +124,15 @@ class TasksController < ApplicationController
     @task.toggle_urgent
 
     respond_to do |format|
+      format.js 
+    end
+  end
+
+  def move_dates
+    @task.pre_move_dates(params)
+
+    respond_to do |format|
+      format.html { redirect_to request.referer } 
       format.js 
     end
   end

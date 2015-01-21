@@ -58,6 +58,9 @@ gem "bootstrap-switch-rails"
 # libreria js para fechas
 gem 'datejs-rails'
 
+# qTip2
+gem 'jquery-qtip2-rails'
+
 # gemas para hacer debug mas facil
 group :development do
 	# Registros en consola con colores => AwesomePrint.irb!

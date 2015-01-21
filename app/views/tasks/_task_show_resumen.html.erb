@@ -1,16 +1,17 @@
 <!-- VISTA RESUMEN DE MODAL TAREA -->
-<div class="row title">
-	<div class="col-md-12">
-		Información
-	</div>
-</div>
-
 <div class="row">
+	<!-- INFORMACION GENERAL -->
+	<div class="col-md-12 section_title">
+		<h5>Información general</h5>
+	</div>
 	<div class="col-md-12">
-		<div class="row info">
+		<div class="row info section_content">
 			<h4>Nombre</h4>
 			<p><%= @task.name %></p>
-			
+
+			<h4>Ascendencia</h4>
+			<p><%= @task.f_ancestry %></p>
+
 			<h4>Fecha inicio</h4>
 			<p><%= f_date(@task.expected_start_date_from_children) %></p>
 			

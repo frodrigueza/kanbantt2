@@ -3,7 +3,7 @@ if ($('#tree_view').size() > 0)
 {
 	<% if @task %>
 		<% @task.ancestry.each do |t| %>
-			$('#item_<%= t.id %>').replaceWith('<%= escape_javascript(render "projects/explorer/tree_view_column_item", task: t) %>');
+			$('#content_<%= t.id %>').replaceWith('<%= escape_javascript(render "projects/explorer/content", task: t) %>');
 		<% end %>
 	<% else %>
 		<% @project.tasks.each do |t| %>

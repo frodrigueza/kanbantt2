@@ -6,6 +6,9 @@ var suscribe_options = function(){
 	// Cada vez que se haga click en un elemento con class="otion"
 	$('.option').click(function(){
 
+		$('.option').removeClass('active');
+		$(this).addClass('active');
+
 		// escondemos todos los contenidos asociados a estas opciones
 		$('.content_' + this.id.split('_')[0]).hide();
 		

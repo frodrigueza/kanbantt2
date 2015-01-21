@@ -83,6 +83,7 @@ Rails.application.routes.draw do
     get 'delete_confirmation'
     get 'fast_report'
     get 'toggle_urgent'
+    post 'move_dates'
   end
 
   get 'gantt', to: 'gantt#index'

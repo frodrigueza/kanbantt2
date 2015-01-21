@@ -1,14 +1,9 @@
 <!-- VISTA DE REPORTAR DEL MODAL DE TAREAS -->
-
-
-<div class="row title">
-	<div class="col-md-12">
-		Reportar
-	</div>
-</div>
-
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-12 section_title">
+		<h5>Reportar avance</h5>
+	</div>
+	<div class="col-md-12 section_content">
 		<% if @task.has_children? %>
 			No se puede reportar esta tarea porque no es de último nivel
 		

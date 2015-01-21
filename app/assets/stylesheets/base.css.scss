@@ -379,6 +379,23 @@ h2{
 	}
 }
 
+
+.section_title{
+	border-bottom: 1px solid $gris_oscuro;
+	h5{
+		color: gray;
+		width: 100%;
+		margin: 20px 0px 0px 0px;
+	}
+}
+
+.section_content{
+	padding-top: 10px;
+	padding-bottom:80px;
+
+}
+
+
 .infomodal {
 	margin-top: -15px;
 	margin-bottom: 30px;

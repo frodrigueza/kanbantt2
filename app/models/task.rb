@@ -271,6 +271,20 @@ class Task < ActiveRecord::Base
 		array.reverse
 	end
 
+	def f_ancestry
+		string = ''
+		if parent_id
+			ancestry.each do |t|
+				string += t.name + ' >> '
+			end
+		else
+			return 'Tarea de primer nivel, no posee ascendencia'
+		end
+
+		string
+	end
+
+
 	def refresh
 		# si tiene progreso 100, la movemos a la columna de finalizada
 		if progress == 100
@@ -376,14 +390,6 @@ class Task < ActiveRecord::Base
 		end
 	end
 
-	def real_progress_as_percentage
-		"#{progress.round}"
-	end
-
-	def expected_progress_as_percentage
-		"#{progress_esperado.round}"
-	end
-
 	# metodo que devuelve el nombre del usuario responsable
 	def user_name
 		user.try(:name)
@@ -453,71 +459,6 @@ class Task < ActiveRecord::Base
 		end     	
     	return n.to_i
   	end
-
-	# helper que entrega el progreso real en dias para una fecha determinada
-	def real_days_progress(date)
-		real_progress(date, false)
-	end
-
-	def real_resources_progress_at(date)
-		real_progress(date, true)
-	end
-
-
-
-
-
-
-
-
-
-
-# METODOS CON LOGICA SUPERIOR 
-
-
-	# RECURSOS
-
-		#Se actualiza la cantidad de recursos
-		def set_resources
-			# if project.resources
-			# 	if parent
-			# 		#Si el padre es otra tarea actualizamos la fecha de la tarea padre y 
-			# 		# luego debiera llamar al mismo método al hacer (:after_update)
-			# 		total = parent.resources_total_cost
-			# 		if project.resources and total != parent.resources_cost	
-			# 			parent.resources_cost = total
-			# 			parent.save
-			# 		end
-			# 	else
-			# 		total = project.total_resources_cost
-			# 		if project.resources and total != project.resources
-			# 			project.resources = total
-			# 			project.save	
-			# 		end
-			# 	end
-			# end
-		end
-
-
-		# calcula el progreso real de la tarea en base a costos
-		def real_resources_progress_from_task(date)
-			e = expected_resources_progress(project.end_date.end_of_day)
-			e > 0 ? real_resources_progress(date) / e : 0
-		end
-
-
-		# calcula el progreso real de la tarea en base a costos
-		def real_resources_progress(date)
-			if has_children?
-				children.includes(:children).includes(:project).inject(0.0) do |total, task|
-	  				total += task.real_resources_progress(date)
-	  			end 
-			elsif report = last_report_before(date)
-				(report.progress*expected_resources_progress(project.end_date.end_of_day)).to_f
-			else
-				0
-			end
-		end
 
 
 
@@ -675,5 +616,46 @@ class Task < ActiveRecord::Base
 	# metodo que determina la posicion de la task en la columna de kanban
 	def kanban_order
 		progress - expected_progress
+	end
+
+	# preparamos los parametros para cuando el metodo es llamado desde el controlador (menos acoplamiento)
+	def pre_move_dates(params)
+		year = params['new_date(1i)'.to_sym].to_i
+		month = params['new_date(2i)'.to_sym].to_i
+		day = params['new_date(3i)'.to_sym].to_i
+
+		new_start_date = Date.new(year, month, day).to_date
+		old_start_date = self.expected_start_date.to_date
+		days_diff = (new_start_date - old_start_date).to_i
+		self.move_dates(days_diff)
+	end
+
+	# metodo que desplaza una tarea y todas sus hijas en el mismo numero de dias
+	def move_dates(number_of_days)
+		if has_children?
+			last_level_tasks_below.each do |t|
+				t.expected_start_date += number_of_days.days
+				t.expected_end_date += number_of_days.days
+				t.save
+			end
+		else
+			self.expected_start_date += number_of_days.days
+			self.expected_end_date += number_of_days.days
+			self.save
+		end
+	end
+
+	# arreglo con todas las tasks de ultimo nivel bajo esta
+	def last_level_tasks_below
+		array = []
+		children.each do |t|
+			if !t.has_children?
+				array << t
+			else
+				(array << t.last_level_tasks_below).flatten!.uniq
+			end
+		end
+
+		array
 	end
 end

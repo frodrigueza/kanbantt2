@@ -1,35 +1,9 @@
 <div class="full task_show">
-	<div class="row roof">
-		<table>
-			<tr>
-				<td class="project_name"><%= @task.project.name %></td>
-				<td class="duration"><%= @task.duration.to_i %> días</td>
-				<% if @task.project.resources != 0 %>
-					<td><%= number_with_delimiter(@task.resources_cost.to_i)%> <%= @task.project.f_resources_type %></td>
-				<% end %>
-				<td><%= remaining_days(@task) %></td>
-			</tr>
-		</table>
-	</div>
-	<div class="row header">
-		<table>
-			<tr>
-				<td><%= image_tag image_kanban(@task.user), :class => "img-circle", :style =>"margin-right: 0.4em;", :title => @task.user.try(:name) %></td>
-				<td><h3><%= @task.name %></h3></td>
-			</tr>
-		</table>
-
-		<div class="row ancestry">
-				<% @task.ancestry.each do |t| %>
-					<%= t.name + ' >> '%>
-				<% end %>
-		</div>
-	</div>
 	<div class="row">
 		<div class="col-md-3 left_panel">
 			<table>
 				<tr>
-					<td class="option" id="menu_1"><i class="fa fa-bar-chart iconmodal"></i>Resumen</td>
+					<td class="option active" id="menu_1"><i class="fa fa-bar-chart iconmodal"></i>Resumen</td>
 				</tr>
 				<tr>
 					<td class="option" id="menu_2"><i class="fa fa-exclamation-triangle iconmodal"></i>Observaciones</td>
