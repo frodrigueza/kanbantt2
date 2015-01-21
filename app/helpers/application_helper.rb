@@ -13,7 +13,7 @@ module ApplicationHelper
 	def f_date(date)
 		if date
 			resp = date.strftime("%d %b %Y")
-			to_spanish(resp)
+			return to_spanish(resp)
 		else
 			''
 		end
