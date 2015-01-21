@@ -353,7 +353,7 @@ class Task < ActiveRecord::Base
 	def last_report_before(date)
 		array = []
 		reports.each do |r|
-			if r.created_at <= date
+			if r.created_at.to_date <= date
 				array << r
 			end
 		end

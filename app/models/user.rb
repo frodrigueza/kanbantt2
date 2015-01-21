@@ -150,7 +150,7 @@ class User < ActiveRecord::Base
 		if super_admin
 			return true
 		elsif a = Assignment.where(user_id: id, project_id: task.project.id).first
-			if a.role == 1
+			if a.role == 1 || a.role == 2
 				return true
 			end
 		else
