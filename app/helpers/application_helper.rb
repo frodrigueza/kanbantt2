@@ -22,7 +22,7 @@ module ApplicationHelper
 	def f_short_date(date)
 		if date
 			resp = date.strftime("%d %b")
-			to_spanish(resp)
+			return to_spanish(resp)
 		else
 			''
 		end
