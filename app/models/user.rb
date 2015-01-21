@@ -132,15 +132,15 @@ class User < ActiveRecord::Base
 	########################### KANBAN
 
 	def to_do_tasks(project)
-		to_do_tasks = (tasks.select { |t| t.project_id == project.id && t.state == 0 && !t.has_children? }).sort_by { |t| [t.kanban_order, t.progress] }
+		to_do_tasks = (tasks.select { |t| t.project_id == project.id && t.state == 0 && !t.has_children? }).sort_by { |t| [t.kanban_order, t.progress, parent_id] }
 	end
 
 	def doing_tasks(project)
-		doing_tasks = tasks.select { |t| t.project_id == project.id && t.state == 1 && !t.has_children? }.sort_by { |t| [t.kanban_order, t.progress] }
+		doing_tasks = tasks.select { |t| t.project_id == project.id && t.state == 1 && !t.has_children? }.sort_by { |t| [t.kanban_order, t.progress, parent_id] }
 	end
 
 	def done_tasks(project)
-		done_tasks = tasks.select { |t| t.project_id == project.id && t.state == 2 && !t.has_children? }.sort_by { |t| [t.kanban_order, t.progress] }
+		done_tasks = tasks.select { |t| t.project_id == project.id && t.state == 2 && !t.has_children? }.sort_by { |t| [t.kanban_order, t.progress, parent_id] }
 	end
 
 	######################## FIN KANBAN
