@@ -544,7 +544,7 @@ class Task < ActiveRecord::Base
 				end
 			else
 				children.each do |c|
-					total_children_value += c.resources_cost
+					total_children_value += c.resources_cost_from_children
 					total_children_value_extolled += c.real_progress_function(date, in_resources) * c.resources_cost_from_children
 				end
 			end
