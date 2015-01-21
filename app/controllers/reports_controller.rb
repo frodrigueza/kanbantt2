@@ -26,12 +26,13 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     @project = @report.project
+    @task = @report.task
 
     respond_to do |format|
       if @report.save
+        format.js 
         format.html { redirect_to request.referer }
         format.json { render :show, status: :created, location: @report }
-        format.js 
       else
         format.html { render :new }
         format.json { render json: @report.errors, status: :unprocessable_entity }
@@ -60,7 +61,7 @@ class ReportsController < ApplicationController
     task = @report.task
     @report_id = @report.id
     @report.destroy
-    
+
     # refrescamos la tarea
     task.refresh
     respond_to do |format|

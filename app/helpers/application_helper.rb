@@ -12,9 +12,28 @@ module ApplicationHelper
 
 	def f_date(date)
 		if date
-			date.strftime("%d %b %Y")
+			resp = date.strftime("%d %b %Y")
+			to_spanish(resp)
 		else
 			''
 		end
+	end
+
+	def f_short_date(date)
+		if date
+			resp = date.strftime("%d %b")
+			to_spanish(resp)
+		else
+			''
+		end
+	end
+
+	def to_spanish(date)
+		date.sub! 'Jan', 'Ene'
+		date.sub! 'Apr', 'Abr'
+		date.sub! 'Aug', 'Ago'
+		date.sub! 'Dec', 'Dic'
+
+		return date
 	end
 end

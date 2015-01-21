@@ -27,7 +27,6 @@ $(function(){
 			var date_select = $('#date_select_filter').val();
 			var status_select = $('#status_select_filter').val();
 			var pin_select = $('#pin-switch').is(':checked');
-			console.log(pin_select);
 
 			// segun el valor seleccionado en el select definimos el rango de tiempo a filtrar
 			switch(date_select)
@@ -66,14 +65,12 @@ $(function(){
 				var end_date = Date.parse($(this).data('enddate'));
 				var today = $.now();
 				var task_name = $(this).data('name');
-				console.log(task_name);
 				
 				// creamos una variable auxiliar que represente un día (multiplicación)
 				var oneDay = 24*60*60*1000;
 				
 				// alamcenamos el numero de días entre el termino de la tarea hasta hoy
 				var diffDaysEnd = Math.round((end_date - today)/(oneDay)) + 1;
-					console.log("end " + diffDaysEnd)
 				if (diffDaysEnd < 0) 
 				{
 					diffDaysEnd = Number.POSITIVE_INFINITY;
@@ -81,12 +78,10 @@ $(function(){
 				
 				// alamcenamos el numero de días entre el inicio de la tarea hasta hoy
 				var diffDaysStart = Math.round((start_date - today)/(oneDay)) + 1;
-					console.log("start " + diffDaysStart)
 				if (diffDaysStart < 0) 
 				{
 					diffDaysStart = Number.POSITIVE_INFINITY;
 				}
-				console.log('---');
 
 				var status = $(this).data('status');
 				var pin_status = $(this).data('pin-status')

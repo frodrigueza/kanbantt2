@@ -9,6 +9,7 @@
 <!-- tabla derecha -->
 <table class="tags">
 	<tr>
+		<td><%= f_short_date(task.expected_start_date_from_children)%> - <%= f_short_date(task.expected_end_date_from_children)%></td>
 		<td>
 			<%= link_to (task_toggle_urgent_path(task)), remote: true do %>
 				<span id="urgent_<%= task.id %>" class="glyphicon glyphicon-pushpin <%= urgent_task_class(task)%>" title="<%= urgent_task_title(task) %>"></span>	
