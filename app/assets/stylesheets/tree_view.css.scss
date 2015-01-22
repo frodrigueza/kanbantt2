@@ -59,6 +59,8 @@
 			font-weight: bold;
 			font-size: 12px;
 			color: white;
+			position: fixed;
+			z-index: 100;
 			a{
 				color: white;
 			}
@@ -72,6 +74,9 @@
 			input{
 				color: black;
 			}
+		}
+		.children{
+			margin-top: 50px;
 		}
 
 		.item{

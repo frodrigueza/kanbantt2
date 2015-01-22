@@ -28,8 +28,8 @@
             <td><%= p.f_resources_type %></td> 
             <td><%= p.progress.to_f %> %</td>
             <td><%= p.expected_progress.to_f %> %</td>
-            <td><%= f_date(p.expected_start_date_from_children) %></td>
-            <td><%= f_date(p.expected_end_date_from_children) %></td>
+            <td><%= f_date(p.expected_start_date) %></td>
+            <td><%= f_date(p.expected_end_date) %></td>
             <% if p.last_report %>
               <td><%= f_date(p.last_report.created_at) %> <br> <%= p.last_report.user ? p.last_report.user.f_name : 'Importación' %></td>
             <% else %>

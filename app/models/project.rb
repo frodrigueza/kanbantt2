@@ -622,7 +622,7 @@ class Project < ActiveRecord::Base
 		return last_date_value
 	end
 
-	def expected_end_date_from_children
+	def expected_end_date
 		if has_children?
 			tasks.max_by { |x| x.expected_end_date }.expected_end_date_from_children
 		else
@@ -631,7 +631,7 @@ class Project < ActiveRecord::Base
 		end
 	end
 
-	def expected_start_date_from_children
+	def expected_start_date
 		if has_children?
 			tasks.min_by { |x| x.expected_end_date }.expected_start_date_from_children
 		else
