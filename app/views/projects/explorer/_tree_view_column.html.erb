@@ -4,11 +4,11 @@
 		<table class="full header">
 			<tr>
 				<!-- Boton + que permite crear tareas. Por cada columna se crea un modal con el form para agragar tarea a esta -->
-				<td><%= parent.name %></td>
+				<td class="parent_name" title="<%= parent.name %>"><%= parent.name %></td>
 				<% if parent.class.name == "Task" %>
-					<td><%= link_to_modal '<span class="glyphicon glyphicon-plus"></span>'.html_safe, new_project_task_path(@project, parent_id: parent.id) %></td>
+					<td class="add_task_button"><%= link_to_modal '<span class="glyphicon glyphicon-plus"></span>'.html_safe, new_project_task_path(@project, parent_id: parent.id) %></td>
 				<% elsif parent.class.name == "Project"%>
-					<td><%= link_to_modal '<span class="glyphicon glyphicon-plus"></span>'.html_safe, new_project_task_path(@project) %></td>
+					<td class="add_task_button"><%= link_to_modal '<span class="glyphicon glyphicon-plus"></span>'.html_safe, new_project_task_path(@project) %></td>
 				<% end %>
 				<!-- fin de los botones -->
 			</tr>

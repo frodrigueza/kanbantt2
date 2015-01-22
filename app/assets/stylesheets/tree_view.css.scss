@@ -25,6 +25,15 @@
 			color: $gris_uno;
 			float: left;
 		}
+		td.parent_name{
+			width: 90%;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		td.add_task_button{
+			width: 10%;
+		}
 		span{
 			cursor: pointer;
 		}
@@ -158,6 +167,17 @@
 						cursor: pointer;
 						color: white;
 					}
+			}
+			.helper.parent{
+				.arrow{
+					color: black;
+				}
+
+				.arrow.active{
+					background: $azul_dos;
+					border: 1px solid $azul_dos;
+					color: white;
+				}
 			}
 			.padder{
 				padding: 5px;

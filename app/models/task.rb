@@ -623,7 +623,7 @@ class Task < ActiveRecord::Base
 
 	# metodo que determina la posicion de la task en la columna de kanban
 	def kanban_order
-		progress - expected_progress
+		progress.to_i - expected_progress.to_i
 	end
 
 	# preparamos los parametros para cuando el metodo es llamado desde el controlador (menos acoplamiento)

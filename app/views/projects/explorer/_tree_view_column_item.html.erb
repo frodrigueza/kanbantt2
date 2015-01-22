@@ -8,7 +8,7 @@
 					<%= render 'projects/explorer/content', task: task %>
 
 					<!-- flecha para ir a hijos -->
-					<td class="helper" title="Ver tareas hijas">
+					<td class="helper <%= task.has_children? ? 'parent' : '' %>" title="Ver tareas hijas">
 						<%= link_to '<div class="arrow"><span class="glyphicon glyphicon-chevron-right"></span></div>'.html_safe, project_add_tree_view_column_path(task.project, parent_id: task.id), {remote: true, id: 'item_' + task.id.to_s + '_link', class:'slow_ajax'}%>
 					</td>
 				</tr>

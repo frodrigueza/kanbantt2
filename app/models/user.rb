@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
 			case role_in_project(project)
 				when -1 then 'Sin cargo'
 				when 1 then 'Administrador'
-				when 2 then 'Empleado'
+				when 2 then 'Last planner'
 			end
 		end
 			
