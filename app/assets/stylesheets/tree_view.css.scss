@@ -153,13 +153,13 @@
 					}
 
 					.arrow.active{
-						background: $azul_dos;
-						border: 1px solid $azul_dos;
+						background: $azul;
+						border: 1px solid $azul;
 						color: white;
 					}
 					.arrow.active:hover{
-						background: $azul_dos;
-						border: 1px solid $azul_dos;
+						background: $azul;
+						border: 1px solid $azul;
 						color: white;	
 					}
 					.arrow:hover{
@@ -170,12 +170,12 @@
 			}
 			.helper.parent{
 				.arrow{
-					color: black;
+					color: $azul;
 				}
 
 				.arrow.active{
-					background: $azul_dos;
-					border: 1px solid $azul_dos;
+					background: $azul;
+					border: 1px solid $azul;
 					color: white;
 				}
 			}
