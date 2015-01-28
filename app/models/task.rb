@@ -255,8 +255,12 @@ class Task < ActiveRecord::Base
 	end
 
 	# días que quedan desde hoy hasta la fecha esperada de término
-	def remaining
-		(self.expected_end_date_from_children - Time.now)/(60 * 60 * 24).to_i
+	def remaining_to_end
+		(self.expected_end_date_from_children.to_date - Date.today).to_i
+	end
+
+	def remaining_to_start
+		(self.expected_start_date_from_children.to_date - Date.today).to_i
 	end
 
 	def ancestry

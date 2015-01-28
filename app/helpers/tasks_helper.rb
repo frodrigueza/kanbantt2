@@ -46,29 +46,35 @@ module TasksHelper
 
   # entrga lo que falta de manera formateada, se ocupa en la vista del arbol
   def remaining_days(task)
-    if task.progress == 100
+    remaining_to_start = task.remaining_to_start
+    remaining_to_end = task.remaining_to_end
+
+    if task.progress == 100 #terminadas
       '<span class="glyphicon glyphicon-ok"></span>'.html_safe
-    elsif task.remaining < 0
-      if task.remaining.abs <= 1
-        'Termina hoy'
-      elsif (task.remaining.to_i*-1) == 1
-        'Atrasada 1 día'        
-      else
-        'Atrasada '+ (task.remaining.to_i*-1).to_s + ' días'
-      end
-    elsif task.remaining > 0
-      if task.remaining > task.duration_in_date
-        if (task.remaining.to_i - task.duration_in_date.to_i + 1) == 1
+    elsif remaining_to_start >= 0
+      case remaining_to_start
+        when 0
+          'Comienza hoy'
+        when 1
           'Comienza mañana'
         else
-         'Comienza en ' + (task.remaining.to_i - task.duration_in_date.to_i + 1).to_s + ' días'
-        end
-      else
-        if task.remaining.to_i == 1
-        'Finaliza mañana'
-        else 
-         'Finaliza en ' + (task.remaining.to_i).to_s + ' días'
-        end
+          'Comienza en ' + remaining_to_start.to_s + ' días'
+      end
+    elsif remaining_to_end >= 0 #en progreso
+      case remaining_to_end
+        when 0
+          'Finaliza hoy'
+        when 1
+          'Finaliza mañana'
+        else
+          'Finaliza en ' + remaining_to_end.to_s + ' días'
+      end
+    elsif remaining_to_end < 0 # atrasadas
+      case remaining_to_end
+        when 1
+          'Atrasada 1 día'
+        else
+          'Atrasada ' + remaining_to_end + ' días'
       end
     end
   end
