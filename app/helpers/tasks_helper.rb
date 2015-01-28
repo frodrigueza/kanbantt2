@@ -71,7 +71,7 @@ module TasksHelper
       end
     elsif remaining_to_end < 0 # atrasadas
       case remaining_to_end
-        when 1
+        when -1
           'Atrasada 1 día'
         else
           'Atrasada ' + (remaining_to_end * -1 ).to_s + ' días'
