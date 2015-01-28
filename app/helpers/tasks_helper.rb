@@ -74,7 +74,7 @@ module TasksHelper
         when 1
           'Atrasada 1 día'
         else
-          'Atrasada ' + remaining_to_end + ' días'
+          'Atrasada ' + remaining_to_end.to_s + ' días'
       end
     end
   end
