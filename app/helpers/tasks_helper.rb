@@ -59,13 +59,13 @@ module TasksHelper
     elsif task.remaining > 0
       if task.remaining > task.duration_in_date
         if (task.remaining.to_i - task.duration_in_date.to_i + 1) == 1
-          'Comienza en 1 día'
+          'Comienza mañana'
         else
          'Comienza en ' + (task.remaining.to_i - task.duration_in_date.to_i + 1).to_s + ' días'
         end
       else
         if task.remaining.to_i == 1
-        'Finaliza en 1 día'
+        'Finaliza mañana'
         else 
          'Finaliza en ' + (task.remaining.to_i).to_s + ' días'
         end

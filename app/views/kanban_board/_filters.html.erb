@@ -1,15 +1,17 @@
-<table class="kanban_filters">
+<table id="filters_table">
 	<tr>
 		<!-- buscador -->
-		<td>Buscar: <%= text_field_tag 'search_field', '',{ class:'search_field'} %></td>
-
-		<!-- fechas -->
-		<td id="date_select_filter_td">Periodo: <%= select_tag 'date_select_filter', options_for_select(time_filter_options, 'Todos'), { id:'date_select_filter'} %></td>
-
-		<!-- condicion -->
-		<td>Condicion: <%= select_tag 'status_select_filter', options_for_select(status_filter_options, 'Todos'), { id:'status_select_filter'} %></td>
+		<td style="display: none;">Buscar: <%= text_field_tag 'search_field', '',{ class:'search_field'} %></td>
 
 		<!-- pin -->
-		<td><input type="checkbox" id="pin-switch" class="bs-switch" data-size="mini" data-on-text="<span class='glyphicon glyphicon-pushpin'><span>" data-off-text="<span class='glyphicon glyphicon-pushpin'><span>" data-handle-width="40"></td>
+		<td class="toggle_button" id="pin"><span class="glyphicon glyphicon-pushpin" title="Tareas marcadas como importantes"></span></td>
+		<!-- atrasdas -->
+		<td class="toggle_button" id="delayed"><span class="glyphicon glyphicon-time" title="Tareas atrasadas"></span></td>
+		<!-- fechas -->
+		<td id="date_select_filter_td"><%= select_tag 'date_select_filter', options_for_select(time_filter_options, 'Todos'), { id:'date_select_filter'} %></td>
+
+		<!-- condicion -->
+		<td style="display: none;">Condicion: <%= select_tag 'status_select_filter', options_for_select(status_filter_options, 'Todos'), { id:'status_select_filter'} %></td>
+
 	</tr>
 </table>

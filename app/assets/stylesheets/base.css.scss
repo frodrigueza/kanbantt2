@@ -68,13 +68,14 @@ h2{
 			width: 100%;
 			background: linear-gradient(#586474, #3e4651);
 			color: white;
+			padding: 0px 20px;
 			a{
 				color: white;
 				text-decoration: none;
 			}
 
 			.home{
-				padding: 0px 15px;
+				padding: 0px 20px 0px 0px;
 			}
 			table{
 				/*width: 100%;*/
@@ -331,6 +332,13 @@ h2{
   height: 30px;
   text-indent: -9999px;
   background: url(close.png) no-repeat 0 0;
+}
+
+.great{
+	color: $verde;
+}
+.bad{
+	color: $rojo;
 }
 
 .modal-spinner {

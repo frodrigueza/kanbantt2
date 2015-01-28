@@ -1,18 +1,3 @@
-					
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $(function(){
 	// Metodo que crea la funcion selectedModifier y suscribe el select a esta
 	var filter = function(){
@@ -26,13 +11,14 @@ $(function(){
 			// almacenamos el valor seleccionado
 			var date_select = $('#date_select_filter').val();
 			var status_select = $('#status_select_filter').val();
-			var pin_select = $('#pin-switch').is(':checked');
+			var pin_select = $('#pin').hasClass('active');
+			var delayed_select = $('#delayed').hasClass('active');
 
 			// segun el valor seleccionado en el select definimos el rango de tiempo a filtrar
 			switch(date_select)
 			{
 				case 'Hoy':
-					daysRange = 1;
+					daysRange = 0;
 					break;
 
 				// hasta el siguiente domingo
@@ -86,73 +72,21 @@ $(function(){
 				var status = $(this).data('status');
 				var pin_status = $(this).data('pin-status')
 
-
-				var show = false;
-				switch(status_select)
+				// FILTRO DE FECHAS /////////////////////////////////////////////////////////////
+				if (start_date <= Date.today() && end_date >= Date.today()) // cuando estamos dentro del plazo de una tarea siempre se muestra
 				{
-					case 'Atrasadas':
-						// al seleccionar las atrasadas, no se filtran por periodo de inicio ni termino, sino que se muestran todas
-						$('#date_select_filter_td').hide();
-
-						if (status == 'delayed') 
-						{
-							show = true;
-						}
-						else
-						{
-							show = false;
-						}
-
-						break;
-
-					case 'Todos':
-						$('#date_select_filter_td').show();
-						if(diffDaysStart > daysRange && diffDaysEnd > daysRange)
-						{
-							show = false;
-						}
-						else
-						{
-							show = true
-						}
-
-						break;	
-					case 'Comienzan en':
-						$('#date_select_filter_td').show();
-						// si entra al rango se muestra, sino se oculta
-						if(diffDaysStart > daysRange)
-						{
-							show = false;
-						}
-						else
-						{
-							show = true
-						}
-						break;
-					case 'Terminan en':
-						$('#date_select_filter_td').show();
-						// si entra al rango se muestra, sino se oculta
-						if(diffDaysEnd > daysRange)
-						{
-							show = false;
-						}
-						else
-						{
-							show = true
-						}
-						break;
+					$(this).removeClass('hidden_by_date');
+				}
+				else if(diffDaysStart > daysRange && diffDaysEnd > daysRange)
+				{
+					$(this).addClass('hidden_by_date');
+				}
+				else
+				{
+					$(this).removeClass('hidden_by_date');
 				}
 
-				// ahora mosramos si la variable show quedo en true (agregando la clase hidden_by_date que tiene display:none;)
-				switch (show){
-					case true:
-						$(this).removeClass('hidden_by_date');
-						break;
-					case false:
-						$(this).addClass('hidden_by_date');
-						break;
-				}
-
+				// FILTRO DE PIN /////////////////////////////////////////////////////
 				// si esta seleccionado el pin
 				if (pin_select == true) 
 				{
@@ -169,6 +103,21 @@ $(function(){
 					// mostramos todas
 					$(this).removeClass('hidden_by_pin');
 				}
+				// FILTRO DE ATRASADAS ////////////////////////////////////////////////////
+				// atrasadas toggle button
+				if (delayed_select == true) 
+				{
+					if (status != 'delayed') 
+					{
+						$(this).addClass('hidden_by_delayed');
+					}
+
+				}
+				else
+				{
+					$(this).removeClass('hidden_by_delayed');
+				}
+				///////////////////////////////////////////////////////
 
 
 			});
@@ -178,10 +127,11 @@ $(function(){
 		}
 
 
-		// Suscribimos select de fecha a change() para que cada vez que se cambia el select de fecha
+		// Suscribimos los botones
 		$('#date_select_filter').change(selectedModifier);
 		$('#status_select_filter').change(selectedModifier);
-		$('#pin-switch').on('switchChange.bootstrapSwitch', function(event, state) {
+		$('.toggle_button').click(function(){
+			$(this).toggleClass('active');	
 			selectedModifier();
 		});
 

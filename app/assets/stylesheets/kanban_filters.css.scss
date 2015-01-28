@@ -1,3 +1,4 @@
+ @import "colours";
 .hidden_by_date{
 	display: none;
 }
@@ -8,4 +9,53 @@
 
 .hidden_by_pin{
 	display: none;
+}
+.hidden_by_delayed{
+	display: none;
+}
+
+#kanban_board{
+	#kanban_filters{
+		#filters_table{
+			float: right;
+			td{
+				padding: 2px 5px;
+			}
+			.toggle_button{
+				span{
+					background: white;
+					padding: 5px 10px;
+					border-radius: 25px;
+				}
+				span:hover{
+					cursor: pointer;
+					box-shadow: 0px 0px 5px;
+				}
+			}
+			#pin{
+				span{
+					color: $azul_dos;
+					border: 1px solid $azul_dos;	
+				}
+			}
+			#pin.active{
+				span{
+					background: $azul_dos;
+					color: white;
+				}
+			}
+			#delayed{
+				span{
+					color: $rojo;
+					border: 1px solid $rojo;		
+				}
+			}
+			#delayed.active{
+				span{
+					background: $rojo;
+					color: white;
+				}
+			}
+		}
+	}
 }

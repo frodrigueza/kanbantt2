@@ -3,47 +3,37 @@
 .kanbantt_header{
 	color: white;
 	background: $azul_dos;
+	padding: 0px 20px;
+	a{
+		color: white;
+	}
+	a:hover{
+		color: $azul;
+	}
 
 	table{
-		width: 100%;
-	}
-
-/*	.enterprise{
-		width: 30%;
-		padding-left: 10px;
-		.image{
-			float: left;
-			text-align: left;
+		td{
+			height: 45px;
+			padding: 0px 10px;
 		}
 	}
-*/
+
+	/* imagen de la izquierda */
 	.kanbantt{
-		padding: 10px 10px;
-		width: 40%;
 		float: left;
-		img{
-			width: 25%;
-		}
-	}
-
-	.user_session{
-		width: 30%;
-		padding-right: 10px;
-		.user_image{
-			float: right;
-			width: 40px;
-			height: 40px;
-			border-radius: 20px;
-
+		td{
 			img{
-				width: 100%;
-				border-radius: 20px;
+				width: 100px;
 			}
 		}
+		td:first-child{
+			padding: 0px 20px 0px 0px;
+		}
+	}
 
-
+	.user_and_notifications{
+		float: right;
 		.user_menu{
-			float: right;
 
 			.btn{
 				background: transparent;
@@ -56,8 +46,11 @@
 			.dropdown-menu{
 				right:0 !important;
 				left: auto;
-				top: 45px;
+				top: 40px;
 			}
+		}
+		td:last-child{
+			padding: 0px 0px 0px 10px;
 		}
 	}
 }

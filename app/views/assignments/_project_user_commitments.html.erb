@@ -31,7 +31,7 @@
 	<div class="col-md-12 content_commitments" id="content_commitments_2">
 		<h3>Compromisos</h3>
 		<div class="row">
-			Compromisos atrasados: <%= @user.delayed_commitments(@project).count %>
+			Compromisos atrasados: <%= @user.delayed_commitments_on_project(@project).count %>
 		</div>
 		<table class="table">
 			<thead>

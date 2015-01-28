@@ -1,8 +1,26 @@
 <div class="full kanbantt_header">
-	<table>
+	<!-- izquierda -->
+	<table class="kanbantt left">
 		<tr>
-			<td class="kanbantt"><%= image_tag('kanbantt_blanco.png')%></td>
-			<td class="user_session">
+			<!-- LEFT IMAGE KANBANTT -->
+			<td><%= image_tag('kanbantt_blanco.png')%></td>
+		</tr>
+	</table>
+
+
+
+
+	<!-- derecha -->
+	<table class="user_and_notifications right">
+		<tr>
+			<!-- notifications -->
+			<td>
+				<%= link_to (current_user) do %>
+					<span class="glyphicon glyphicon-bell" title="Compromisos atrasados"></span>
+				<% end %>
+			</td>
+			<!-- user session -->
+			<td>
 				<div class="user_menu">
 					<!-- Split button -->
 					<div class="btn-group">

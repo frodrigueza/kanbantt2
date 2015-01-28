@@ -11,15 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_objects
-
-
-    # # EMPRESA
-    # if params[:enterprise_id]
-    #   @enterprise = Enterprise.find(params[:enterprise_id])
-    # elsif current_user
-    #   @enterprise = current_user.enterprise
-    # end
-
     # PROJECTO
     if params[:project_id]
       @project = Project.find(params[:project_id])

@@ -11,12 +11,17 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-12">
 		<table class="table">
 			<thead>
 				<tr>
 					<th>Nombre</th>
 					<th>Rol en el proyecto</th>
+					<th><span class="glyphicon glyphicon-user" title="Usuarios trabajando en este proyecto"></span></th>
+					<th><span class="glyphicon glyphicon-pushpin" title="Tareas asignadas por hacer"></span></th>
+					<th><span class="glyphicon glyphicon-link" title="Compromisos en progreso"></span></th>
+					<th><span class="glyphicon glyphicon-bell" title="Compromisos atrasados"></span></th>
+					<th><span class="glyphicon glyphicon-ok" title="Compromisos terminados"></span></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -24,6 +29,12 @@
 			<tr>
 				<td><%= a.project.name %></td>
 				<td><%= a.f_role %></td>
+				<td><%= a.project.users.count %></td>
+				<td><%= @user.to_do_tasks(a.project).count %></td>
+				<td><%= @user.doing_tasks(a.project).count %></td>
+				<td class="less_is_better"><%= @user.delayed_commitments_on_project(a.project).count %></td>
+				<td class="more_is_better"><%= @user.done_tasks(a.project).count %></td>
+				<td><%= link_to 'detalles', a %></td>
 			</tr>
 		<% end %>
 		</table>

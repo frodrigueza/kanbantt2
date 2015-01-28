@@ -36,4 +36,24 @@ module ApplicationHelper
 
 		return date
 	end
+
+	def css_less_is_better(i)
+		if i < 0
+			'great'
+		elsif i == 0
+			''
+		else
+			'bad'
+		end
+	end
+
+	def css_more_is_better(i)
+		if i < 0
+			'bad'
+		elsif i == 0
+			''
+		else
+			'great'
+		end
+	end
 end

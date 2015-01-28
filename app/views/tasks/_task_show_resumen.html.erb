@@ -16,6 +16,12 @@
 			<h4>Fecha término</h4>
 			<p><%= f_date(@task.expected_end_date_from_children) %></p>
 			
+			<h4>Progreso real</h4>
+			<p><%= @task.progress %></p>
+			
+			<h4>Progreso esperado</h4>
+			<p><%= @task.expected_progress %></p>
+			
 			<h4>Responsable</h4>
 			<p><%= @task.user ? @task.user.f_name :  'No definido' %></p>
 			

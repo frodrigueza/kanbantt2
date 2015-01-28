@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 		end
 	end
 
-	def delayed_commitments(project)
+	def delayed_commitments_on_project(project)
 		array = []
 		doing_tasks(project).each do |t|
 			if t.delayed
@@ -48,6 +48,26 @@ class User < ActiveRecord::Base
 		end
 
 		array
+	end
+
+	def delayed_commitments
+		array = []
+		tasks.where(state: 1).each do |t|
+			if t.delayed
+				array << t
+			end
+		end
+
+		array
+	end
+
+	def f_delayed_commitments_count
+		aux = delayed_commitments.count
+		if aux > 0 
+			return aux
+		else
+			return ''
+		end
 	end
 
 	# 0 = dueño
