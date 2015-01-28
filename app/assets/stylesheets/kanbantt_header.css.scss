@@ -52,5 +52,21 @@
 		td:last-child{
 			padding: 0px 0px 0px 10px;
 		}
+		td{
+			position: relative;
+		}
+
+		.user_icon{
+			font-size: 20px;
+		}
+		.user_icon_counter{
+			background: red;
+			border-radius: 2px;
+			padding: 3px;
+			font-size: 10px;
+			position: absolute;
+			top: 2px;
+			right: 0;
+		}
 	}
 }

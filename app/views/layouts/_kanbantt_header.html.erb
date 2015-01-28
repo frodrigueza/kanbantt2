@@ -16,7 +16,10 @@
 			<!-- notifications -->
 			<td>
 				<%= link_to (current_user) do %>
-					<span class="glyphicon glyphicon-bell" title="Compromisos atrasados"></span>
+					<span class="glyphicon glyphicon-bell user_icon" title="Compromisos atrasados"></span>
+					<% if current_user.f_delayed_commitments_count != '' %>
+						<span class="user_icon_counter"><%= current_user.f_delayed_commitments_count %></span>
+					<% end %>
 				<% end %>
 			</td>
 			<!-- user session -->
