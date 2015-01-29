@@ -168,32 +168,26 @@ class User < ActiveRecord::Base
 	# PERMISOS
 	def can_edit_task(task)
 		if super_admin
-			return true
+			true
+		elsif task.user_id == self.id
+			true
 		elsif a = Assignment.where(user_id: id, project_id: task.project.id).first
 			if a.role == 1 || a.role == 2
 				return true
 			end
 		else
-			return false
+			false
 		end
 	end
 
 	def can_report_task(task)
-		# if super_admin
-		# 	true
-		# elsif a = Assignment.where(user_id: id, project_id: task.project.id).first
-		# 	# El admin puede reportar cualquier tarea
-		# 	if a.role == 1
-		# 		return true
-
-		# 	# El lastplanner puede reportar solo sus propias tareas
-		# 	elsif task.user == self
-		# 		return true
-		# 	end
-		# else
-		# 	return false
-		# end
-		true
+		if super_admin
+			true
+		elsif task.user_id == self.id
+			true
+		else
+			false
+		end
 	end
 
 	def can_edit_project(project)

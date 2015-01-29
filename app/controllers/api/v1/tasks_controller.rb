@@ -42,14 +42,14 @@ module Api
         if task
           #task.progress = progress #quitar si funciona solo con el report
           reporte = Report.new(task_id: task.id, progress: progress, user_id: @user.id)
-          if progress.to_i == 100
-            if Project.find_by_id(task.project_id).man_hours
-              hh = params[:man_hours]
-              task.man_hours = hh.to_i
-            end
-          end
+          # if progress.to_i == 100
+          #   if Project.find_by_id(task.project_id).man_hours
+          #     hh = params[:man_hours]
+          #     task.man_hours = hh.to_i
+          #   end
+          # end
           if task.save and reporte.save
-            task.call_update
+            # task.call_update
             render :json =>{task_id: task.id, progress: task.progress, status: 200}
           else
             render :json =>{false: 'la tarea no se pudo guardar', status: 304}

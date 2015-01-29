@@ -2,7 +2,7 @@
 	<table class="full">
 		<tr>
 			<td>
-				EXPLORADOR <%= @project.name.upcase %>
+				EXPLORADOR <%= @project.name.upcase %> (<%= @project.progress.to_i %>% | <%= @project.expected_progress.to_i %>%)
 			</td>
 			<td id="full_screen_switch">
 				<span class="glyphicon glyphicon-fullscreen" title="Pantalla completa"></span>

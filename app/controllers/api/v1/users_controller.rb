@@ -18,7 +18,7 @@ module Api
                             tok.user = user
                             tok.expire_date = Time.now + 1.day
                             tok.save
-                            render json: {:token=> tok.access_token, :username=> user.name, :role=> user.role, :user_id=> user.id}
+                            render json: {:token=> tok.access_token, :username=> user.f_name, :role => 'Administrador', :user_id=> user.id}
                         end
                     else 
                         #Password malo

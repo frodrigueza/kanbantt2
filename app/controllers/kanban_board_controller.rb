@@ -8,6 +8,10 @@ class KanbanBoardController < ApplicationController
     else
       redirect_to current_user
     end
+
+    if params[:task_id]
+      @focused_task_id = params[:task_id].to_i  
+    end
   end
 
   def update_item_partial

@@ -1,0 +1,36 @@
+<td>
+	<!-- Split button -->
+	<div class="btn-group notification_group">
+	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+	    <span class="glyphicon glyphicon-bell icon"></span>
+	    <% if current_user.f_delayed_commitments_count != '' %>
+			<span class="user_icon_counter"><%= current_user.f_delayed_commitments_count %></span>
+		<% end %>
+	  </button>
+	  <ul class="dropdown-menu notification_menu" role="menu">
+	  	<% current_user.delayed_commitments.each do |t| %>
+	  		<%= link_to (kanban_board_index_path(project_id: t.project.id, task_id: t.id)) do %>
+	    	<li class="notification_item">
+	    		<div class="row">
+	    			<div class="col-md-12 header">
+	    				<%= t.project.name %>
+	    			</div>
+	    			<div class="col-md-12 content">
+	    				<%= t.name %>
+	    			</div>
+	    			<div class="col-md-12 footer">
+	    				<table>
+	    					<tr>
+	    						<td class="real_progress"><%= t.progress %> %</td>
+	    						<td class="expected_progress"><%= t.expected_progress %> %</td>
+	    					</tr>
+	    				</table>
+	    			</div>
+	    		</div>
+	    	</li>
+	    	<% end %>
+	  		
+	  	<% end %>
+	  </ul>
+	</div>
+</td>

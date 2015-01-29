@@ -13,11 +13,7 @@ module Api
       end
 
       def all
-        if current_user.is_boss
-          @projects = User.find(current_user.id).enterprise.projects
-        else
-          @projects = User.find(current_user.id).projects
-        end
+        @projects = User.find(current_user).projects
         render :file => "api/v1/projects/all.json.jbuilder",
                :content_type => 'application/json'
       end

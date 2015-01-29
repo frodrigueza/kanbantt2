@@ -1,0 +1,62 @@
+@import "colours";
+.notification_group{
+	.icon{
+		font-size: 20px;
+	}
+	a{
+		text-decoration: none;
+		color: #444;
+	}
+	button{
+		border: none;
+		background: none;
+		span{
+			color: white;
+		}
+	}
+	ul{
+		color: #444;
+		position: absolute;
+		right: 0px;
+		left: auto;
+		.notification_item{
+			font-size: 10px;
+			margin-bottom: 10px;
+			border-bottom: 1px solid $gris_cuatro;
+			.header{
+				color: gray;
+			}
+
+			.content{
+				font-weight: bold;
+				font-size: 10px;
+			}
+
+			.footer{
+				color: gray;
+				table{
+					float: right;
+					td{
+						padding: 0px 5px;
+						height: auto !important;
+					}
+					td.real_progress{
+						border-right: 1px solid $gris_cuatro;
+					}
+				}
+			}
+		}
+	}
+}
+
+.notification_group.open{
+	button{
+		background: none !important;
+	}
+}
+
+.notification_group:hover{
+	button{
+		background: none;
+	}
+}
