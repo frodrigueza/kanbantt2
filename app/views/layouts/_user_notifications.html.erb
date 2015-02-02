@@ -8,6 +8,13 @@
 		<% end %>
 	  </button>
 	  <ul class="dropdown-menu notification_menu" role="menu">
+	  		<li class="header">
+	  			<div class="row">
+	  				<div class="col-md-12">
+	  					Compromisos atrasados
+	  				</div>
+	  			</div>
+	  		</li>
 	  	<% current_user.delayed_commitments.each do |t| %>
 	  		<%= link_to (kanban_board_index_path(project_id: t.project.id, task_id: t.id)) do %>
 	    	<li class="notification_item">

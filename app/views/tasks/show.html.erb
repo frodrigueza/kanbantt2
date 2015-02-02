@@ -6,13 +6,13 @@
 					<td class="option active" id="menu_1"><i class="fa fa-bar-chart iconmodal"></i>Resumen</td>
 				</tr>
 				<tr>
-					<td class="option" id="menu_2"><i class="fa fa-exclamation-triangle iconmodal"></i>Observaciones</td>
+					<td class="option" id="menu_2"><i class="fa fa-exclamation-triangle iconmodal"></i>Observaciones <span>(<%= @task.comments.count %>)</span></td>
 				</tr>
 				<tr>
 					<td class="option" id="menu_3"><i class="fa fa-clipboard iconmodal"></i>Reportar Avance</td>
 				</tr>
 				<tr>
-					<td class="option" id="menu_4"><i class="fa fa-clock-o iconmodal"></i>Historial de reportes</td>
+					<td class="option" id="menu_4"><i class="fa fa-clock-o iconmodal"></i>Historial de reportes <span>(<%= @task.reports.count %>)</span></td>
 				</tr>
 				<% if current_user.can_edit_task(@task) %>
 					<tr>
