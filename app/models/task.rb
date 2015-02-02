@@ -508,18 +508,18 @@ class Task < ActiveRecord::Base
 	# Progreso real hoy
 	def progress
 		if project.resources_type == 0
-			real_progress_function(Time.now, false)
+			real_progress_function(Date.today, false)
 		else
-			real_progress_function(Time.now, true)
+			real_progress_function(Date.today, true)
 		end
 	end
 
 	# Progrso estimado hoy
 	def expected_progress
 		if project.resources_type == 0
-			expected_progress_function(Time.now, false)
+			expected_progress_function(Date.today, false)
 		else
-			expected_progress_function(Time.now, true)
+			expected_progress_function(Date.today, true)
 		end
 	end
 
@@ -635,9 +635,9 @@ class Task < ActiveRecord::Base
 		year = params['new_date(1i)'.to_sym].to_i
 		month = params['new_date(2i)'.to_sym].to_i
 		day = params['new_date(3i)'.to_sym].to_i
-
+		
 		new_start_date = Date.new(year, month, day).to_date
-		old_start_date = self.expected_start_date.to_date
+		old_start_date = self.expected_start_date_from_children.to_date
 		days_diff = (new_start_date - old_start_date).to_i
 		self.move_dates(days_diff)
 	end

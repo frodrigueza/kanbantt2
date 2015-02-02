@@ -1,26 +1,21 @@
 class Project < ActiveRecord::Base
-	
 	#Tiene versionamiento de datos
 	has_paper_trail
 
 	has_many :assignments, dependent: :destroy
 	has_many :users, through: :assignments
-
 	has_many :tasks, dependent: :destroy
-
 	has_many :comments, dependent: :destroy
-
 	has_many :indicators, dependent: :destroy
-
-	# belongs_to :enterprise
 	belongs_to :owner, class_name: 'User'
+
+
+
+
 
 
 	#que el nombre este presente al crear/editar el proyecto y tenga largo minimo 3
 	validates :name, presence: true, length: { minimum: 3 }
-	#validacion para que la fecha de fin sea posterior a la de comienzo
-	# validates_presence_of :expected_start_date, :expected_end_date
-	# validate :expected_end_date_is_after_expected_start_date
 
 	# recalcular avances cuando se actualiza (cambia una fecha de una tarea, se agrega una o el)
   	before_destroy :destroy_tasks
@@ -431,18 +426,18 @@ class Project < ActiveRecord::Base
 	# Progreso real hoy
 	def progress
 		if resources_type == 0
-			real_progress_function(Time.now, false)
+			real_progress_function(Date.today, false)
 		else
-			real_progress_function(Time.now, true)
+			real_progress_function(Date.today, true)
 		end
 	end
 
 	# Progrso estimado hoy
 	def expected_progress
 		if resources_type == 0
-			expected_progress_function(Time.now, false)
+			expected_progress_function(Date.today, false)
 		else
-			expected_progress_function(Time.now, true)
+			expected_progress_function(Date.today, true)
 		end
 	end
 
@@ -600,8 +595,8 @@ class Project < ActiveRecord::Base
 
 	# Actualizamos los indicatores por medio de los jobs
 	def manage_indicators
-		# pc = ProgressCalculator.new(self)
-		# pc.manage_indicators
+		pc = ProgressCalculator.new(self)
+		pc.delay.manage_indicators
 	end
 
 	# ultima fecha entre:

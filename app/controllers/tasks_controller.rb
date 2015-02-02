@@ -32,8 +32,8 @@ class TasksController < ApplicationController
       @task.parent_id = params[:parent_id]
       @task.user_id = Task.find(params[:parent_id]).user_id
     else
-      @task.expected_start_date = @project.expected_start_date
-      @task.expected_end_date = @project.expected_end_date
+      @task.expected_start_date = [@project.expected_start_date, Date.today].max
+      @task.expected_end_date = [@project.expected_end_date, Date.tomorrow].max
     end
 
     if @project

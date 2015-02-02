@@ -10,7 +10,7 @@
 				Avance
 			</div>
 			<div class="col-md-12">
-				<%= @project.real_progress_function(Time.now, true) %>
+				<%= @project.real_progress_function(Date.today, true) %>
 			</div>
 		</div>
 	</div>
@@ -32,7 +32,7 @@
 				Tiempo esperado
 			</div>
 			<div class="col-md-12">
-				<%= @project.expected_progress_fucntion(Time.now, true) %>
+				<%= @project.expected_progress_function(Date.today, true) %>
 			</div>
 		</div>
 	</div>
