@@ -36,6 +36,7 @@
               <td></td>
             <% end %>
             <td><%= current_user.f_role_in_project(p)%></td>
+            <td><%= link_to 'detalles', p %></td>
             <% if p.owner == current_user %>
               <td><%= link_to_modal 'X', project_delete_path(p) %></td>
             <% end %>
