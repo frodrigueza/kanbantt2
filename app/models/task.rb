@@ -576,14 +576,16 @@ class Task < ActiveRecord::Base
 			# si lo piden en tiempo
 			if !in_resources
 				children.each do |c|
-					total_children_value += c.duration
-					total_children_value_extolled += c.expected_progress_function(date, in_resources) * c.duration
+					aux_duration = c.duration
+					total_children_value += aux_duration
+					total_children_value_extolled += c.expected_progress_function(date, in_resources) * aux_duration
 				end
 			# si lo piden en recursos
 			else
 				children.each do |c|
-					total_children_value += c.resources_cost_from_children
-					total_children_value_extolled += c.expected_progress_function(date, in_resources) * c.resources_cost_from_children
+					aux_resources_cost = c.resources_cost_from_children
+					total_children_value += aux_resources_cost
+					total_children_value_extolled += c.expected_progress_function(date, in_resources) * aux_resources_cost
 				end
 			end
 

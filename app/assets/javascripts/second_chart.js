@@ -107,24 +107,20 @@
                             [
                                 {
                                     name: 'Esperado en días',
-                                    pointInterval: 24 * 3600 * 1000 * 7,
                                     data: ERP
                                 },
 
                                 {
                                     name: 'Real en días',
-                                    pointInterval: 24 * 3600 * 1000 * 7,
                                     data: RRP
                                 },
                                 {
                                     name: 'Esperado en recursos',
-                                    pointInterval: 24 * 3600 * 1000 * 7,
                                     data: ERP
                                 },
 
                                 {
                                     name: 'Real en recursos',
-                                    pointInterval: 24 * 3600 * 1000 * 7,
                                     data: RRP
                                 }
                             ]

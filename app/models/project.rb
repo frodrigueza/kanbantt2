@@ -454,13 +454,15 @@ class Project < ActiveRecord::Base
 
 				if !in_resources
 					children.each do |c|
-						total_children_value += c.duration
-						total_children_value_extolled += c.real_progress_function(date, in_resources) * c.duration
+						aux_duration = c.duration
+						total_children_value += aux_duration
+						total_children_value_extolled += c.real_progress_function(date, in_resources) * aux_duration
 					end
 				else
 					children.each do |c|
-						total_children_value += c.resources_cost_from_children
-						total_children_value_extolled += c.real_progress_function(date, in_resources) * c.resources_cost_from_children
+						aux_resources = c.resources_cost_from_children
+						total_children_value += aux_resources
+						total_children_value_extolled += c.real_progress_function(date, in_resources) * aux_resources
 					end
 				end
 
@@ -662,6 +664,15 @@ class Project < ActiveRecord::Base
 
 	def name_the_owner_as_administrator
 		Assignment.create(user_id: owner_id, project_id: id, role: 1)
+	end
+
+	def reports_dates
+		array = []
+		reports.each do |r|
+			array << r.created_at.to_date
+		end
+
+		array.uniq
 	end
 
 	private

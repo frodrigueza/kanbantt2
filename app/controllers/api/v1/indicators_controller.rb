@@ -8,7 +8,7 @@ module Api
       # devuelve todos los indicadores
       def index
         @indicators = project.indicators.sort_by{ |indicator| indicator.date }
-        a.a
+        # a.a
       end
 
       def estimated_in_resources_by_week

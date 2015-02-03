@@ -5,7 +5,7 @@ class ProgressCalculator
 	end
 
 	def manage_indicators
-		project_dates_to_end.each do |date|
+		project_dates.each do |date|
 
 			indicator = Indicator.find_or_create_by(project_id: @project.id, date: date)
 			indicator.real_days_progress = @project.real_progress_function(date, false)
@@ -148,6 +148,49 @@ class ProgressCalculator
 # 	end
 
 # 	################ Metodos para cálculos de fechas de proyecto ########################
+	def project_dates
+		start_date = @project.expected_start_date.to_date
+		# si la fecha de entrega ya paso pero el proyecto todavia no se termina,
+		# debemos mostrar el avance real hasta la fecha y seguir el esperado en 100
+		if Date.today > @project.expected_end_date && @project.progress < 100
+			end_date = Date.today
+		else
+			end_date = @project.expected_end_date.to_date
+		end
+
+		array = []
+		number_of_days = end_date - start_date
+
+		# si el proyecto dura menos de 1 mes, lo hacemos por dia
+		if number_of_days <= 30
+			if number_of_days > 0
+				for i in 0..number_of_days
+					new_date = start_date + i
+					array << new_date
+				end
+			end
+
+		# sino lo hacemos semanalmente e inlcuimos los dias que se hicieron reportes
+		else
+			number_of_weeks = (number_of_days/7)
+			if number_of_weeks > 0
+				for i in 0..number_of_weeks
+					new_date = start_date + i*7
+					array << new_date
+				end
+			end
+
+			@project.reports_dates.each do |d|
+				array << d
+			end
+
+		end
+
+		array << start_date
+		array << end_date
+
+		array.uniq.sort
+	end
 
 	def project_dates_to_end
 		if Date.today > @project.last_date.to_date
@@ -157,49 +200,33 @@ class ProgressCalculator
 		end
 	end
 
-	def project_dates(end_date)
-		# auxiliares para no recalcular en cada iteracion
-		expected_end_date_aux = @project.expected_end_date.to_date
-		expected_start_date_aux = @project.expected_start_date.to_date
+	# def project_dates(end_date)
+	# 	# auxiliares para no recalcular en cada iteracion
+	# 	expected_end_date_aux = @project.expected_end_date.to_date
+	# 	expected_start_date_aux = @project.expected_start_date.to_date
 
-		# Si el proyecto dura menos de un mes, se obtienen indicadores por día
-		if (expected_end_date_aux - expected_start_date_aux).to_i <= 30 
-			my_days =  [1,2,3,4,5,6,0] # day of the week in 0-6. Sunday is day-of-week 0; Saturday is day-of-week 6.
-			new_start_date = expected_start_date_aux
-		# Si no, se obtienen por semana y se agregan días al final para llegar al lunes siguiente de la fecha de fin con 100%
-		else 
-			my_days = [1]
-			new_start_date = expected_start_date_aux.beginning_of_week.to_date
-		end
-		# Si la fecha fin de proyecto ya pasó, solo se obtienen hasta esa fecha
-		if Date.today >= expected_end_date_aux
-			end_date = expected_end_date_aux
-		end
-		# obtiene todas las fechas de días lunes entre el inicio y el fin del proyecto, incluyendo la fecha actual
- 		array = (new_start_date..end_date.to_date).to_a.select {|k| my_days.include?(k.wday) or k == Date.today}
- 		if end_date.monday? or end_date == Date.today
- 			array
- 		else
- 			array << end_date
-		end
-	end
+	# 	# Si el proyecto dura menos de un mes, se obtienen indicadores por día
+	# 	if (expected_end_date_aux - expected_start_date_aux).to_i <= 30 
+	# 		my_days =  [1,2,3,4,5,6,0] # day of the week in 0-6. Sunday is day-of-week 0; Saturday is day-of-week 6.
+	# 		new_start_date = expected_start_date_aux
+	# 	# Si no, se obtienen por semana y se agregan días al final para llegar al lunes siguiente de la fecha de fin con 100%
+	# 	else 
+	# 		my_days = [1]
+	# 		new_start_date = expected_start_date_aux.beginning_of_week.to_date
+	# 	end
+	# 	# Si la fecha fin de proyecto ya pasó, solo se obtienen hasta esa fecha
+	# 	if Date.today >= expected_end_date_aux
+	# 		end_date = expected_end_date_aux
+	# 	end
+	# 	# obtiene todas las fechas de días lunes entre el inicio y el fin del proyecto, incluyendo la fecha actual
+ # 		array = (new_start_date..end_date.to_date).to_a.select {|k| my_days.include?(k.wday) or k == Date.today}
+ # 		if end_date.monday? or end_date == Date.today
+ # 			array
+ # 		else
+ # 			array << end_date
+	# 	end
+	# end
 
-	def project_dates_a
-		start_date = @project.expected_start_date.to_date
-		end_date = @project.expected_end_date.to_date
-
-		array = []
-		aux_boolean = true
-		i = 0
-		while aux_boolean
-			new_date = start_date + i
-			if new_date <= end_date
-				array << new_date
-			else
-				aux_boolean = false
-			end
-		end
-	end
 	
 # 	################ Metodos para los gráficos de tareas ########################
 # 	# Deshabilitados porque no se implementó
