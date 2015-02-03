@@ -92,7 +92,7 @@ class UsersController < ApplicationController
       when 0
         redirect_to projects_path
       when 1
-        redirect_to current_user.projects.first.root
+        redirect_to project_root_path(current_user.projects.first)
       else
         redirect_to projects_path
     end
