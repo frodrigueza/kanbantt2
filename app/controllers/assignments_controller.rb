@@ -4,7 +4,7 @@ class AssignmentsController < ApplicationController
   respond_to :html
 
   def index
-    @assignments = Assignment.all
+    @assignments = Assignment.all.sort_by {|a| [a.project_id, a.role, a.user.f_role_in_project(a.project)]}
     respond_with(@assignments)
   end
 

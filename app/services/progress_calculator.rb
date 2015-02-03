@@ -159,28 +159,45 @@ class ProgressCalculator
 
 	def project_dates(end_date)
 		# auxiliares para no recalcular en cada iteracion
-		expected_end_date_aux = @project.expected_end_date
-		expected_start_date_aux = @project.expected_start_date
+		expected_end_date_aux = @project.expected_end_date.to_date
+		expected_start_date_aux = @project.expected_start_date.to_date
 
 		# Si el proyecto dura menos de un mes, se obtienen indicadores por día
-		if (expected_end_date_aux.to_date - expected_start_date_aux.to_date).to_i <= 30 
+		if (expected_end_date_aux - expected_start_date_aux).to_i <= 30 
 			my_days =  [1,2,3,4,5,6,0] # day of the week in 0-6. Sunday is day-of-week 0; Saturday is day-of-week 6.
-			new_start_date = expected_start_date_aux.to_date
+			new_start_date = expected_start_date_aux
 		# Si no, se obtienen por semana y se agregan días al final para llegar al lunes siguiente de la fecha de fin con 100%
 		else 
 			my_days = [1]
 			new_start_date = expected_start_date_aux.beginning_of_week.to_date
 		end
 		# Si la fecha fin de proyecto ya pasó, solo se obtienen hasta esa fecha
-		# if Date.today > @project.end_date.to_date
-		# 	end_date = @project.end_date.to_date
-		# end
+		if Date.today >= expected_end_date_aux
+			end_date = expected_end_date_aux
+		end
 		# obtiene todas las fechas de días lunes entre el inicio y el fin del proyecto, incluyendo la fecha actual
  		array = (new_start_date..end_date.to_date).to_a.select {|k| my_days.include?(k.wday) or k == Date.today}
  		if end_date.monday? or end_date == Date.today
  			array
  		else
  			array << end_date
+		end
+	end
+
+	def project_dates_a
+		start_date = @project.expected_start_date.to_date
+		end_date = @project.expected_end_date.to_date
+
+		array = []
+		aux_boolean = true
+		i = 0
+		while aux_boolean
+			new_date = start_date + i
+			if new_date <= end_date
+				array << new_date
+			else
+				aux_boolean = false
+			end
 		end
 	end
 	

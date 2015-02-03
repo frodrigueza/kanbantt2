@@ -23,7 +23,6 @@
                             EDP.push(value);
                             // console.log(value);
                         });
-                    // console.log(EDP);
                     }
 
                     // REALES EN DIAS
@@ -38,6 +37,37 @@
                             {
                                 var value = [date, progress];
                                 RDP.push(value);
+                                console.log(value);
+                            }
+                        });
+                    }
+
+                    // ESPERADOS EN RECURSOS
+                    var ERP = [];
+                    if ($('#resources_chart'))
+                    {
+                        $.each(data, function(i, item){
+                            var date = Date.parse(data[i]['date']);
+                            var progress = parseInt(data[i]['expected_resources_progress']);
+
+                            var value = [date, progress];
+                            ERP.push(value);
+                            // console.log(value);
+                        });
+                    }
+
+                    // REALES EN RECURSOS
+                    var RRP = [];
+                    if ($('#resources_chart'))
+                    {
+                        $.each(data, function(i, item){
+                            var date = Date.parse(data[i]['date']);
+                            var progress = parseInt(data[i]['real_resources_progress']);
+
+                            if (!isNaN(progress)) 
+                            {
+                                var value = [date, progress];
+                                RRP.push(value);
                                 console.log(value);
                             }
                         });
@@ -76,15 +106,26 @@
                             series: 
                             [
                                 {
-                                    name: 'Esperado',
+                                    name: 'Esperado en días',
                                     pointInterval: 24 * 3600 * 1000 * 7,
-                                    data: EDP
+                                    data: ERP
                                 },
 
                                 {
-                                    name: 'Real',
+                                    name: 'Real en días',
                                     pointInterval: 24 * 3600 * 1000 * 7,
-                                    data: RDP
+                                    data: RRP
+                                },
+                                {
+                                    name: 'Esperado en recursos',
+                                    pointInterval: 24 * 3600 * 1000 * 7,
+                                    data: ERP
+                                },
+
+                                {
+                                    name: 'Real en recursos',
+                                    pointInterval: 24 * 3600 * 1000 * 7,
+                                    data: RRP
                                 }
                             ]
                         });

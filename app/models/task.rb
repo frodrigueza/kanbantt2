@@ -65,35 +65,35 @@ class Task < ActiveRecord::Base
 
 
 	def call_update
-		if(@@sending)
-			return
-		end
+		# if(@@sending)
+		# 	return
+		# end
 
-		@@sending=true
-		Thread.new{
-			gcm = GCM.new("AIzaSyA9FUIkOt3xAzydK15ZqeKuOHp0frmcKUs")
-			registration_id=[]
-			#Este metodo llama a todos los usuarios de un proyecto y les avisa que actualice el expected_progress.
-			project_id = self.project_id
-			projecto = Project.find(project_id)
-			usuarios = projecto.users
-			usuarios.each do |user|
-				Rails.logger.info "Enviando notificacion..."
-				#Tengo que buscar en la tabla y enviar un mensaje a cada uno avisando que actualicen!.
-				pushNotification = Push.where(:mail => user.email)
-				if (!pushNotification.blank?)
-					#Significa que el usuario tiene un token asignado. Le mando una push notification.
-					pushNotification.each do |notification|
-						registration_id << notification.token
-						data = {data: {project_id: project_id}}.to_json
-						response = gcm.send(registration_id, JSON.parse(data))
-						Rails.logger.info "Respuesta Notificacion:"
-						Rails.logger.info response
-					end
-				end
-			end
-			@@sending=false
-		}
+		# @@sending=true
+		# Thread.new{
+		# 	gcm = GCM.new("AIzaSyA9FUIkOt3xAzydK15ZqeKuOHp0frmcKUs")
+		# 	registration_id=[]
+		# 	#Este metodo llama a todos los usuarios de un proyecto y les avisa que actualice el expected_progress.
+		# 	project_id = self.project_id
+		# 	projecto = Project.find(project_id)
+		# 	usuarios = projecto.users
+		# 	usuarios.each do |user|
+		# 		Rails.logger.info "Enviando notificacion..."
+		# 		#Tengo que buscar en la tabla y enviar un mensaje a cada uno avisando que actualicen!.
+		# 		pushNotification = Push.where(:mail => user.email)
+		# 		if (!pushNotification.blank?)
+		# 			#Significa que el usuario tiene un token asignado. Le mando una push notification.
+		# 			pushNotification.each do |notification|
+		# 				registration_id << notification.token
+		# 				data = {data: {project_id: project_id}}.to_json
+		# 				response = gcm.send(registration_id, JSON.parse(data))
+		# 				Rails.logger.info "Respuesta Notificacion:"
+		# 				Rails.logger.info response
+		# 			end
+		# 		end
+		# 	end
+		# 	@@sending=false
+		# }
 	end
 
 
@@ -193,7 +193,7 @@ class Task < ActiveRecord::Base
 
 	def expected_start_date_from_children
 		if !has_children?
-			return expected_start_date
+			return expected_start_date.to_date
 		else
 			children.min_by { |x| x.expected_start_date_from_children }.expected_start_date_from_children
 		end
@@ -201,7 +201,7 @@ class Task < ActiveRecord::Base
 
 	def expected_end_date_from_children
 		if !has_children?
-			return expected_end_date
+			return expected_end_date.to_date
 		else
 			children.max_by { |x| x.expected_end_date_from_children }.expected_end_date_from_children
 		end
@@ -562,7 +562,7 @@ class Task < ActiveRecord::Base
 	# in_resources = boolean
 	def expected_progress_function(date, in_resources)
 		if !has_children?
-			if date > expected_end_date
+			if date >= expected_end_date_from_children
 				100
 			elsif  full_duration > 0
 				((days_from_start(date).to_f/duration)*100).round(1)
@@ -635,7 +635,7 @@ class Task < ActiveRecord::Base
 		year = params['new_date(1i)'.to_sym].to_i
 		month = params['new_date(2i)'.to_sym].to_i
 		day = params['new_date(3i)'.to_sym].to_i
-		
+
 		new_start_date = Date.new(year, month, day).to_date
 		old_start_date = self.expected_start_date_from_children.to_date
 		days_diff = (new_start_date - old_start_date).to_i

@@ -476,13 +476,6 @@ class Project < ActiveRecord::Base
 	# in_resources = boolean
 	def expected_progress_function(date, in_resources)
 		if !has_children?
-			# if date > expected_end_date
-			# 	100
-			# elsif  full_duration > 0
-			# 	((days_from_start(date).to_f/duration)*100).round(1)
-			# else
-			# 	0
-			# end
 			return nil
 		else
 			total_children_value = 0
@@ -595,8 +588,8 @@ class Project < ActiveRecord::Base
 
 	# Actualizamos los indicatores por medio de los jobs
 	def manage_indicators
-		pc = ProgressCalculator.new(self)
-		pc.delay.manage_indicators
+		# pc = ProgressCalculator.new(self)
+		# pc.manage_indicators
 	end
 
 	# ultima fecha entre:
