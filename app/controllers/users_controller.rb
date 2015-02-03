@@ -92,7 +92,7 @@ class UsersController < ApplicationController
       when 0
         redirect_to projects_path
       when 1
-        redirect_to kanban_board_index_path(project_id: current_user.projects.first.id)
+        redirect_to current_user.projects.first.root
       else
         redirect_to projects_path
     end
