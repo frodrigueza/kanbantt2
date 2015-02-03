@@ -20,9 +20,6 @@
             <td><%= assignment.user.f_name %></td>
             <td><%= assignment.role %></td>
             <td><%= assignment.user.f_role_in_project(assignment.project) %></td>
-            <td><%= link_to 'Show', assignment %></td>
-            <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-            <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
