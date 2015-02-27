@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   load_and_authorize_resource
 
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :stads]
 
   # GET /projects
   # GET /projects.json
@@ -41,15 +41,16 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    # a.a
 
     if params[:project][:xml_file]
-      i = Importer.new(params[:project][:xml_file])
+      i = Importer.new(params[:project][:xml_file], user_id: current_user.id)
       i.import(@project)
     end
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to request.referer }
+        format.html { redirect_to explorer_tree_view_path }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -113,6 +114,10 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
+  def stads
+    @users = @project.users
+  end
+
   def root
     # administrador
     if current_user.role_in_project(@project) == 1
@@ -155,7 +160,11 @@ class ProjectsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_project
-    @project = Project.find(params[:id])
+    if params[:id]
+      @project = Project.find(params[:id])
+    elsif params[:project_id]
+      @project = Project.find(params[:project_id])
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

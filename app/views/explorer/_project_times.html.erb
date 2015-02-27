@@ -1,0 +1,17 @@
+<div class="full task_times">
+	<table class="full">
+		<tr>
+			<% if !project.done %>
+				<% if %>
+						
+					<td></td>
+					<td title="progreso esperado" class="expected_progress right"><%= project.expected_progress %>%</td>
+					<td title="progreso real" class="real_progress <%= css_project_status_color(project) %> right"><%= project.real_progress.to_f.round(1) %>%</td>
+				<% end %>
+			<% else %>
+				<td class="done"><span class="glyphicon glyphicon-ok" title="Tarea terminada"></span></td>
+			<% end %>
+			
+		</tr>
+	</table>
+</div>

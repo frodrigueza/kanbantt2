@@ -1,0 +1,16 @@
+<td class="content" id="content_<%= task.id %>">
+	<!-- header -->
+	<div class="row task_header">
+		<%= render 'explorer/task_header', task: task %>
+	</div>
+	
+	<!-- contenido -->
+	<div class="row">
+		<%= render 'explorer/task_name', task: task %>
+	</div>
+
+	<!-- times -->
+	<div class="row task_times">
+		<%= render 'explorer/task_times', task: task %>
+	</div>
+</td>

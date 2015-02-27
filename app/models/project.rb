@@ -17,8 +17,7 @@ class Project < ActiveRecord::Base
 	#que el nombre este presente al crear/editar el proyecto y tenga largo minimo 3
 	validates :name, presence: true, length: { minimum: 3 }
 
-	# recalcular avances cuando se actualiza (cambia una fecha de una tarea, se agrega una o el)
-  	before_destroy :destroy_tasks
+  	# before_destroy :destroy_tasks
 
   	# Que el creador del proyecto quede inmediatamente como administrador
 	after_create :name_the_owner_as_administrator
@@ -37,6 +36,24 @@ class Project < ActiveRecord::Base
 			return 'UF'
 		elsif resources_type == 3
 			return 'hh'
+		end
+	end
+
+	def done
+		progress == 100
+	end
+
+	def f_duration_or_cost
+		r_type = self.resources_type
+		case r_type
+		when 0
+			duration.to_s + ' d'
+		when 1
+			resources_cost_from_children.round().to_s + ' usd'	
+		when 2
+			resources_cost_from_children.round().to_s + ' UF'	
+		when 3
+			resources_cost_from_children.round().to_s + ' hh'	
 		end
 	end
 
@@ -325,6 +342,10 @@ class Project < ActiveRecord::Base
 	end
 
 	def duration
+		(expected_end_date.to_date - expected_start_date.to_date).to_i + 1
+	end
+
+	def wdays_duration
 		weekdays_betweeen(expected_start_date, expected_end_date)
 	end
 
@@ -424,7 +445,7 @@ class Project < ActiveRecord::Base
 
 
 	# Progreso real hoy
-	def progress
+	def real_progress
 		if resources_type == 0
 			real_progress_function(Date.today, false)
 		else
@@ -435,9 +456,9 @@ class Project < ActiveRecord::Base
 	# Progrso estimado hoy
 	def expected_progress
 		if resources_type == 0
-			expected_progress_function(Date.today, false)
+			return expected_progress_function(Date.today, false)
 		else
-			expected_progress_function(Date.today, true)
+			return expected_progress_function(Date.today, true)
 		end
 	end
 
@@ -478,7 +499,7 @@ class Project < ActiveRecord::Base
 	# in_resources = boolean
 	def expected_progress_function(date, in_resources)
 		if !has_children?
-			return nil
+			return 0.0
 		else
 			total_children_value = 0
 			total_children_value_extolled = 0
@@ -574,10 +595,10 @@ class Project < ActiveRecord::Base
 		aux = delayed_or_advanced_days(in_resources)
 		if aux > 0
 			array[0] = 'Días de ventaja'
-			array[1] = aux.to_s
+			array[1] = aux.abs.to_s
 		else
 			array[0] = 'Días de atraso'
-			array[1] = aux.to_s
+			array[1] = aux.abs.to_s
 		end
 
 		array
@@ -585,13 +606,27 @@ class Project < ActiveRecord::Base
 
 	# porcentaje de retraso
 	def progress_delta(in_resources)
-		(real_progress_function(Date.today, in_resources) - expected_progress_function(Date.today, in_resources)).to_f.round(1)
+		(real_progress - expected_progress).to_f.round(1)
 	end
 
 	# Actualizamos los indicatores por medio de los jobs
 	def manage_indicators
-		# pc = ProgressCalculator.new(self)
-		# pc.manage_indicators
+		pc = ProgressCalculator.new(self)
+		pc.delay.manage_indicators
+	end
+
+	# actualizamos un solo indicador al hacer un reporte. Es para no tener que actualizar todos cada vez que se hace
+	# un reporte, que son muchas veces.
+	def manage_indicator(report)
+		date = report.created_at.to_date
+		i = Indicator.find_or_create_by(project_id: self.id, date: date)
+		
+		i.real_days_progress = self.real_progress_function(date, false)
+		if self.resources_type != 0
+			i.real_resources_progress = self.real_progress_function(date, true)
+		end
+
+		i.save
 	end
 
 	# ultima fecha entre:
@@ -674,13 +709,4 @@ class Project < ActiveRecord::Base
 
 		array.uniq
 	end
-
-	private
-
-	def destroy_tasks
-		children.each do |c|
-			c.destroy_without_callback
-		end
-	end
-
 end

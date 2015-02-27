@@ -5,12 +5,10 @@ class Comment < ActiveRecord::Base
 	# pertenece a un usuario ya que no solo el dueño de la tarea puede dejar comentarios en esta, tambien el 
 	# admin del proyecto y el super admin
 	belongs_to :user
+	before_save :test
 
-def wrap(s, width)
-  s.gsub(/(.{1,#{width}})(\s+|\Z)/, "\\1<br>").html_safe
-end
-
-	def method_name
-		
+	def wrap(s, width)
+	  s.gsub(/(.{1,#{width}})(\s+|\Z)/, "\\1<br>").html_safe
 	end
+
 end

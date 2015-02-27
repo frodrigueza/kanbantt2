@@ -5,9 +5,10 @@
 </div>
 <div class="row">
 	<div class="col-md-12" id="indicators">
-		<%= render 'days_indicators' %>
 		<% if @project.resources_type != 0 %>
 			<%= render 'resources_indicators' %>
+		<% else %>
+			<%= render 'days_indicators' %>
 		<% end %>
 
 		<% if @project.resources_reporting %>

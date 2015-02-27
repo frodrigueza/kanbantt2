@@ -34,8 +34,7 @@
 	}
 	.left_panel{
 		position: absolute;
-		background: gainsboro;
-		border-right: 1px solid gray;
+		border-right: 1px solid #cdcdcd;
 		left: 0px;
 		top: 0px;
 		bottom: 0px;
@@ -62,10 +61,9 @@
 			}
 		}
 		.option.active{
-			background: linear-gradient($azul_cinco, $azul_cuatro);
-			color: white;
+			color: $azul;
 			a{
-				color: white;
+				color: $azul;
 				text-decoration: none;
 			}
 		}

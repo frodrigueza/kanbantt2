@@ -36,65 +36,29 @@ class Task < ActiveRecord::Base
 	validates :name, presence: true
 
 	#validacion para que la fecha de fin sea posterior a la de comienzo
-	validates_presence_of :expected_start_date
-	validates_presence_of :expected_end_date
-	validate :end_date_is_after_start_date
-	validate :duration_resources_positive
+	# validates_presence_of :expected_start_date
+	# validates_presence_of :expected_end_date
+	# validate :end_date_is_after_start_date
+	# validate :resources_positive
 
-	# Si cambio el responsable, que toda la descendencia quede con ese responsable	
-	after_save :check_parent_user
+	# # Si cambio el responsable, que toda la descendencia quede con ese responsable	
+	# after_save :check_parent_user
+	# after_save :update_project_after_save
+	# after_destroy :update_project_after_destroy
 
 	#Verificamos que la fecha de termino sea menor a la fecha de inicio
 	def end_date_is_after_start_date
-		return if expected_end_date.blank? || expected_start_date.blank?
-		if expected_end_date <= expected_start_date
+		if expected_end_date < expected_start_date
 			errors.add(:expected_end_date, "La fecha de término debe ser posterior a la de inicio")
 		end 
   	end
 
-  	def duration_resources_positive
-  		if duration <= 0 
-  			errors.add(:expected_end_date, "La tarea " + name + " debe tener duracion mayor a 0")
-  			return false
-  		elsif project.resources_type != 0  && self.resources_cost_from_children <= 0
+  	def resources_positive
+  		if project.resources_type != 0  && self.resources_cost_from_children <= 0
   			errors.add(:resources_cost, "La tarea " + name + " debe tener un costo de recursos mayor a 0")
   			return false
   		end
   	end
-
-
-
-	def call_update
-		# if(@@sending)
-		# 	return
-		# end
-
-		# @@sending=true
-		# Thread.new{
-		# 	gcm = GCM.new("AIzaSyA9FUIkOt3xAzydK15ZqeKuOHp0frmcKUs")
-		# 	registration_id=[]
-		# 	#Este metodo llama a todos los usuarios de un proyecto y les avisa que actualice el expected_progress.
-		# 	project_id = self.project_id
-		# 	projecto = Project.find(project_id)
-		# 	usuarios = projecto.users
-		# 	usuarios.each do |user|
-		# 		Rails.logger.info "Enviando notificacion..."
-		# 		#Tengo que buscar en la tabla y enviar un mensaje a cada uno avisando que actualicen!.
-		# 		pushNotification = Push.where(:mail => user.email)
-		# 		if (!pushNotification.blank?)
-		# 			#Significa que el usuario tiene un token asignado. Le mando una push notification.
-		# 			pushNotification.each do |notification|
-		# 				registration_id << notification.token
-		# 				data = {data: {project_id: project_id}}.to_json
-		# 				response = gcm.send(registration_id, JSON.parse(data))
-		# 				Rails.logger.info "Respuesta Notificacion:"
-		# 				Rails.logger.info response
-		# 			end
-		# 		end
-		# 	end
-		# 	@@sending=false
-		# }
-	end
 
 
   
@@ -241,7 +205,7 @@ class Task < ActiveRecord::Base
 		else
 			self.urgent = true
 		end		
-		self.save
+		self.sneaky_save
 	end
 
 	# boolean si la tarea está terminada o no
@@ -299,7 +263,7 @@ class Task < ActiveRecord::Base
 			self.state = 0
 		end
 
-		self.save
+		self.sneaky_save
 	end
 
 	# dias de desfase, utilizado en la vista de assignments
@@ -313,21 +277,6 @@ class Task < ActiveRecord::Base
 		else
 			''
 		end
-	end
-	
-	def duration_in_date
-		aux_start = expected_start_date_from_children
-		aux_end = expected_end_date_from_children
-		if aux_start and aux_end
-	 		if aux_start == aux_end
-	 			return 1
-	 		else
-	 			((aux_end - aux_start)/ (24 * 60 * 60))
-	 		end
-		else
-			duration
-		end
-
 	end
 
 	# entrega las tareas hermanas de una tarea (las hijas de su padre)
@@ -368,7 +317,7 @@ class Task < ActiveRecord::Base
 
 	# días desde que la tarea empezó hasta la fecha
 	# si no ha empezado es 0 y si ya terminó es la duración de la tarea
-	def days_from_start(date)
+	def wdays_from_start(date)
 		if date < expected_start_date
 			0
 		elsif date > expected_end_date
@@ -376,13 +325,6 @@ class Task < ActiveRecord::Base
 		else
 			(expected_start_date.to_date..date.to_date-1).select {|d| (1..5).include?(d.wday) }.size
 		end
-	end
-
-	# Calcula la duración en días en base a fecha de inicio y de fin, contando solo días laborales
-	# Si empieza y termina el mismo día devuelve 0
-	def full_duration
-		d = (expected_start_date.to_date..expected_end_date.to_date).select {|d| (1..5).include?(d.wday) }.size
-		d != 0 ? d : 1
 	end
 
 	# metodo que devuelve el nombre de la tarea padre
@@ -414,7 +356,7 @@ class Task < ActiveRecord::Base
 	def check_parent_user
 		if user_id_changed? and has_children?
 			children.each do |c|
-				c.user = user
+				c.user_id = user.id
 				# usamos sneaky save (sin callbacks) para que no se recalculen los avances del proyecto
 				c.sneaky_save
 				c.check_parent_user
@@ -432,38 +374,6 @@ class Task < ActiveRecord::Base
 		self.delete
 	end
 
-	#En base a la duración y la fecha de inicio, se define la fecha de termino.
-  	def end_date_task
-		return expected_start_date.to_date + (weekdays_duration - 1).days 	
-  	end
-
-  	# Devuelve la cantidad de dias que corresponden a considerar la duración en dias habiles
-	def weekdays_duration
-		p = expected_start_date.strftime("%u").to_i
-		d = self.duration
-		n = 0
-
-		if p < 6
-			if 6 > d + p
-				n = 6 - p + 2
-			else
-				n = 6 - p
-			end 
-			d = d - 6 + p
-		end
-
-		while d != 0
-			if d > 4
-				n = n + 7
-				d = d - 5
-			else
-				n = n + d
-				d = 0
-			end
-		end     	
-    	return n.to_i
-  	end
-
 
 
 
@@ -476,15 +386,29 @@ class Task < ActiveRecord::Base
 
 
 
-
-	# Duracion calculada dinamicamente segun hijos
+	# Duracion calculada dinamicamente segun hijos contando todos los dias (incluidos fines de semana)
 	def duration
 		if !has_children?
-			((expected_end_date - expected_start_date)/ (24 * 60 * 60))
+			(expected_start_date.to_date..expected_end_date.to_date).to_a.uniq.size
 		else
 			aux = 0
 			children.each do |c|
 				aux += c.duration
+			end
+
+			return aux 
+		end
+
+	end
+
+	# Duracion calculada dinamicamente segun hijos contando solo dias hábiles
+	def wdays_duration
+		if !has_children?
+			(expected_start_date.to_date..expected_end_date.to_date).select {|d| (1..5).include?(d.wday) }.size
+		else
+			aux = 0
+			children.each do |c|
+				aux += c.wdays_duration
 			end
 
 			return aux 
@@ -564,8 +488,8 @@ class Task < ActiveRecord::Base
 		if !has_children?
 			if date >= expected_end_date_from_children
 				100
-			elsif  full_duration > 0
-				((days_from_start(date).to_f/duration)*100).round(1)
+			elsif  wdays_duration > 0
+				((wdays_from_start(date).to_f/wdays_duration)*100).round(1)
 			else
 				0
 			end
@@ -576,7 +500,7 @@ class Task < ActiveRecord::Base
 			# si lo piden en tiempo
 			if !in_resources
 				children.each do |c|
-					aux_duration = c.duration
+					aux_duration = c.wdays_duration
 					total_children_value += aux_duration
 					total_children_value_extolled += c.expected_progress_function(date, in_resources) * aux_duration
 				end
@@ -613,10 +537,10 @@ class Task < ActiveRecord::Base
 	def fast_report(user_id)
 		if progress != 100
 			# Creamos un reporte hecho por el usuario de la sesion
-			Report.create(progress: 100, user_id: user_id, task_id: self.id)
+			Report.create(progress: 100, user_id: user_id, task_id: self.id, created_at: Time.now)
 		end
 		self.state = 2
-		self.save
+		self.sneaky_save
 	end
 
 	def f_parent_id
@@ -650,13 +574,16 @@ class Task < ActiveRecord::Base
 			last_level_tasks_below.each do |t|
 				t.expected_start_date += number_of_days.days
 				t.expected_end_date += number_of_days.days
-				t.save
+				t.sneaky_save
 			end
 		else
 			self.expected_start_date += number_of_days.days
 			self.expected_end_date += number_of_days.days
-			self.save
+			self.sneaky_save
 		end
+
+		# luego de haber movido las tasks, recalculamos los indicadores
+		project.manage_indicators
 	end
 
 	# arreglo con todas las tasks de ultimo nivel bajo esta
@@ -671,5 +598,20 @@ class Task < ActiveRecord::Base
 		end
 
 		array
+	end
+
+	def update_project_after_save
+		# solo cuando se actualizan ciertos atributos modificamos los indicadores
+		if resources_cost_changed? || expected_start_date_changed? || expected_end_date_changed?
+			project.manage_indicators
+		end
+	end
+
+
+	def update_project_after_destroy
+		if !@destroyed_by_association
+			# luego de eliminar, modificamos todos los indicadores
+			project.manage_indicators
+		end
 	end
 end

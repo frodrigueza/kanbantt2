@@ -1,0 +1,27 @@
+<!-- HTML de cada columna, se hace un IF si es que es la primera columna o una de las siguientes -->
+<div class="column <%= column_class(parent) %>" id="column_of_<%= parent.class.name %>_<%= parent.id %>">
+	<div class="full">
+		<table class="full header">
+			
+			<tr>
+				<!-- Boton + que permite crear tareas. Por cada columna se crea un modal con el form para agragar tarea a esta -->
+				<td class="parent_name" title="<%= parent.name %>"><%= parent.name %></td>
+				<% if parent.class.name == "Task" %>
+					<td class="add_task_button"><%= link_to_modal '<span class="glyphicon glyphicon-plus"></span>'.html_safe, new_project_task_path(parent.project, parent_id: parent.id) %></td>
+				<% elsif parent.class.name == "Project"%>
+					<td class="add_task_button"><%= link_to_modal '<span class="glyphicon glyphicon-plus"></span>'.html_safe, new_project_task_path(project_id: parent.id) %></td>
+				<% end %>
+				<!-- fin de los botones -->
+			</tr>
+		</table>
+	</div>
+
+	<!--  fin de los forms -->
+	
+	<!-- Por cada hijo de la variable parent, se hace render de un item de la columna -->
+	<div class="full children" id="children_of_<%= parent.class.name %>_<%= parent.id %>">
+		<% parent.children.sort_by{ |task| task.kanban_order }.each do |t| %>
+			<%= render 'task_item', task: t %>
+		<% end %>
+	</div>
+</div>		

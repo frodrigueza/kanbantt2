@@ -24,7 +24,6 @@ class ApplicationController < ActionController::Base
 
   # Metodo utilizado para testear con debugger alguna funcionalidad
   def test
-    
   end
 
 

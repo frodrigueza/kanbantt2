@@ -1,4 +1,4 @@
-$(function(){
+	$(function(){
 
 	//Removemos todas las columnas despues de la clickeada
 	$('#column_<%= @task.parent_id ? @task.parent_id : 0 %>').nextAll().remove();
@@ -7,7 +7,8 @@ $(function(){
 	$('#column_<%= @task.parent_id ? @task.parent_id : 0 %>').find('.item .arrow').removeClass('active');
 
 	//Al item clickeado lo dejamos active
-	$('#item_<%= @task.id %> .arrow').addClass('active');
+	$('#task_item_<%= @task.id %> .arrow').addClass('active');
+	$('#project_item_<%= @task.project_id %> .arrow').addClass('active');
 
 	//Agregamos el partial column a tree view via append, escape_javascript
 	$('#tree_view_content').append('<%= escape_javascript(render "projects/explorer/tree_view_column", parent: @task) %>');

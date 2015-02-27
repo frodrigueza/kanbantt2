@@ -17,7 +17,7 @@ module ProjectsHelper
 	end
 
 	def css_project_status_color(project)
-		if project.progress < project.expected_progress
+		if project.real_progress < project.expected_progress
 			'bad'
 		else
 			'great'

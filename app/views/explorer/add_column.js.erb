@@ -1,0 +1,22 @@
+$(function(){
+	<% if @parent.class.name == 'Project' %>
+		//Removemos todas las columnas despues de la clickeada
+		$('#projects_column').nextAll().remove();
+		// Removemos el atributo active de class de todos los items de la columna clickeada
+		$('#projects_column').find('.item .arrow').removeClass('active');
+		//Al item clickeado lo dejamos active
+		$('#project_item_<%= @parent.id %> .arrow').addClass('active');
+	<% else %>
+		//Removemos todas las columnas despues de la clickeada
+		$('#task_item_<%= @parent.id %>').closest('.column').find('.item .arrow').removeClass('active');
+		$('#task_item_<%= @parent.id %>').closest('.column').nextAll().remove();
+		//Al item clickeado lo dejamos active
+		$('#task_item_<%= @parent.id %> .arrow').addClass('active');
+	<% end %>
+
+
+
+
+	//Agregamos el partial column a tree view via append, escape_javascript
+	$('#tree_view_content').append('<%= escape_javascript(render "children_column", parent: @parent) %>');
+});

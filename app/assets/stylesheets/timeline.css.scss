@@ -1,0 +1,15 @@
+.timeline{
+	width: 100%;
+	td{
+		padding: 20px;
+		width: 50%;
+	}
+	.date{
+		border-right: 1px solid gray;
+		text-align: right;
+		color: gray;
+	}
+	.fact{
+		text-align: left;
+	}
+}

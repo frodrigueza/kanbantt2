@@ -1,0 +1,29 @@
+<table class="full">
+	<tr>
+		<% if !task.has_children? && task.progress != 100 %>
+			<% if current_user.can_report_task(task) %>
+				<% if !task.project.resources_reporting %>
+					<td class="fast-reporter border-left">
+						<%= link_to '<span class="glyphicon glyphicon-check"></span>'.html_safe, task_fast_report_path(task, user_id: current_user.id), remote: true, title:'Marcar como terminada' %>
+					</td>
+				<% end %>
+			<% end %>
+		<% end %>
+
+		<td>
+			<span><%= task.f_duration_or_cost %></span>
+		</td>
+
+		<% if task.user_id %>
+			<td>
+				<span class="glyphicon glyphicon-user" title="<%= user_assigned_task_title(task) %>"></span>
+			</td>
+
+			<% if task.commited %>
+				<td>
+					<span class="glyphicon glyphicon-link" title="<%= user_commited_tak_title(task) %>"></span>
+				</td>
+			<% end %>
+		<% end %>
+	</tr>
+</table>

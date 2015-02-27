@@ -1,0 +1,8 @@
+<table class="full timeline">
+	<% @task.reports.each do |r| %>
+		<tr>
+			<td class="date"><%= f_date(r.created_at) %></td>
+			<td class="fact"><%= r.progress %><br> <%= r.user.f_name %></td>
+		</tr>
+	<% end %>
+</table>

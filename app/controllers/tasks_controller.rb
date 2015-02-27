@@ -62,6 +62,7 @@ class TasksController < ApplicationController
     @project = @task.project
     respond_to do |format|
       if @task.save
+        @task.project.manage_indicators
         format.html { redirect_to request.referer }
         format.json { render :show, status: :created, location: @task }
         format.js { render 'add_task.js.erb' }
@@ -78,6 +79,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update(task_params)
+        @task.update_project_after_save
         format.html { redirect_to :back }
         format.js { render 'update_tree_view.js.erb' }
       else
@@ -93,8 +95,9 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1
   def destroy
+    project = @task.project
     @task.destroy
-
+    project.manage_indicators
 
 
     respond_to do |format|
@@ -112,6 +115,7 @@ class TasksController < ApplicationController
   def fast_report
     @task = Task.find(params[:task_id])
     @task.fast_report(params[:user_id])
+    @task.project.manage_indicator(@task.reports.last)
 
     @project = @task.project
 

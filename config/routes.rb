@@ -4,6 +4,9 @@ require 'api_constraints'
 Rails.application.routes.draw do
 
 
+  get 'explorer/tree_view'
+  get 'explorer/add_column'
+
   # API
   namespace :api, defaults: {format: 'json'} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
@@ -65,6 +68,7 @@ Rails.application.routes.draw do
     get 'second_indicators'
     get 'tree_view'
     get 'root'
+    get 'stads'
     get 'add_tree_view_column'
     get 'export'
     get 'kanban_board', to: 'kanban_board#index', as: :kanban_board_index

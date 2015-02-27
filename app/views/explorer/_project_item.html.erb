@@ -1,0 +1,18 @@
+<!-- EXPLORER/PROJECT_ITEM -->
+<div class="item" id="project_item_<%= project.id %>">
+	<div class="row">
+		<table class="full content_table">
+			<tr>
+				<!-- contenido que se reemplaza despues por ajax -->
+				<%= render 'explorer/project_content', project: project %>
+
+				<!-- flecha para ir a hijos -->
+				<td class="helper <%= project.has_children? ? 'parent' : '' %>" title="Ver tareas hijas">
+					<%= link_to '<div class="arrow"><span class="glyphicon glyphicon-chevron-right"></span></div>'.html_safe,explorer_add_column_path(parent_id: project.id, parent_type: 'project'), {remote: true, id: 'project_item_' + project.id.to_s + '_link', class:'slow_ajax'}%>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+

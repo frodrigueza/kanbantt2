@@ -1,0 +1,16 @@
+<div class="item" id="task_item_<%= task.id %>">
+		<div class="row">
+			<table class="full content_table">
+				<tr>
+					<!-- contenido que se reemplaza despues por ajax -->
+					<%= render 'explorer/task_content', task: task %>
+
+					<!-- flecha para ir a hijos -->
+					<td class="helper <%= task.has_children? ? 'parent' : '' %>" title="Ver tareas hijas">
+						<%= link_to '<div class="arrow"><span class="glyphicon glyphicon-chevron-right"></span></div>'.html_safe, explorer_add_column_path(parent_type: 'task', parent_id: task.id), {remote: true, id: 'item_' + task.id.to_s + '_link', class:'slow_ajax'}%>
+					</td>
+				</tr>
+			</table>
+		</div>
+</div>
+

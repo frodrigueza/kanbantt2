@@ -30,6 +30,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
+        @report.update_project_indicator(@report)
         format.js 
         format.html { redirect_to request.referer }
         format.json { render :show, status: :created, location: @report }
@@ -46,6 +47,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.update(report_params)
+        @report.update_project_indicator(@report)
         format.html { redirect_to request.referer }
       else
         format.html { render :edit }
@@ -58,12 +60,12 @@ class ReportsController < ApplicationController
   # DELETE /reports/1.json
   def destroy
     @project = @report.project
-    task = @report.task
+    @task = @report.task
     @report_id = @report.id
     @report.destroy
 
     # refrescamos la tarea
-    task.refresh
+    @task.refresh
     respond_to do |format|
       format.html { redirect_to request.referer }
       format.json { head :no_content }
