@@ -1,1 +1,0 @@
-  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.6ms)[0m  SELECT  "delayed_jobs".* FROM "delayed_jobs"  WHERE ((run_at <= '2015-02-27 21:05:58.284600' AND (locked_at IS NULL OR locked_at < '2015-02-27 17:05:58.284684') OR locked_by = 'host:PC-de-Felipe pid:4443') AND failed_at IS NULL)  ORDER BY priority ASC, run_at ASC LIMIT 5

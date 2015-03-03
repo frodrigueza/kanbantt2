@@ -46,7 +46,7 @@ class Importer
 
 		Task.transaction do
 			# CREAMOS EL PROYECTO
-			project.name = hash[0]["Name"]
+			project.name = project.name ? project.name : hash[0]["Name"]
 			project.expected_start_date = hash[0]["Start"].to_date
 			project.expected_end_date = hash[0]["Finish"].to_date
 			project.xml_file = @upload_path
