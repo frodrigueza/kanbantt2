@@ -25,6 +25,10 @@
 		color: white !important;
 		border-radius: 0px;
 	}
+	.btn.btn-danger{
+		background-color: $rojo;
+		border-color: #d43f3a;
+	}
 	.control-label{
 		font-size: 12px;
 		margin-bottom: 0px;
