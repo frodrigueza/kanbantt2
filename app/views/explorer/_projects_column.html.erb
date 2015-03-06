@@ -3,8 +3,9 @@
 	<div class="full">
 		<table class="full header">
 			<tr>
-				<td class="parent_name">Proyectos</td>
-				<td></td>
+				<td class="parent_name left">Proyectos</td>
+				<td class="add_task_button">
+					<%= link_to_modal '<span class="glyphicon glyphicon-plus"></span>'.html_safe, new_project_path() %></td>
 			</tr>
 		</table>
 	</div>

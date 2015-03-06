@@ -1,6 +1,11 @@
 class ExplorerController < ApplicationController
   def tree_view
-  	@projects = current_user.projects
+    @projects = []
+    if params[:project_id]
+      @projects << Project.find(params[:project_id])
+    else
+      @projects = current_user.projects
+    end
   end
 
   def add_column

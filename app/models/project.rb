@@ -400,9 +400,9 @@ class Project < ActiveRecord::Base
 			end
 		end
 
-		tasks_hash[:inactive_tasks] = inactive_tasks
-		tasks_hash[:in_progress_tasks] = in_progress_tasks
-		tasks_hash[:done_tasks] = done_tasks
+		tasks_hash[:orders] = inactive_tasks
+		tasks_hash[:agreements] = in_progress_tasks
+		tasks_hash[:complete] = done_tasks
 
 		return tasks_hash
 	end

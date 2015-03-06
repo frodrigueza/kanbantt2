@@ -36,13 +36,13 @@ class Task < ActiveRecord::Base
 	validates :name, presence: true
 
 	#validacion para que la fecha de fin sea posterior a la de comienzo
-	# validates_presence_of :expected_start_date
-	# validates_presence_of :expected_end_date
-	# validate :end_date_is_after_start_date
+	validates_presence_of :expected_start_date
+	validates_presence_of :expected_end_date
+	validate :end_date_is_after_start_date
 	# validate :resources_positive
 
 	# # Si cambio el responsable, que toda la descendencia quede con ese responsable	
-	# after_save :check_parent_user
+	after_save :check_parent_user
 	# after_save :update_project_after_save
 	# after_destroy :update_project_after_destroy
 

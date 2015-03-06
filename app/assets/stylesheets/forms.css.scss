@@ -1,5 +1,6 @@
 /* Forms Modal */
 /*forms*/
+ @import "colours";
 .form-control{
 	width: auto;
 }
@@ -9,16 +10,28 @@
 	.form-group{	
 		margin-bottom: 5px;
 	}
-	.form-control, .btn{
-		font-size: 12px;
+	.form-control{
+		color: $azul;	
+		font-size: 12px !important;
 		width: auto;
 		padding: 3px 6px;
 		height: auto;
+		border-radius: 0px !important;
+	}
+	.btn{
+		background: $azul;
+		padding: 3px 6px;
+		font-size: 12px !important;
+		color: white !important;
+		border-radius: 0px;
 	}
 	.control-label{
 		font-size: 12px;
 		margin-bottom: 0px;
 		margin-top: 10px;
+		font-weight: 100;
+		color: gray;
 	}
+
 }
 

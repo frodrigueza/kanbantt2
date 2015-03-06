@@ -1,6 +1,16 @@
+<div class="row modal-header">
+	<div clas="col-md-12">
+		<table>
+			<tr>
+				<td><span class="glyphicon glyphicon-edit"></span></td>
+				<td>Nueva asignación para <%= @assignment.project.name %></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
 <div class="row">
-	<div class="col-md-12">
-		<h1>Nueva asignación</h1>
+	<div class="col-md-12 little-form">
 		<%= render 'form' %>
 	</div>
 </div>

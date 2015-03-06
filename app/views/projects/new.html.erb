@@ -1,15 +1,20 @@
-<div class="row">
+<div class="row modal-header">
 	<div clas="col-md-12">
-		Agregar nuevo proyecto
+		<table>
+			<tr>
+				<td><span class="glyphicon glyphicon-plus"></span></td>
+				<td>Agregar nuevo proyecto</td>
+			</tr>
+		</table>
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-6 little-form">
 		<h2>Creación simple</h2>
 		<%= render 'form' %>
 	</div>
 
-	<div class="col-md-6">
+	<div class="col-md-6 separated little-form">
 		<h2>Importar proyecto de MS Project</h2>
 		<%= render 'import_form' %>
 	</div>

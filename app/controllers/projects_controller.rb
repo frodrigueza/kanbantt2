@@ -116,6 +116,7 @@ class ProjectsController < ApplicationController
 
   def stads
     @users = @project.users
+    @kanban = @project.kanban
   end
 
   def root

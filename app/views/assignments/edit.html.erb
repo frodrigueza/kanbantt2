@@ -1,8 +1,16 @@
-<div class="row">
-	<div class="col-md-12">
-		<h1>Editar asignación</h1>
-		<h4><%= @assignment.user.f_name %></h4>
+<div class="row modal-header">
+	<div clas="col-md-12">
+		<table>
+			<tr>
+				<td><span class="glyphicon glyphicon-edit"></span></td>
+				<td>Editar asignación de <%= @assignment.user.f_name %> en <%= @assignment.project.name %></td>
+			</tr>
+		</table>
+	</div>
+</div>
 
+<div class="row">
+	<div class="col-md-12 little-form">
 		<%= render 'form' %>
 	</div>
 </div>

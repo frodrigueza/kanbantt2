@@ -1,5 +1,5 @@
+@import "colours";
 .modal{
-	padding: 0px;
 	position: relative;
 	overflow: hidden;
 }
@@ -7,3 +7,58 @@
 	display: none !important;
 }
 
+/* CSS Modals*/
+
+.modal {
+	padding: 0px;
+	display: none;
+	width: 80% !important;
+	height: 600px !important;
+	min-height: 200px;
+	float:left;
+	border-radius: 0px !important;
+	overflow: visible;
+
+	.modal-header{
+		height: 40px;
+		background: $azul;
+		position: relative;
+		table{
+			position: absolute;
+			top: 0px;
+			bottom: 0px;
+			height: 100%;
+			td{
+				padding: 0px;
+				color: white;
+				font-weight: bold;
+			}
+			td:first-child{
+				padding-right: 10px;
+			}
+		}
+	}
+	.modal-body{
+		height: 560px;
+		/*background: red;*/
+	}
+  
+}	
+
+/*body .modal{
+	width: 80%;
+	top: 20px;
+	bottom: 20px;
+	overflow-y: auto;
+}*/
+
+.modal a.close-modal {
+  position: absolute;
+  top: -12.5px;
+  right: -12.5px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-indent: -9999px;
+  background: url(close.png) no-repeat 0 0;
+}

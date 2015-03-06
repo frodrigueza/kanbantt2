@@ -65,7 +65,7 @@ class TasksController < ApplicationController
         @task.project.manage_indicators
         format.html { redirect_to request.referer }
         format.json { render :show, status: :created, location: @task }
-        format.js { render 'add_task.js.erb' }
+        format.js { render 'explorer/add_task.js.erb' }
       else
         format.html { redirect_to request.referer }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -81,7 +81,7 @@ class TasksController < ApplicationController
       if @task.update(task_params)
         @task.update_project_after_save
         format.html { redirect_to :back }
-        format.js { render 'update_tree_view.js.erb' }
+        format.js { render 'explorer/_update_tree_view.js.erb' }
       else
         format.html { redirect_to request.referer }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -120,7 +120,7 @@ class TasksController < ApplicationController
     @project = @task.project
 
     respond_to do |format|
-      format.js { render 'update_tree_view.js.erb'}
+      format.js { render 'explorer/_update_tree_view.js.erb'}
     end
   end
 

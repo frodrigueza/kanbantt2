@@ -1,0 +1,91 @@
+<div class="row content_tab" id="content_tab_2" style="display: none">
+	<div class="col-md-12 pro_container">
+		<div class="container">
+			<div class="title">
+
+				<!-- tasks tab menu -->
+				<div class="row tab_menu option_group">
+					<table>
+						<tr>
+							<td class="option active" id="tasks_1">Pedidos</td>
+							<td class="option" id="tasks_2">Acuerdos</td>
+							<td class="option" id="tasks_3">Entregados</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<!-- PEDIDOS -->
+		  	<table class="table pro content_tasks" id="content_tasks_1">
+		  		<thead>
+		  			<th>Usuario</th>
+		  			<th>Nombre</th>
+					<th>Progreso</th>
+					<th>Progreso esperado</th>
+					<th>Reportes</th>
+					<th>Entrega acordada</th>
+					<th>Dias a favor / contra</th>
+		  		</thead>
+			    <% @kanban[:orders].sort_by{|i| [i.user_id ? i.user_id : -1, i.name]}.each do |t| %>
+			    	<tr>
+			    		<td><%= t.user ? t.user.f_name : '' %></td>
+			    		<td><%= t.name %></td>
+						<td><%= t.progress %></td>
+						<td><%= t.expected_progress %></td>
+						<td><%= t.reports.count %></td>
+						<td><%= f_date(t.expected_end_date) %></td>
+						<td><%= t.gap_days %></td>
+			    	</tr>
+			    <% end %>
+		  	</table>
+
+		  	<!-- ACUERDOS -->
+		  	<table class="table pro content_tasks" id="content_tasks_2" style="display: none">
+		  		<thead>
+		  			<th>Usuario</th>
+		  			<th>Nombre</th>
+					<th>Progreso</th>
+					<th>Progreso esperado</th>
+					<th>Reportes</th>
+					<th>Entrega acordada</th>
+					<th>Dias a favor / contra</th>
+		  		</thead>
+			    <% @kanban[:agreements].sort_by{|i| [i.user_id ? i.user_id : -1, i.name]}.each do |t| %>
+			    	<tr>
+			    		<td><%= t.user ? t.user.f_name : '' %></td>
+			    		<td><%= t.name %></td>
+						<td><%= t.progress %></td>
+						<td><%= t.expected_progress %></td>
+						<td><%= t.reports.count %></td>
+						<td><%= f_date(t.expected_end_date) %></td>
+						<td><%= t.gap_days %></td>
+			    	</tr>
+			    <% end %>
+		  	</table>
+
+		  	<!-- ENTREGADOS -->
+		  	<table class="table pro content_tasks" id="content_tasks_3" style="display: none">
+		  		<thead>
+		  			<th>Usuario</th>
+		  			<th>Nombre</th>
+					<th>Progreso</th>
+					<th>Progreso esperado</th>
+					<th>Reportes</th>
+					<th>Entrega acordada</th>
+					<th>Dias a favor / contra</th>
+		  		</thead>
+			    <% @kanban[:complete].sort_by{|i| [i.user_id ? i.user_id : -1, i.name]}.each do |t| %>
+			    	<tr>
+			    		<td><%= t.user ? t.user.f_name : '' %></td>
+			    		<td><%= t.name %></td>
+						<td><%= t.progress %></td>
+						<td><%= t.expected_progress %></td>
+						<td><%= t.reports.count %></td>
+						<td><%= f_date(t.expected_end_date) %></td>
+						<td><%= t.gap_days %></td>
+			    	</tr>
+			    <% end %>
+		  	</table>
+		</div>
+	</div>
+</div>

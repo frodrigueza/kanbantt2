@@ -30,5 +30,5 @@
     <%= f.hidden_field :project_id, value: @project.id %>
 
     <!-- lo haremos remoto para usar AJAX tanto en la vista de explorador como en kanban -->
-    <%= f.submit 'Enviar' %>
+    <%= f.submit 'Enviar', :class => "btn btn-primary" %>
 <% end %>

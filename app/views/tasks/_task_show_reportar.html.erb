@@ -23,7 +23,7 @@
 							<%= f.number_field :resources, required: true,label:'Recursos utilizados hasta este momento (' + @task.project.type_resources.to_s + ')' %>
 						<% end %>
 
-						<%= f.submit "Guardar", :class => "btn-group btn configm" %>
+						<%= f.submit "Guardar" %>
 					<% end %>
 				</div>
 			<% end %>

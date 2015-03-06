@@ -2,7 +2,6 @@
 
 .task_show{
 	background: white;
-	padding: 0px 20px;
 
 	h3{
 		font-size: 16px;
@@ -48,30 +47,30 @@
 			width: 100%;
 			td{
 				span{
-					color: gray;
+					font-size: 20px;
 				}
 			}
-		}
-
-		.option{
-			padding: 15px;
-			font-size: 12px;
-			a{
-				text-decoration: none;
+			tr{
+				td:first-child{
+					padding: 10px 0px 10px 10px;
+					font-size: 12px;
+				}
+				td:last-child{
+					font-size: 12px;
+				}
 			}
-		}
-		.option.active{
-			color: $azul;
-			a{
+			.option.active{
 				color: $azul;
-				text-decoration: none;
+				a{
+					color: $azul;
+					text-decoration: none;
+				}
 			}
 		}
 	}
 
 	.right_panel{
 		position: absolute;
-		left: 25%;
 		top: 0px;
 		bottom: 0px;
 		right: 0px;

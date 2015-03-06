@@ -1,0 +1,90 @@
+@import "colours";
+.pro_container{
+	margin-bottom: 30px;
+		
+	.container{
+		border: 1px solid $gris_oscuro;
+		width: 100%;
+		float: left;
+		margin: 0px !important;
+		padding: 0px !important;
+
+		.title{
+			float: left;
+			width: 100%;
+			padding: 20px 20px;
+			background: white;
+			color: #666;
+			font-weight: bold;
+			border-bottom: 1px solid $gris_oscuro !important;
+
+			.tab_menu{
+				table{
+					tr{
+						td{
+							padding: 5px 10px 5px 0px;
+							font-weight: normal;
+						}
+						td.active{
+							color: $azul;
+						}
+					}
+				}
+			}
+		}
+
+		table.pro{
+			float: left;
+			font-size: 12px !important;
+			width: 100%;
+			margin-bottom: 0px !important;
+			th{
+				padding: 10px 20px !important;
+				background: $gris_siete;
+				border-bottom: 1px solid $gris_oscuro;
+				color: #555;
+			}
+			th.first{
+				text-align: left;
+			}
+			.image_td{
+				width: 25px;
+				height: 25px;
+			}
+			td{
+				background: white;
+				border-bottom: 1px solid $gris_oscuro;
+				padding: 20px 20px !important;
+				color: #555;
+				vertical-align: middle !important;
+				img{
+					width: 25px;
+					height: 25px;
+					border-radius: 15px;
+				}
+			}
+			td.first{
+				text-align: left;
+			}
+			tr:last-child{
+				td{
+					border-bottom: none;
+				}
+			}
+		}
+	}
+}
+
+
+.pro_tabs{
+	table{
+		tr{
+			td{
+				padding: 10px;
+			}
+			td.active{
+				background: white;
+			}
+		}
+	}
+}

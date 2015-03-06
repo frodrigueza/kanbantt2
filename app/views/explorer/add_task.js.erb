@@ -1,0 +1,8 @@
+// agregamos el item de la task creada al explorer
+$('#children_of_<%= @task.parent_id ? "Task_" + @task.parent_id.to_s : "Project_" + @task.project_id.to_s %>').append('<%= escape_javascript(render "explorer/task_item", task: @task) %>');
+
+// hacemos que los items del ancestry de la task en el explorer se actualicen
+<%= render 'explorer/update_tree_view' %>
+
+// cerramos el modal
+<%= render 'close_modal' %>

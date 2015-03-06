@@ -4,6 +4,10 @@
 			<% if !project.done %>
 				<% if %>
 						
+					<td class="remaining left" style="color:#777">
+						<%= f_date(project.expected_start_date)%> - 
+						<%= f_date(project.expected_end_date) %>
+					</td>
 					<td></td>
 					<td title="progreso esperado" class="expected_progress right"><%= project.expected_progress %>%</td>
 					<td title="progreso real" class="real_progress <%= css_project_status_color(project) %> right"><%= project.real_progress.to_f.round(1) %>%</td>

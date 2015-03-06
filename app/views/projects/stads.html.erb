@@ -1,55 +1,47 @@
-<!-- INDICADORES -->
+<!-- titulo -->
 <div class="row">
 	<div class="col-md-12">
 		<h1>Estadisticas</h1>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-12">
-		<h2>Indicadores</h2>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12" id="indicators">
-		<% if @project.resources_type != 0 %>
-			<%= render 'resources_indicators' %>
-		<% else %>
-			<%= render 'days_indicators' %>
-		<% end %>
 
-		<% if @project.resources_reporting %>
-			<%= render 'performance_indicators' %>
-		<% end %>
+<!-- MENU tabs -->
+<div class="row pro_tabs option_group">
+	<div class="col-md-12">
+		<table>
+			<tr>
+				<td class="option active" id="tab_1">Graficos de avance</td>
+				<td class="option" id="tab_2">Tareas</td>
+			</tr>
+		</table>
 	</div>
 </div>
+
+
+<!-- INDICADORES -->
+<div class="row content_tab" id="content_tab_1">
+	<div class="col-md-12 pro_container">
+		<div class="container">
+			<div class="title">
+				<span class="glyphicon glyphicon-list-alt"></span>
+				Indicadores
+			</div>
+			<div class="row" id="indicators">
+				<% if @project.resources_type != 0 %>
+					<%= render 'resources_indicators' %>
+				<% else %>
+					<%= render 'days_indicators' %>
+				<% end %>
+
+				<% if @project.resources_reporting %>
+					<%= render 'performance_indicators' %>
+				<% end %>
+			</div>
+		</div>
+
+	</div>
+</div>
+
 
 <!-- ASIGNACIONES -->
-<div class="row">
-	<div class="col-md-12">
-		<h2>Usuarios</h2>
-	</div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-  	<table class="table">
-  		<thead>
-  			<th>Nombre</th>
-  			<th>Rol</th>
-  			<th>N° de reportes</th>
-  			<th></th>
-  			<th></th>
-  		</thead>
-	    <% @users.each do |u| %>
-	    	<tr>
-	    		<td><%= u.f_name %></td>
-	    		<td><%= u.f_role_in_project(@project) %></td>
-	    		<td><%= u.reports_in_project(@project).count %></td>
-	    		<td><%= link_to 'Detalles', assignment_path(u.assignment_in_project(@project).id) %></td>
-	    		<% if !u.super_admin && (@project.owner == current_user || current_user.super_admin) %>
-	    			<td><%= link_to_modal 'Editar asignación', edit_assignment_path(u.assignment_in_project(@project).id) %></td>
-	    		<% end %>
-	    	</tr>
-	    <% end %>
-  	</table>
-  </div>
-</div>
+<%= render 'projects/stads/tasks' %>

@@ -14,7 +14,7 @@
   <!-- Creacion de una asignacion -->
   <% if !@assignment.id %>
      <!-- f.collection_select(:user_id, @available_users, :id, :f_name) -->
-     <%= f.number_field :user_id %>
+     <%= f.number_field :user_id, label:'Id del usuario a agregar' %>
 
   <!-- Edicion de una asignacion -->
   <% else %>

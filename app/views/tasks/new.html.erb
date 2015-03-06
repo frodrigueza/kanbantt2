@@ -1,7 +1,16 @@
+<div class="row modal-header">
+	<div clas="col-md-12">
+		<table>
+			<tr>
+				<td><span class="glyphicon glyphicon-plus"></span></td>
+				<td>Tarea hija a <%= @task.project_or_parent.name %></td>
+			</tr>
+		</table>
+	</div>
+</div>
 
 <div class="row">
-	<div class="col-md-12">
-		<h1>Tarea hija a <%= @task.project_or_parent.name %></h1>
+	<div class="col-md-12 little-form">
 		<%= render 'form' %>
 	</div>
 </div>
