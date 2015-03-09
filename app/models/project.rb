@@ -573,20 +573,17 @@ class Project < ActiveRecord::Base
 	def delayed_or_advanced_days(in_resources)
 		# El indicador que posee un avance real más cercano al actual
 		aux_progress = real_progress_function(Date.today, in_resources)
-		if aux_progress == 100
-			return 0
+		
+		if !in_resources
+			i = indicators.min_by { |x| (x.expected_days_progress - aux_progress).abs }
 		else
-			if !in_resources
-				i = indicators.min_by { |x| (x.expected_days_progress - aux_progress).abs }
-			else
-				i = indicators.min_by { |x| (x.expected_resources_progress - aux_progress).abs }
-			end
-			# devolvemos la diferencia en dias de la fecha del indicador con la de hoy
-			if i
-				return (i.date.to_date - Date.today).to_i
-			else
-				return 0
-			end
+			i = indicators.min_by { |x| (x.expected_resources_progress - aux_progress).abs }
+		end
+		# devolvemos la diferencia en dias de la fecha del indicador con la de hoy
+		if i
+			return (i.date.to_date - Date.today).to_i
+		else
+			return 0
 		end
 	end
 

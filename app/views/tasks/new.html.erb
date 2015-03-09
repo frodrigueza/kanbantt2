@@ -3,14 +3,17 @@
 		<table>
 			<tr>
 				<td><span class="glyphicon glyphicon-plus"></span></td>
-				<td>Tarea hija a <%= @task.project_or_parent.name %></td>
+				<td>Agregar tarea hija a: <%= @task.project_or_parent.name %></td>
 			</tr>
 		</table>
 	</div>
 </div>
 
 <div class="row">
-	<div class="col-md-12 little-form">
+	<div class="col-md-6 little-form">
 		<%= render 'form' %>
+	</div>
+	<div class="col-md-6 separated">
+
 	</div>
 </div>

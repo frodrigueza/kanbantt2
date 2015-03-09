@@ -6,7 +6,7 @@ var suscribe_options = function(){
 	// Cada vez que se haga click en un elemento con class="otion"
 	$('.option').click(function(){
 
-		// $('.option').removeClass('active');
+		// removemos la clase active de las demas options
 		$(this).closest('.option_group').find('.option').removeClass('active');
 		$(this).addClass('active');
 

@@ -89,8 +89,6 @@ Rails.application.routes.draw do
     get 'toggle_urgent'
     post 'move_dates'
   end
-
-  get 'gantt', to: 'gantt#index'
   get 'update_tree_view', to: 'tasks#update_tree_view'
   
   # get 'kanban_board_index', to: 'kanban_board#index'
