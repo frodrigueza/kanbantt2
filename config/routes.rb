@@ -90,9 +90,9 @@ Rails.application.routes.draw do
     post 'move_dates'
   end
   get 'update_tree_view', to: 'tasks#update_tree_view'
-  
-  # get 'kanban_board_index', to: 'kanban_board#index'
+
   get 'gantt', to: 'gantt#index'
+  get 'explorer', to: 'explorer#tree_view'
 
   resources :comments
   resources :reports
@@ -114,5 +114,5 @@ Rails.application.routes.draw do
 
 
 
-  root 'users#root_router'
+  root 'explorer#tree_view'
 end
