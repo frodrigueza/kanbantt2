@@ -19,20 +19,16 @@
 		border-radius: 0px !important;
 	}
 	.btn{
-		background: $azul;
 		padding: 3px 6px;
 		font-size: 12px !important;
 		color: white !important;
 		border-radius: 0px;
 	}
-	.btn.btn-danger{
-		background-color: $rojo;
-		border-color: #d43f3a;
+	.btn-primary{
+		background: $azul;
 	}
 	.control-label{
 		font-size: 12px;
-		margin-bottom: 0px;
-		margin-top: 10px;
 		font-weight: 100;
 		color: gray;
 	}

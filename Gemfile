@@ -92,6 +92,8 @@ gem 'railroady'
 # gema para tener selects con estilo y js.
 gem 'bootstrap-select-rails'
 
+gem 'seed_dump'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

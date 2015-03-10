@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(@project) do |f| %>
+<%= bootstrap_form_for(@project, layout: :horizontal) do |f| %>
 
   <%= f.text_field :name , label: 'Nombre del proyecto' %>
   <!-- TIPO DE RECURSOS     -->
@@ -10,6 +10,8 @@
   <!-- OWNER -->
   <%= f.hidden_field :owner_id, value: @project.owner_id %>
 
-  <%= f.submit "Importar proyecto" %>
+  <%= f.form_group do %>
+  	<%= f.submit "Importar proyecto" %>
+  <% end %>
 <% end %>
  

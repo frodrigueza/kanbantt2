@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(@project) do |f| %>
+<%= bootstrap_form_for(@project, layout: :horizontal) do |f| %>
 
   <!-- NOMBRE -->
   <%= f.text_field :name, :required => true, :label => 'Nombre *' %>
@@ -20,10 +20,12 @@
 
   <!-- EMPRESA -->
   <!-- f.hidden_field :enterprise_id, value: @enterprise.id  -->
+    <%= f.hidden_field :owner_id, value: @project.owner_id %>
 
-  <!-- OWNER -->
-  <%= f.hidden_field :owner_id, value: @project.owner_id %>
-
+  <%= f.form_group do %>
+    <!-- OWNER -->
   <%= f.submit "Crear Proyecto" %>
+  <% end %>
+
 <% end %>
  
