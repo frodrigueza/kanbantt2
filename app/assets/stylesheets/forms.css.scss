@@ -23,9 +23,13 @@
 		font-size: 12px !important;
 		color: white !important;
 		border-radius: 0px;
+		background: $azul;
 	}
 	.btn-primary{
-		background: $azul;
+		background: $azul !important;
+	}
+	.btn-danger{
+		background: $rojo !important;
 	}
 	.control-label{
 		font-size: 12px;
