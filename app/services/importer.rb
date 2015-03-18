@@ -47,8 +47,8 @@ class Importer
 		Task.transaction do
 			# CREAMOS EL PROYECTO
 			project.name = project.name ? project.name : hash[0]["Name"]
-			project.expected_start_date = hash[0]["Start"].to_date
-			project.expected_end_date = hash[0]["Finish"].to_date
+			# project.expected_start_date = hash[0]["Start"].to_date
+			# project.expected_end_date = hash[0]["Finish"].to_date
 			project.xml_file = @upload_path
 			project.owner_id = @user.id
 			project.sneaky_save
@@ -62,7 +62,8 @@ class Importer
 			# out_line_level = 1 es el proyecto
 			(1..(hash.size-1)).each do |i|
 				h = hash[i]
-				cost = h["Cost"].to_f > 0 ? h["Cost"].to_f : 0
+				cost = h["Cost"].to_f > 0 ? ((h["Cost"].to_f)/100).round(1) : 0
+
 
 
 
@@ -82,7 +83,7 @@ class Importer
 					if(h["PercentComplete"].to_i> 0)
 						r = Report.new(task_id:t.id, progress: h["PercentComplete"].to_i, created_at: Time.now)
 
-						r.save
+						r.sneaky_save
 					end
 				end
 

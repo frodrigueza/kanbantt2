@@ -573,7 +573,7 @@ class Project < ActiveRecord::Base
 	def delayed_or_advanced_days(in_resources)
 		# El indicador que posee un avance real más cercano al actual
 		aux_progress = real_progress_function(Date.today, in_resources)
-		
+
 		if !in_resources
 			i = indicators.min_by { |x| (x.expected_days_progress - aux_progress).abs }
 		else
@@ -617,11 +617,13 @@ class Project < ActiveRecord::Base
 	def manage_indicator(report)
 		date = report.created_at.to_date
 		i = Indicator.find_or_create_by(project_id: self.id, date: date)
+		i.set_progresses(date)
 		
-		i.real_days_progress = self.real_progress_function(date, false)
-		if self.resources_type != 0
-			i.real_resources_progress = self.real_progress_function(date, true)
-		end
+		# i.real_days_progress = self.real_progress_function(date, false)
+		# i.expected_days_progress = self.expected_progress_function(date, false)
+		# if self.resources_type != 0
+		# 	i.real_resources_progress = self.real_progress_function(date, true)
+		# end
 
 		i.save
 	end
@@ -646,7 +648,7 @@ class Project < ActiveRecord::Base
 
 	def expected_end_date
 		if has_children?
-			tasks.max_by { |x| x.expected_end_date }.expected_end_date_from_children
+			tasks.max_by { |x| x.expected_end_date_from_children }.expected_end_date_from_children
 		else
 			# Por defecto los proyectos duran 1 semana, despues se puede editar segun las task que se le agreguen
 			Date.today + 7
@@ -655,7 +657,7 @@ class Project < ActiveRecord::Base
 
 	def expected_start_date
 		if has_children?
-			tasks.min_by { |x| x.expected_end_date }.expected_start_date_from_children
+			tasks.min_by { |x| x.expected_end_date_from_children }.expected_start_date_from_children
 		else
 			Date.today
 		end

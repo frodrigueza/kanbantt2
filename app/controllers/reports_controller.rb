@@ -30,7 +30,6 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        @report.update_project_indicator(@report)
         format.js 
         format.html { redirect_to request.referer }
         format.json { render :show, status: :created, location: @report }

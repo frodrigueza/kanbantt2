@@ -43,8 +43,8 @@ class Task < ActiveRecord::Base
 
 	# # Si cambio el responsable, que toda la descendencia quede con ese responsable	
 	after_save :check_parent_user
-	# after_save :update_project_after_save
-	# after_destroy :update_project_after_destroy
+	after_save :update_project_after_save
+	after_destroy :update_project_after_destroy
 
 	#Verificamos que la fecha de termino sea menor a la fecha de inicio
 	def end_date_is_after_start_date

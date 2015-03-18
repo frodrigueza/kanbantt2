@@ -2,6 +2,7 @@ class Report < ActiveRecord::Base
 	belongs_to :task
 	belongs_to :user
 	after_destroy :update_project_indicators
+	after_create :update_project_indicator
 	before_save :update_task
 
 	def project

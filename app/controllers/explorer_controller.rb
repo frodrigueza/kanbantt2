@@ -1,4 +1,7 @@
 class ExplorerController < ApplicationController
+  before_action :check_permissions, only: [:tree_view]
+
+
   def tree_view
     @projects = []
     if params[:project_id]
@@ -19,4 +22,14 @@ class ExplorerController < ApplicationController
       format.js
     end
   end
+
+  def check_permissions
+    if params[:project_id] && !current_user.super_admin
+      # si el proyecto no pertenece a este usuario, se redirecciona al explorer/tree_view. Excepto para los super_admins
+      if !current_user.projects.include?(Project.find(params[:project_id]))
+        redirect_to explorer_tree_view_path
+      end
+    end
+  end
+
 end

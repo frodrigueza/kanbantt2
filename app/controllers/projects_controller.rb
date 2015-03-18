@@ -122,7 +122,7 @@ class ProjectsController < ApplicationController
   def root
     # administrador
     if current_user.role_in_project(@project) == 1
-      redirect_to project_tree_view_path(@project)
+      redirect_to explorer_tree_view_path(project_id: @project.id)
       
     # empleado
     elsif current_user.role_in_project(@project) == 2
@@ -165,6 +165,12 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     elsif params[:project_id]
       @project = Project.find(params[:project_id])
+    end
+  end
+
+  def check_permissions
+    if !current_user.projects.include?(@project)
+      redirect_to explorer_tree_view_path
     end
   end
 

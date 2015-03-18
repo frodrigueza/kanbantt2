@@ -3,12 +3,14 @@ if ($('#tree_view').size() > 0)
 {
 	<% if @task %>
 		// actualizamos el content de cada item del arbol genealogico de la task
+		console.log('tarea');
 		<% @task.ancestry.each do |t| %>
 			$('#content_<%= t.id %>').replaceWith('<%= escape_javascript(render "explorer/task_content", task: t) %>');
 		<% end %>
 		// actualizamos el partial content del projecto al que pertenece la task
 		$('#project_content_<%= @task.project_id %>').replaceWith('<%= escape_javascript(render "explorer/project_content", project: @task.project) %>');
 	<% else %>
+		console.log('projecto');
 		<% @project.tasks.each do |t| %>
 			$('#content_<%= t.id %>').replaceWith('<%= escape_javascript(render "explorer/content", task: t) %>');
 		<% end %>
