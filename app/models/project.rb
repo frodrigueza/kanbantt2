@@ -609,7 +609,8 @@ class Project < ActiveRecord::Base
 	# Actualizamos los indicatores por medio de los jobs
 	def manage_indicators
 		pc = ProgressCalculator.new(self)
-		pc.delay.manage_indicators
+		# pc.delay.manage_indicators
+		pc.manage_indicators
 	end
 
 	# actualizamos un solo indicador al hacer un reporte. Es para no tener que actualizar todos cada vez que se hace
