@@ -619,12 +619,6 @@ class Project < ActiveRecord::Base
 		date = report.created_at.to_date
 		i = Indicator.find_or_create_by(project_id: self.id, date: date)
 		i.set_progresses(date)
-		
-		# i.real_days_progress = self.real_progress_function(date, false)
-		# i.expected_days_progress = self.expected_progress_function(date, false)
-		# if self.resources_type != 0
-		# 	i.real_resources_progress = self.real_progress_function(date, true)
-		# end
 
 		i.save
 	end
