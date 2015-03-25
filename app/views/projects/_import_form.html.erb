@@ -1,6 +1,6 @@
-<%= bootstrap_form_for(@project, layout: :horizontal) do |f| %>
+<%= bootstrap_form_for(@project) do |f| %>
 
-  <%= f.text_field :name , label: 'Nombre del proyecto' %>
+  <%= f.text_field :name , label: 'Nombre' %>
   <!-- TIPO DE RECURSOS     -->
   <%= f.select :resources_type, [['Seleccionar', ''],['Sin recursos, solo tiempo', 0], ['Dolares', 1], ['UF', 2], ['Horas Hombres', 3]], :label => 'Tipo de Recursos *', required: true %>
 

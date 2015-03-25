@@ -114,3 +114,4 @@ gem 'tzinfo-data'
 
 # modals
 gem 'jquery-modal-rails'
+gem 'bootstrap-datepicker-rails'

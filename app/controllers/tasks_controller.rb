@@ -62,7 +62,6 @@ class TasksController < ApplicationController
     @project = @task.project
     respond_to do |format|
       if @task.save
-        @task.project.manage_indicators
         format.html { redirect_to request.referer }
         format.json { render :show, status: :created, location: @task }
         format.js { render 'explorer/add_task.js.erb' }

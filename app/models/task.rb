@@ -177,11 +177,11 @@ class Task < ActiveRecord::Base
 		when 0
 			duration.to_s + ' d'
 		when 1
-			resources_cost_from_children.round().to_s + ' usd'	
+			resources_cost_from_children.round(1).to_s + ' usd'	
 		when 2
-			resources_cost_from_children.round().to_s + ' UF'	
+			resources_cost_from_children.round(1).to_s + ' UF'	
 		when 3
-			resources_cost_from_children.round().to_s + ' hh'	
+			resources_cost_from_children.round(1).to_s + ' hh'	
 		end
 	end
 
@@ -614,4 +614,78 @@ class Task < ActiveRecord::Base
 			project.manage_indicators
 		end
 	end
+
+	# def dates
+	# 	start_date = expected_start_date_from_children
+	# 	# si la fecha de entrega ya paso pero el proyecto todavia no se termina,
+	# 	# debemos mostrar el avance real hasta la fecha y seguir el esperado en 100
+	# 	if Date.today > expected_end_date_from_children && progress < 100
+	# 	  end_date = Date.today
+	# 	else
+	# 	  end_date = expected_end_date_from_children
+	# 	end
+
+	# 	array = []
+	# 	number_of_days = end_date - start_date
+
+	# 	# si el proyecto dura menos de 1 mes, lo hacemos por dia
+	# 	if number_of_days <= 30
+	# 	  if number_of_days > 0
+	# 	    for i in 0..number_of_days
+	# 	      new_date = start_date + i
+	# 	      array << new_date
+	# 	    end
+	# 	  end
+
+	# 	# sino lo hacemos semanalmente e inlcuimos los dias que se hicieron reportes
+	# 	else
+	# 	  # Hacemos que la primera fecha despues de la fecha de inicio sea el lunes siguiente
+	# 	  first_date = nil
+	# 	  case start_date.wday
+	# 	    when 1
+	# 	      first_date = start_date + 7
+	# 	    when 2
+	# 	      first_date = start_date + 6
+	# 	    when 3
+	# 	      first_date = start_date + 5
+	# 	    when 4
+	# 	      first_date = start_date + 4
+	# 	    when 5
+	# 	      first_date = start_date + 3
+	# 	    when 6
+	# 	      first_date = start_date + 2 
+	# 	    when 0
+	# 	      first_date = start_date + 1
+	# 	  end
+
+	# 	  still_in_range = true
+	# 	  # mientras nos encontremos en el rango de fechas de proyecto, agregaremos todos los lunes de este rango
+	# 	  while still_in_range
+	# 	    array << first_date
+	# 	    first_date = first_date + 7
+	# 	    if first_date > end_date
+	# 	      still_in_range = false
+	# 	    end
+	# 	  end
+
+	# 	  # Agregamos la fecha del ultimo reporte porque puede ser que este se haya hecho depues del ultimo lunes que paso
+	# 	  # y es necesario contabilizarlo. Y en el caso que fue justo un lunes, no importa ya que se eliminan los repetidos.
+	# 	  if reports.last
+	# 	    array << reports.last.created_at.to_date
+	# 	  end
+	# 	end
+
+	# 	array << start_date
+	# 	array << end_date
+
+	# 	array.uniq.sort
+	# end
+
+	# def progress_indicators
+	# 	array = []
+	# 	dates.each do |d|
+	# 		i = {}
+	# 		i[:real_progress] = real_progress_function(false, date)
+	# 	end
+	# end
 end

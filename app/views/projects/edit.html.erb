@@ -1,6 +1,17 @@
-<h1>Editando Proyecto</h1>
+<div class="row modal-header">
+	<div clas="col-md-12">
+		<table>
+			<tr>
+				<td><span class="glyphicon glyphicon-edit"></span></td>
+				<td>Editar proyecto <%= @project.name %></td>
+			</tr>
+		</table>
+	</div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Mostrar', @project %> |
-<%= link_to 'Atrás', projects_path %>
+<div class="row">
+	<div class="col-md-12 little-form">
+		<h2>Datos a editar</h2>
+		<%= render 'edit_form' %>
+	</div>
+</div>

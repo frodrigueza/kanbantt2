@@ -13,13 +13,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @users = @project.users
-    # if current_user.super_admin
-    #   redirect_to project_second_indicators_path(@project)
-    # elsif current_user.enterprise.boss == current_user
-    #   redirect_to project_second_indicators_path(@project)
-    # else
-    #   redirect_to project_kanban_board_path(@project)
-    # end
   end
 
   def second_indicators
@@ -124,36 +117,20 @@ class ProjectsController < ApplicationController
     if current_user.role_in_project(@project) == 1
       redirect_to explorer_tree_view_path(project_id: @project.id)
       
-    # empleado
+    # last_planer
     elsif current_user.role_in_project(@project) == 2
       redirect_to kanban_board_index_path(project_id: @project.id)
     end
   end
 
-  def export
-    project = Project.find(params[:project_id])
-    e = Exporter.new(project)
-    begin
-      hash = e.export
-      path = "#{project.name.gsub(' ', '_').camelize}.xml"
-      f = File.open(path, "w")
-      p "Writing file.."
-      f.write(hash["Project"].to_xml(:root => 'Project', skip_types: true))
-      send_file(f, disposition:'attachment')
-      f.close
-      p "File ready!"
-    rescue
-      flash[:alert] = "No se pudo exportar."
-      redirect_to project_path(project)
-    end
-  end
-
-  def add_tree_view_column
-    # tarea de la cual se desplegaran sus hijos en una nueva columna del arbol
-    @task = Task.find(params[:parent_id])
-    @project = Project.find(params[:project_id])
-    respond_to do |format|
-      format.js
+  def second_root
+    # administrador
+    if current_user.role_in_project(@project) == 1
+      redirect_to project_stads_path(@project)
+      
+    # last_planer
+    elsif current_user.role_in_project(@project) == 2
+      redirect_to kanban_board_index_path(project_id: @project.id)
     end
   end
 

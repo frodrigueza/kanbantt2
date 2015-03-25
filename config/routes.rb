@@ -68,6 +68,7 @@ Rails.application.routes.draw do
     get 'second_indicators'
     get 'tree_view'
     get 'root'
+    get 'second_root'
     get 'stads'
     get 'add_tree_view_column'
     get 'export'

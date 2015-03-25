@@ -87,7 +87,16 @@ var initiate_charts = function(){
                         },
                         xAxis: {
                             type: 'datetime',
-                            ordinal: false
+                            ordinal: false,
+                            plotLines: [{
+                                color: '#999', 
+                                width: 2,
+                                value: new Date().getTime(),
+                                label: {
+                                    text: 'Hoy',
+                                    rotation: 0
+                                }
+                            }]
                         },
                         yAxis: {
                             title: {
@@ -134,7 +143,12 @@ var initiate_charts = function(){
                         },
                         xAxis: {
                             type: 'datetime',
-                            ordinal: false
+                            ordinal: false,
+                            plotLines: [{
+                                color: '#444', 
+                                width: 2,
+                                value: new Date().getTime()
+                            }]
                         },
                         yAxis: {
                             title: {

@@ -19,6 +19,10 @@ module ApplicationHelper
 		end
 	end
 
+	def datepicker_f_date(date)
+		date.strftime("%m/%d/%Y")
+	end
+
 	def f_short_date(date)
 		if date
 			resp = date.strftime("%d %b")

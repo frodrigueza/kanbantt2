@@ -46,3 +46,12 @@
 		<% end %>
 	</div>
 </div>
+
+
+<div class="row">
+	<div class="col-md-12">
+		<% if @project.owner == current_user %>
+			<%= link_to_modal 'Editar proyecto', edit_project_path(@project) %>
+		<% end %>
+	</div>
+</div>

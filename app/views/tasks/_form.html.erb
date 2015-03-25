@@ -6,7 +6,7 @@
     <% if !@task.has_children? %>
         <!-- Costo en recursos -->
         <% if @project.resources_type != 0 %>
-          <%= f.number_field :resources_cost, :required => true, :label => 'Costo (' + @project.f_resources_type + ')'%>
+          <%= f.number_field :resources_cost, :required => true, :label => 'Costo (' + @project.f_resources_type + ')', step:'any'%>
         <% end %>
     <% end %>
 
@@ -19,10 +19,11 @@
 
     <% if !@task.has_children? %>
         <!-- Fecha inicio -->
-        <%= f.date_select :expected_start_date, {:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'], :required => true, label: 'Inicio esperado'} %>
+        <%= f.text_field :expected_start_date, :class => 'datepicker', label:'Fecha de inicio', value: @task.expected_start_date.to_date %>
+
 
         <!-- Fecha termino -->
-        <%= f.date_select :expected_end_date, {:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'], :required => true, label: 'Término esperado'} %>
+        <%= f.text_field :expected_end_date, :class => 'datepicker', label: 'Fecha de termino', value: @task.expected_end_date.to_date %>
     <% end %>
 
 

@@ -22,6 +22,7 @@
 //= require bootstrap-switch
 //= require bootstrap/alert
 //= require date
+//= require bootstrap-datepicker
 //= require_tree .
 
 

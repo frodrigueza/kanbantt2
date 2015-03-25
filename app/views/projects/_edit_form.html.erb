@@ -1,0 +1,12 @@
+<%= bootstrap_form_for(@project) do |f| %>
+
+  <!-- NOMBRE -->
+  <%= f.text_field :name, :required => true, :label => 'Nombre *' %>
+
+  <%= f.form_group do %>
+    <!-- OWNER -->
+    <%= f.submit "Terminar edición" %>
+  <% end %>
+
+<% end %>
+ 

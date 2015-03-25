@@ -111,6 +111,8 @@ module TasksHelper
     task.user.f_name + ' se ha comprometido a realizar esta tarea'
   end
 
+  
+
 
 
 
