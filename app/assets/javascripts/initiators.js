@@ -2,8 +2,7 @@ var ready = function(){
 	suscribe_options();
 
 	$('.datepicker').datepicker({
-	    format: 'yyyy-mm-dd',
-	    startDate: '-3d'
+	    format: 'yyyy-mm-dd'
 	})
 
 };

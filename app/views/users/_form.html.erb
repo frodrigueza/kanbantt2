@@ -6,7 +6,6 @@
   <%= f.text_field :email, :required => true, :label => 'Email' %>
   <%= f.password_field :password, :required => true, :label => 'Contraseña' %>
   <%= f.password_field :password_confirmation, :required => true, :label => 'Confirmar contraseña' %>
-  <%= f.hidden_field :enterprise_id, value: @user.enterprise_id %>
   <%= f.submit %>
 <% end %>
 
