@@ -7,9 +7,13 @@
 				<!-- Boton + que permite crear tareas. Por cada columna se crea un modal con el form para agragar tarea a esta -->
 				<td class="parent_name" title="<%= parent.name %>"><%= parent.name %></td>
 				<% if parent.class.name == "Task" %>
-					<td class="add_task_button"><%= link_to_modal '<span class="glyphicon glyphicon-plus"></span>'.html_safe, new_project_task_path(parent.project, parent_id: parent.id) %></td>
+					<td class="add_task_button">
+						<%= link_to_modal '<span class="glyphicon glyphicon-plus"></span>'.html_safe, new_project_task_path(parent.project, parent_id: parent.id) %>
+					</td>
 				<% elsif parent.class.name == "Project"%>
-					<td class="add_task_button"><%= link_to_modal '<span class="glyphicon glyphicon-plus"></span>'.html_safe, new_project_task_path(project_id: parent.id) %></td>
+					<td class="add_task_button">
+						<%= link_to_modal '<span class="glyphicon glyphicon-plus"></span>'.html_safe, new_project_task_path(project_id: parent.id), {title: 'Agregar nueva tarea a ' + parent.name } %>
+					</td>
 				<% end %>
 				<!-- fin de los botones -->
 			</tr>
