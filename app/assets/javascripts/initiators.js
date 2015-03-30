@@ -2,7 +2,11 @@ var ready = function(){
 	suscribe_options();
 
 	$('.datepicker').datepicker({
-	    format: 'yyyy-mm-dd'
+	    format: 'yyyy-mm-dd',
+	    todayHighlight: true,
+	    weekStart: 1,
+	    language: 'es'
+
 	})
 
 };

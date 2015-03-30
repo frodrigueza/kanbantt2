@@ -17,6 +17,7 @@
     <%= f.hidden_field :parent_id %>
 
 
+
     <% if !@task.has_children? %>
         <!-- Fecha inicio -->
         <%= f.text_field :expected_start_date, :class => 'datepicker', label:'Fecha de inicio', value: @task.expected_start_date.to_date %>
