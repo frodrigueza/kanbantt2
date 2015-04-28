@@ -13,6 +13,10 @@
 .hidden_by_delayed{
 	display: none;
 }
+.hidden_by_colour{
+	display: none;
+}
+
 
 #kanban_board{
 	#kanban_filters{
@@ -54,6 +58,21 @@
 				span{
 					background: $rojo;
 					color: white;
+				}
+			}
+
+
+			#colour_filter{
+				border-radius: 20px !important;
+				padding: 0px 10px !important;
+				background: #444;
+				margin-top: 2px;
+				
+				button{
+					color: white;
+					padding: 5px;
+					border-radius: 20px;
+					background: transparent !important; 
 				}
 			}
 		}

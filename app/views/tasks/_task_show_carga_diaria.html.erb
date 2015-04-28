@@ -1,0 +1,21 @@
+<div id="resources_by_date_chart">
+	grafico aqui
+</div>
+
+
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Día</th>
+			<th>Carga en HH</th>
+		</tr>
+	</thead>
+
+	<% @task.dates.each do |date| %>
+		<tr>
+			<td><%= date.to_date %></td>
+			<td><%= @task.resources_by_day(date).to_f.round(2)%></td>
+		</tr>
+	<% end %>
+</table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141228234824) do
+ActiveRecord::Schema.define(version: 20150427170119) do
 
   create_table "api_keys", force: true do |t|
     t.string   "access_token"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 20141228234824) do
 
   add_index "assignments", ["project_id"], name: "index_assignments_on_project_id"
   add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
+
+  create_table "colours", force: true do |t|
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: true do |t|
     t.integer  "task_id"
@@ -170,6 +176,7 @@ ActiveRecord::Schema.define(version: 20141228234824) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "mpp_uid"
+    t.integer  "colour_id"
   end
 
   add_index "tasks", ["parent_id"], name: "index_tasks_on_parent_id"

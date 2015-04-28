@@ -1,0 +1,32 @@
+.colour_selector{
+	button{
+		padding: 0px 10px;
+		border: none;
+		background: none;
+		color: white;
+		font-size: 11px;
+	}
+	button:hover{
+		background: none;
+		color: white;
+	}
+	ul{
+		padding: 0px;
+		min-height: 5px !important;
+		min-width: 30px;
+		li{
+			margin: 0px !important;
+			border-radius: 0px;
+			a{
+				padding: 10px;
+			}
+			a:hover{
+				background: none;
+			}
+		}
+	}
+}
+
+.colour_selector.open{
+	background: none;
+}

@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   load_and_authorize_resource
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle_urgent, :move_dates]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle_urgent, :move_dates, :change_colour]
 
   # GET /tasks
   # GET /tasks.json
@@ -102,6 +102,15 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to request.referer }
+    end
+  end
+
+  def change_colour
+    @task.colour = Colour.find(params[:colour_id])
+    @task.save
+
+    respond_to do |format|
+      format.js
     end
   end
 

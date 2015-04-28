@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Colores de Kanbantt</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Color</th>
+          <th>Código</th>
+          <th>Tareas asignadas</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @colours.each do |colour| %>
+          <tr>
+            <td style='background: #<%= colour.code %>'></td>
+            <td><%= colour.code %></td>
+            <td><%= colour.tasks.count %></td>
+            <td><%= link_to 'Editar', edit_colour_path(colour) %></td>
+            <td><%= link_to 'X', colour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= link_to 'Crear color', new_colour_path %>
+  </div>
+</div>

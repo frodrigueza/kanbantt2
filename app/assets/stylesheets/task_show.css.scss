@@ -126,4 +126,16 @@
 			border: none;
 		}
 	}
+
+	.history_list{
+		padding-top: 30px;
+		.item{
+			font-size: 12px;
+			margin-bottom: 10px;
+			.date{
+				color: gray;
+				font-size: 12px;
+			}
+		}
+	}
 }

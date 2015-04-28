@@ -30,9 +30,9 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.js 
         format.html { redirect_to request.referer }
         format.json { render :show, status: :created, location: @report }
+        format.js 
       else
         format.html { render :new }
         format.json { render json: @report.errors, status: :unprocessable_entity }

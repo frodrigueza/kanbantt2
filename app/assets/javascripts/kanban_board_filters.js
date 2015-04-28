@@ -1,6 +1,7 @@
 $(function(){
 	// Metodo que crea la funcion selectedModifier y suscribe el select a esta
 	var filter = function(){
+		var selected_colour = 0;
 
 		// Metodo que oculta o muestra segun el filtro seleccionado
 		var selectedModifier = function(){
@@ -69,8 +70,11 @@ $(function(){
 					diffDaysStart = Number.POSITIVE_INFINITY;
 				}
 
+				// almacenamos el estado de color, pin y delayed desde el HTML.
 				var status = $(this).data('status');
-				var pin_status = $(this).data('pin-status')
+				var pin_status = $(this).data('pin-status');
+				var colour_id = $(this).data('colour');
+				console.log('Item con color ' + colour_id);
 
 				// FILTRO DE FECHAS /////////////////////////////////////////////////////////////
 				if (start_date <= Date.today() && end_date >= Date.today()) // cuando estamos dentro del plazo de una tarea siempre se muestra
@@ -103,6 +107,7 @@ $(function(){
 					// mostramos todas
 					$(this).removeClass('hidden_by_pin');
 				}
+
 				// FILTRO DE ATRASADAS ////////////////////////////////////////////////////
 				// atrasadas toggle button
 				if (delayed_select == true) 
@@ -119,6 +124,16 @@ $(function(){
 				}
 				///////////////////////////////////////////////////////
 
+				if (selected_colour == 0 || selected_colour == colour_id) 
+				{
+					$(this).removeClass('hidden_by_colour');
+				}
+				else
+				{
+					$(this).addClass('hidden_by_colour');
+				}
+
+
 
 			});
 
@@ -134,6 +149,12 @@ $(function(){
 			$(this).toggleClass('active');	
 			selectedModifier();
 		});
+		$('.colour_option').click(function () {
+			selected_colour = $(this).attr('id').split('_')[1];
+			var bg_colour = $(this).css('background');
+			$('#colour_filter').css('background', bg_colour);
+			selectedModifier();
+		})
 
 
 		//por defecto que se muestre las actividades de esta semana (es el primero de las opciones y el metodo toma la opcion seleccionada)

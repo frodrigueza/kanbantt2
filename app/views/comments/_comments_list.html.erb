@@ -1,0 +1,22 @@
+<div class="row history_list">
+	<% @task.comments.reverse.each do |comment|%>
+		<div class="row item">
+			<div class="col-md-2">
+				<div class="row">
+					<%= comment.user.f_name %>
+				</div>
+				<div class="row date">
+					<%= comment.created_at.strftime("%d %b. %Y") %> - 
+					<%= comment.created_at.strftime("%H:%M")%>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<%= comment.description %>
+			</div>
+			<div class="col-md-1">
+				<%= link_to 'x', comment_path(comment), method: :delete, data: { confirm: '¿Estás seguro?' }, remote:true %>
+			</div>
+			
+		</div>
+	<% end %>
+</div>

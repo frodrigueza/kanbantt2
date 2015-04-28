@@ -10,6 +10,9 @@ class Task < ActiveRecord::Base
 	has_many :children, foreign_key: 'parent_id', class_name: 'Task', dependent: :destroy
 	belongs_to :parent, class_name: 'Task'
 
+	# tiene un color de pinta
+	belongs_to :colour
+
 	#Una tarea tiene muchos reportes
 	has_many :reports, dependent: :destroy
 
@@ -600,6 +603,48 @@ class Task < ActiveRecord::Base
 		array
 	end
 
+	# arreglo con los reportes y comentarios
+	def background
+		array = []
+		comments.each do |c|
+			array << c
+		end 
+		reports.each do |r|
+			array << r
+		end
+
+		array.sort_by {|x| x.created_at }.reverse
+	end
+
+	# Carga en un dia determinado
+	def resources_by_day(date)
+		charge = 0
+
+		# Si la fecha es sabado o domingo, la carga para ese dia es de 0. Tambien, si esta fuera del rango
+		if date.wday == 0 || date.wday == 6 
+			return 0
+		else
+			# Si no tiene hijos
+			if !has_children?
+				# si esta fuera del rango
+				if date > expected_end_date_from_children || date < expected_start_date_from_children
+					return 0
+				else
+					# es el costo total dividido la duracion total en dias hábiles
+					return resources_cost/(wdays_duration)
+				end
+
+			# Si tiene hijos, lo hacemos recursivo
+			else
+				children.each do |c|
+					charge += c.resources_by_day(date)
+				end
+
+				return charge
+			end
+		end
+	end
+
 	def update_project_after_save
 		# solo cuando se actualizan ciertos atributos modificamos los indicadores
 		if resources_cost_changed? || expected_start_date_changed? || expected_end_date_changed?
@@ -615,77 +660,80 @@ class Task < ActiveRecord::Base
 		end
 	end
 
-	# def dates
-	# 	start_date = expected_start_date_from_children
-	# 	# si la fecha de entrega ya paso pero el proyecto todavia no se termina,
-	# 	# debemos mostrar el avance real hasta la fecha y seguir el esperado en 100
-	# 	if Date.today > expected_end_date_from_children && progress < 100
-	# 	  end_date = Date.today
-	# 	else
-	# 	  end_date = expected_end_date_from_children
-	# 	end
+	# fechas entre el inicio y el termino de la tarea.
+	def dates
+		start_date = expected_start_date_from_children
+		# si la fecha de entrega ya paso pero el proyecto todavia no se termina,
+		# debemos mostrar el avance real hasta la fecha y seguir el esperado en 100
+		if Date.today > expected_end_date_from_children && progress < 100
+		  end_date = Date.today
+		else
+		  end_date = expected_end_date_from_children
+		end
 
-	# 	array = []
-	# 	number_of_days = end_date - start_date
+		array = []
+		number_of_days = end_date - start_date
 
-	# 	# si el proyecto dura menos de 1 mes, lo hacemos por dia
-	# 	if number_of_days <= 30
-	# 	  if number_of_days > 0
-	# 	    for i in 0..number_of_days
-	# 	      new_date = start_date + i
-	# 	      array << new_date
-	# 	    end
-	# 	  end
+		# si el proyecto dura menos de 1 mes, lo hacemos por dia
+		if number_of_days <= 30
+		  if number_of_days > 0
+		    for i in 0..number_of_days
+		      new_date = start_date + i
+		      array << new_date
+		    end
+		  end
 
-	# 	# sino lo hacemos semanalmente e inlcuimos los dias que se hicieron reportes
-	# 	else
-	# 	  # Hacemos que la primera fecha despues de la fecha de inicio sea el lunes siguiente
-	# 	  first_date = nil
-	# 	  case start_date.wday
-	# 	    when 1
-	# 	      first_date = start_date + 7
-	# 	    when 2
-	# 	      first_date = start_date + 6
-	# 	    when 3
-	# 	      first_date = start_date + 5
-	# 	    when 4
-	# 	      first_date = start_date + 4
-	# 	    when 5
-	# 	      first_date = start_date + 3
-	# 	    when 6
-	# 	      first_date = start_date + 2 
-	# 	    when 0
-	# 	      first_date = start_date + 1
-	# 	  end
+		# sino lo hacemos semanalmente e inlcuimos los dias que se hicieron reportes
+		else
+		  # Hacemos que la primera fecha despues de la fecha de inicio sea el lunes siguiente
+		  first_date = nil
+		  case start_date.wday
+		    when 1
+		      first_date = start_date + 7
+		    when 2
+		      first_date = start_date + 6
+		    when 3
+		      first_date = start_date + 5
+		    when 4
+		      first_date = start_date + 4
+		    when 5
+		      first_date = start_date + 3
+		    when 6
+		      first_date = start_date + 2 
+		    when 0
+		      first_date = start_date + 1
+		  end
 
-	# 	  still_in_range = true
-	# 	  # mientras nos encontremos en el rango de fechas de proyecto, agregaremos todos los lunes de este rango
-	# 	  while still_in_range
-	# 	    array << first_date
-	# 	    first_date = first_date + 7
-	# 	    if first_date > end_date
-	# 	      still_in_range = false
-	# 	    end
-	# 	  end
+		  still_in_range = true
+		  # mientras nos encontremos en el rango de fechas de proyecto, agregaremos todos los lunes de este rango
+		  while still_in_range
+		    array << first_date
+		    first_date = first_date + 7
+		    if first_date > end_date
+		      still_in_range = false
+		    end
+		  end
 
-	# 	  # Agregamos la fecha del ultimo reporte porque puede ser que este se haya hecho depues del ultimo lunes que paso
-	# 	  # y es necesario contabilizarlo. Y en el caso que fue justo un lunes, no importa ya que se eliminan los repetidos.
-	# 	  if reports.last
-	# 	    array << reports.last.created_at.to_date
-	# 	  end
-	# 	end
+		  # Agregamos la fecha del ultimo reporte porque puede ser que este se haya hecho depues del ultimo lunes que paso
+		  # y es necesario contabilizarlo. Y en el caso que fue justo un lunes, no importa ya que se eliminan los repetidos.
+		  if reports.last
+		    array << reports.last.created_at.to_date
+		  end
+		end
 
-	# 	array << start_date
-	# 	array << end_date
+		array << start_date
+		array << end_date
 
-	# 	array.uniq.sort
-	# end
+		array.uniq.sort
+	end
 
-	# def progress_indicators
-	# 	array = []
-	# 	dates.each do |d|
-	# 		i = {}
-	# 		i[:real_progress] = real_progress_function(false, date)
-	# 	end
-	# end
+	# color de la task segun la paleta de colores
+	def colour_code
+		if colour
+			return '#' + colour.code
+		else
+			return "#486583"
+		end
+	end
+
 end

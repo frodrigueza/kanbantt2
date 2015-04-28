@@ -1,4 +1,4 @@
-<div class="full task_show">
+<div class="full task_show" id="task_show_<%= @task.id %>">
 	<div class="row modal-header">
 			<table>
 				<tr>
@@ -18,18 +18,14 @@
 					<td><span class="glyphicon glyphicon-info-sign"></span></td>
 					<td>Información</td>
 				</tr>
-				<!-- <tr>
-					<td class="option" id="menu_2"><span class="glyphicon glyphicon-warning-sign"></span></td>
-					<td>Observaciones</td>
-				</tr> -->
-				<tr class="option" id="menu_3">
-					<td><span class="glyphicon glyphicon-edit"></span></td>
-					<td>Reportar avance</td>
-				</tr>
 				<tr class="option" id="menu_4">
 					<td><span class="glyphicon glyphicon-th-list"></span></td>
 					<td>Historial</td>
 				</tr>
+				<!-- <tr class="option" id="menu_6">
+					<td><span class="glyphicon glyphicon-tint"></span></td>
+					<td>Carga diaria</td>
+				</tr> -->
 				<% if current_user.can_edit_task(@task) %>
 					<tr class="option" id="menu_5">
 						<td><span class="glyphicon glyphicon-cog"></span></td>
@@ -46,15 +42,12 @@
 			<div id="content_menu_1" class="content_menu full">
 				<%= render "tasks/task_show_resumen" %>
 			</div>
-			<!-- <div id="content_menu_2" class="content_menu full" style="display: none"> -->
-				 <!-- render "tasks/task_show_observacion"  -->
-			<!-- </div> -->
-			<div id="content_menu_3" class="content_menu full" style="display: none">
-				<%= render "tasks/task_show_reportar" %>
-			</div>
 			<div id="content_menu_4" class="content_menu full" style="display: none">
 				<%= render "tasks/task_show_historial" %>
 			</div>
+			<!-- <div id="content_menu_6" class="content_menu full" style="display: none"> -->
+				 <!-- render "tasks/task_show_carga_diaria"  -->
+			<!-- </div> -->
 			<% if current_user.can_edit_task(@task) %>
 				<div id="content_menu_5" class="content_menu full" style="display: none">
 					<%= render "tasks/task_show_config" %>

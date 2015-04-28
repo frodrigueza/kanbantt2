@@ -185,6 +185,13 @@ var initiate_charts = function(){
 
         });
     }
+
+    if ($('#resources_by_date_chart').size() > 0) 
+    {
+        var array = $('.task_show').attr('id').split('_');
+        var task_id = array[array.length - 1];
+        alert(task_id);
+    }
 }
 
 $(document).ready(initiate_charts);

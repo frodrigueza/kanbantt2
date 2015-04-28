@@ -1,6 +1,7 @@
 <%= bootstrap_form_tag url: task_move_dates_path(@task) do |f|  %>
 	
-	<%= f.date_select :new_date, {default: @task.expected_start_date_from_children ,:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'], :required => true, label: 'Seleccione nueva fecha de inicio:'} %>
+	<%= f.text_field :new_date, :class => 'datepicker', label:'Nueva fecha de inicio', value: @task.expected_start_date_from_children.to_date %>
+	
 	<%= f.form_group do %>
 		<%= f.submit 'Enviar', class:'btn btn-primary' %>
 	<% end %>

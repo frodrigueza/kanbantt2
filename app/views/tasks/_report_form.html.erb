@@ -1,0 +1,22 @@
+<% if @task.has_children? %>
+			No se puede reportar esta tarea porque no es de último nivel
+<!-- Si es de último nivel se da la opción reportar -->
+<% else %>
+	<% if current_user.can_report_task(@task) %>
+		<div class="full little-form">
+			<%= bootstrap_form_for(Report.new(task_id: @task.id, progress: @task.progress.to_i), remote: true) do |f| %>
+				<%= f.hidden_field :user_id, value: current_user.id %>
+				<%= f.hidden_field :task_id %>
+		    	<%= f.number_field :progress, hide_label: true, :in => 0..100, :step => 'any'  %>
+
+				<!-- Mostrar el reportar solo si se puede -->
+				<% if @task.project.resources_reporting && @projecto.resources_type != 0 %>
+					<%= f.number_field :resources, required: true,label:'Recursos utilizados hasta este momento (' + @task.project.type_resources.to_s + ')' %>
+				<% end %>
+
+				<%= f.submit "Guardar" %>
+			<% end %>
+		</div>
+	<% end %>
+<% end %>
+

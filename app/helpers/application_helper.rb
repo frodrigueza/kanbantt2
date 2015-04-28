@@ -12,8 +12,18 @@ module ApplicationHelper
 
 	def f_date(date)
 		if date
-			resp = date.strftime("%d %b %Y")
-			return to_spanish(resp)
+			case date.to_date
+				when Date.today
+					'Hoy'
+				when Date.yesterday
+					'Ayer'
+				when Date.tomorrow
+					'Mañana'
+				else
+					resp = date.strftime("%d %b %Y")
+					return to_spanish(resp)
+					
+			end
 		else
 			''
 		end

@@ -1,0 +1,6 @@
+<%= bootstrap_form_for(Comment.new(), remote: true) do |f| %>
+	<%= f.text_area :description, hide_label: true %>
+	<%= f.hidden_field :task_id, value: @task.id %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
+	<%= f.submit "Guardar", :class => "btn-group btn configm" %>
+<% end %>

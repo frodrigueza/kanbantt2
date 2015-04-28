@@ -1,7 +1,23 @@
 <!-- tabla izquierda -->
 <table class="task_info">
 	<tr>
-		<td class="parent_name"><%= task.parent_name %></td>
+
+		<!-- color selector -->
+		<td class="parent_name">
+			<div class="btn-group colour_selector" style="background: <%= task.colour_code %>">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+					<%= task.parent_name %> 
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<% Colour.all.each do |c| %>
+						<li style="background: #<%= c.code %>"><%= link_to '', task_change_colour_path(task, colour_id: c.id), remote:true %></li>
+					<% end %>
+				</ul>
+			</div>
+		</td>
+
+
+		<!-- duracion o costo -->
 		<td class="task_cost"><%= task.f_duration_or_cost %></td>
 	</tr>
 </table>
@@ -9,7 +25,10 @@
 <!-- tabla derecha -->
 <table class="tags">
 	<tr>
+		<!-- fechas -->
 		<td><%= f_short_date(task.expected_start_date_from_children)%> - <%= f_short_date(task.expected_end_date_from_children)%></td>
+
+		<!-- picker -->
 		<td>
 			<%= link_to (task_toggle_urgent_path(task)), remote: true do %>
 				<span id="urgent_<%= task.id %>" class="glyphicon glyphicon-pushpin <%= urgent_task_class(task)%>" title="<%= urgent_task_title(task) %>"></span>	

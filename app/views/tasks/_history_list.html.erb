@@ -1,0 +1,46 @@
+<div class="row history_list" id="history_list">
+	<!-- iteracion -->
+	<% @task.background.each do |bg_item|%>
+		<div class="row item">
+			<!-- icono -->
+			<div class="col-md-1">
+				<% case bg_item.class.name %>
+					<% when 'Report' %>
+						<span class="glyphicon glyphicon-check"></span>
+					<% when 'Comment'%>
+						<span class="glyphicon glyphicon-pencil"></span>
+				<% end %>
+			</div>
+
+			
+			<!-- nombre y fechas -->
+			<div class="col-md-2">
+				<div class="row">
+					<%= bg_item.user_id ? bg_item.user.f_name : '' %>
+				</div>
+				<div class="row date">
+					<%= f_date(bg_item.created_at) %> - 
+					<%= bg_item.created_at.strftime("%H:%M")%>
+				</div>
+			</div>
+
+
+			<!-- contenido -->
+			<div class="col-md-8">
+				<% if bg_item.class.name == 'Report' %>
+					<%= bg_item.progress.to_i %> %
+				<% elsif bg_item.class.name == 'Comment' %>
+					<%= bg_item.description %>
+				<% end %>
+			</div>
+
+			<!-- boton eliminar -->
+			<div class="col-md-1">
+				<% if bg_item.user_id == current_user.id %>
+					<%= link_to 'X', bg_item, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+				<% end %>
+			</div>
+			
+		</div>
+	<% end %>
+</div>

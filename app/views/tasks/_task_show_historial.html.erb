@@ -5,39 +5,33 @@
 		<h5>Historial</h5>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-12">
-		<div class="full">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Autor</th>
-						<th>Fecha</th>
-						<th>Hora</th>
-						<th>Avance</th>
-						<% if @task.project.resources_reporting %>
-							<th>Recursos</th>
-						<% end %>
-						<th></th>
-					</tr>
-				</thead>
 
-				<tbody>
-					<% @task.reports.each do |report|%>
-						<tr id="report_<%= report.id %>">
-							<td><%= report.user_f_name %></td>
-							<td><%= report.created_at.strftime("%d %b. %Y") %></td>
-							<td><%= report.created_at.strftime("%H:%M")%></td>
-							<td><%= report.progress.to_i %> %</td>
-							<% if @task.project.resources_reporting %>
-								<td><%= report.resources.to_f %> %</td>
-							<% end %>
-    						<td><%= link_to 'X', report, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
-						</tr>
-					<% end %>
-				</tbody>	
-			</table>
+
+<!-- historial -->
+<%= render 'history_list' %>
+
+
+<% if current_user.can_edit_task(@task) %>
+	<!-- agregar comentario -->
+	<div class="row">
+		<div class="col-md-12 section_title">
+			<h5>Agregar comentario</h5>
+		</div>
+		<div class="col-md-12 little-form">
+			<%= render 'comment_form' %>
 		</div>
 	</div>
-</div>
+<% end %>
 
+
+<!-- nuevo reporte  -->
+<% if current_user.can_report_task(@task) %>
+	<div class="row">
+		<div class="col-md-12 section_title">
+			<h5>Reportar avance</h5>
+		</div>
+		<div class="col-md-12">
+			<%= render 'report_form' %>
+		</div>
+	</div>
+<% end %>

@@ -2,6 +2,25 @@
 	<tr>
 		<!-- buscador -->
 		<td style="display: none;">Buscar: <%= text_field_tag 'search_field', '',{ class:'search_field'} %></td>
+		<!-- condicion -->
+		<td style="display: none;">Condicion: <%= select_tag 'status_select_filter', options_for_select(status_filter_options, 'Todos'), { id:'status_select_filter'} %></td>
+
+
+		<!-- color -->
+		<td>
+			<div class="btn-group colour_selector" id="colour_filter">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+					<span class="glyphicon glyphicon-tint"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li class="colour_option" id="colour_0" style="background: #444"><%= link_to '', '#' %></li>
+					<% Colour.all.each do |c| %>
+						<li class="colour_option" id="colour_<%= c.id %>" style="background: #<%= c.code %>"><%= link_to '', '#' %></li>
+					<% end %>
+				</ul>
+			</div>
+		</td>
+
 
 		<!-- pin -->
 		<td class="toggle_button" id="pin"><span class="glyphicon glyphicon-pushpin" title="Tareas marcadas como importantes"></span></td>
@@ -9,9 +28,6 @@
 		<td class="toggle_button" id="delayed"><span class="glyphicon glyphicon-time" title="Tareas atrasadas"></span></td>
 		<!-- fechas -->
 		<td id="date_select_filter_td"><%= select_tag 'date_select_filter', options_for_select(time_filter_options, 'Todos'), { id:'date_select_filter'} %></td>
-
-		<!-- condicion -->
-		<td style="display: none;">Condicion: <%= select_tag 'status_select_filter', options_for_select(status_filter_options, 'Todos'), { id:'status_select_filter'} %></td>
 
 	</tr>
 </table>

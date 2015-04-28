@@ -4,6 +4,8 @@ require 'api_constraints'
 Rails.application.routes.draw do
 
 
+  resources :colours
+
   get 'explorer/tree_view'
   get 'explorer/add_column'
 
@@ -88,6 +90,7 @@ Rails.application.routes.draw do
     get 'delete_confirmation'
     get 'fast_report'
     get 'toggle_urgent'
+    get 'change_colour'
     post 'move_dates'
   end
   get 'update_tree_view', to: 'tasks#update_tree_view'
