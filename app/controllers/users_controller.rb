@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all.sort_by { |u| u.id }
   end
 
   def new
