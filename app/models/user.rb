@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 	#puede tener muchas tareas
 	has_many :tasks
 	has_many :reports
+	has_many :comments
 	#tiene una api key, esta key debe eliminarse si el usuario es destruido
 	has_many :api_key, dependent: :destroy 
 
@@ -183,7 +184,7 @@ class User < ActiveRecord::Base
 	def can_report_task(task)
 		if super_admin
 			true
-		elsif task.user_id == self.id
+		elsif task.user_id == self.id 
 			true
 		else
 			false

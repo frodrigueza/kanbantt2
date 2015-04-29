@@ -5,16 +5,26 @@
 </div>
 
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-12">
 		<table class="table">
 			<thead>
+				<th>ID</th>
 				<th>Nombre</th>
 				<th>Categoria</th>
+				<th>N° de proyectos</th>
+				<th>Tareas asignadas</th>
+				<th>Reportes</th>
+				<th>Comentarios</th>
 			</thead>
 			<% @users.each do |u| %>
 				<tr>
+					<td><%= u.id %></td>
 					<td><%= u.f_name %></td>
 					<td><%= u.super_admin ? 'Super admin' : 'Usuario normal' %></td>
+					<td><%= u.projects.count %></td>
+					<td><%= u.tasks.count %></td>
+					<td><%= u.reports.count %></td>
+					<td><%= u.comments.count %></td>
 				</tr>
 			<% end %>
 		</table>
