@@ -1,9 +1,12 @@
+<!-- nombre del proyecto -->
 <div class="row">
   <div class="col-md-12">
     <h1><%= @project.name %></h1>
   </div>
 </div>
 
+
+<!-- listado de usuarios -->
 <div class="row">
 	<div class="col-md-12 pro_container">
 		<div class="container">
@@ -38,20 +41,18 @@
 	</div>
 </div>
 
-
-<div class="row">
-	<div class="col-md-12">
-		<% if @project.owner == current_user %>
+<!-- agregar usuario y editar proyecto -->
+<% if @project.owner == current_user %>
+	<div class="row">
+		<div class="col-md-12">
 			<%= link_to_modal 'Agregar usuario', new_assignment_path(project_id: @project.id) %>
-		<% end %>
+		</div>
 	</div>
-</div>
 
 
-<div class="row">
-	<div class="col-md-12">
-		<% if @project.owner == current_user %>
+	<div class="row">
+		<div class="col-md-12">
 			<%= link_to_modal 'Editar proyecto', edit_project_path(@project) %>
-		<% end %>
+		</div>
 	</div>
-</div>
+<% end %>

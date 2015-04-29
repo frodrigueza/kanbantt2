@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
+  before_action :check_super_admin, only: [:destroy, :index, :create]
+
 
   #manda los proyectos y el usuario que se quiere asignar a proyectos a la vista assign
   def assign
@@ -11,11 +13,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    # if @project
-    #   @users = @project.users
-    # elsif @enterprise
-    #   @users = @enterprise.users
-    # end
   end
 
   def new

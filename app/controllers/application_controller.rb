@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
 
   # para todo los controladores, se definen los objetos segun los params (DRY)
-  before_action :set_objects, :test
+  before_action :set_objects
+  helper_method :check_super_admin
 
   #maneja la excepcion de cuando un usuario no tiene permiso a cierta accion
   rescue_from CanCan::AccessDenied do |exception|
@@ -22,10 +23,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Metodo utilizado para testear con debugger alguna funcionalidad
-  def test
+  def check_super_admin
+    if !current_user.super_admin
+      redirect_to root_path
+    end
   end
-
 
 
   # Prevent CSRF attacks by raising an exception.
