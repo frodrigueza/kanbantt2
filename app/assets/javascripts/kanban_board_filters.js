@@ -83,7 +83,11 @@ $(function(){
 				}
 				else if(diffDaysStart > daysRange && diffDaysEnd > daysRange)
 				{
-					$(this).addClass('hidden_by_date');
+					// si esta atrasada, la mostramos igual
+					if (status != 'delayed') 
+					{
+						$(this).addClass('hidden_by_date');
+					}
 				}
 				else
 				{
